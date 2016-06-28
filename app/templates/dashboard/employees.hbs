@@ -1,0 +1,60 @@
+
+<div class="pusher-in">
+  <div class="ui top fixed menu"style="margin-left:210px">
+
+
+  <div class="ui header h-item" {{action "getcurrentpath"}}>
+    Employee Management
+    
+  </div>
+</div>
+</div>
+
+<div class="content-section pusher-in">
+  <div class="ui two column grid">
+    <div class="column">
+      <div class="ui dividing header">All Employees</div>
+      <div class="ui left icon input">
+        <input type="text" placeholder="Search Employee...">
+        <i class="users icon"></i>
+      </div>
+      {{#link-to 'dashboard.newemployee'}}
+      <div class="ui right floated tiny  button br0">
+        <i class="plus icon"></i>
+        Add New Employee
+      </div>
+      {{/link-to}}
+      <table class="ui very selectable basic structured table">
+        <thead>
+          <tr>
+            <th>Sl.No</th>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each employees as |employee index|}}
+          <tr>
+            <td>{{incrementone index}}</td>
+            <td>{{employee.firstname}}</td>
+            <td>{{employee.designation}}</td>
+            <td>{{employee.status}}</td>
+            <td>
+            <td>{{link-to "View"  'dashboard.employees.employee'  employee }}</td>
+          </td>
+          </tr>
+          {{/each}}
+
+
+        </tbody>
+      </table>
+    </div>
+    <div class="column">
+      <div class="ui dividing header">Employee Stats</div>
+
+      {{outlet}}
+    </div>
+  </div>
+</div>

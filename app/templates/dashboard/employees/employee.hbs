@@ -1,0 +1,126 @@
+
+<div class="content-section pusher-in">
+<div class="ui grid  form">
+
+  <div class="twelve wide  column">
+    <form class="ui mini form">
+      <h4 class="ui dividing header">Personal Information</h4>
+      <div class="field">
+        <label>Name</label>
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            {{input type="text" placeholder="First Name" value=employee.firstname}}
+          </div>
+          <div class="field">
+            <label>Middle Name</label>
+            {{input type="text" placeholder="Middle Name" value=employee.middlename}}
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            {{input type="text" placeholder="Last Name" value=employee.lastname}}
+          </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Email</label>
+          {{input type="email" placeholder="email" value=employee.email}}
+        </div>
+        <div class="field">
+          <label>Contact</label>
+          {{input type="text" placeholder="Contact" value=employee.contact}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Designation</label>
+          <select onchange={{action "selectDesignation" value="target.value"}} class="form-control">
+                {{#each designations as |designationChoice|}}
+                <option value={{designationChoice}} selected={{eq employee.designation designationChoice}}>{{designationChoice}}</option>
+                {{/each}}
+              </select>
+
+        </div>
+        <div class="field">
+          <label>Date of Joining</label>
+          {{pikaday-input  placeholder="Date of join" value=employee.dateofjoin}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Departnment</label>
+          <select onchange={{action "selectDepartment" value="target.value"}} class="form-control">
+                {{#each departments as |departmentChoice|}}
+                <option value={{departmentChoice}} selected={{eq employee.department departmentChoice}}>{{departmentChoice}}</option>
+                {{/each}}
+              </select>
+        </div>
+        <div class="field">
+          <label>Location</label>
+          {{input type="text" placeholder="Last Name" value=employee.lastname}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Gender</label>
+          <select onchange={{action "selectGender" value="target.value"}} class="form-control">
+                {{#each genders as |genderChoice|}}
+                <option value={{genderChoice}} selected={{eq employee.gender genderChoice}}>{{genderChoice}}</option>
+                {{/each}}
+              </select>
+        </div>
+        <div class="field">
+          <label>Maritial Status</label>
+          <select onchange={{action "selectMatitial" value="target.value"}} class="form-control">
+                {{#each maritials as |maritialChoice|}}
+                <option value={{maritialChoice}} selected={{eq employee.maritialstatus maritialChoice}}>{{maritialChoice}}</option>
+                {{/each}}
+              </select>
+        </div>
+        <div class="field">
+          <label>Date of Birth</label>
+          {{pikaday-input  placeholder="D.O.B" value=employee.dob}}
+        </div>
+      </div>
+
+
+      <h4 class="ui dividing header">Address</h4>
+      <div class="field">
+        <div class="fields">
+          <div class="twelve wide field">
+            <label>Temporary Address</label>
+            <textarea>{{employee.temporaryaddress}}</textarea>
+          </div>
+          <div class="four wide field">
+            <label>Permanent Address</label>
+            <textarea>{{employee.permenantaddress}}</textarea>
+          </div>
+        </div>
+      </div>
+
+<div class="ui divider"></div>
+
+      <div class="ui button {{isSaveDisabled}}" tabindex="0" {{action "saveEmployee"}}>Save</div>
+    </form>
+  </div>
+
+  <div class="four wide column">
+    <div class="ui card br0">
+
+      <div class="no-image">
+        <img>
+      </div>
+      <div class="content">
+        Profile Picture
+        <span class="right floated">
+          <div class="ui mini button  br0">Upload  </div>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+{{outlet}}

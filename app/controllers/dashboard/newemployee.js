@@ -1,29 +1,18 @@
 import Ember from 'ember';
 import EmberUploader from 'ember-uploader';
-import ENV from '../../../config/environment';
+import ENV from '../../config/environment';
 
 
 
 
 /**
 * Route to create New Employee
-@module employeeEmployeeController
-@class employeeEmployeeController
+@module newEmployeeController
+@class newEmployeeController
 */
 
-
 export default Ember.Controller.extend({
-
-  /**
-  Property injected to supply token , which should be attached with file upload via ember-cli-upload
-  @property session
-  @type Object
-  */
   session: Ember.inject.service('session'),
-
-
-
-  inputFormat:'DD/MM/YYYY',
 
 
   /**
@@ -32,7 +21,29 @@ export default Ember.Controller.extend({
   @default false
   @type Boolean
   */
+
   imageUploading: false,
+
+
+  /**
+  Determines Whether to show or hide file uploading div . <br> This can be shown only after employee object is created.
+  @property isImageuploadingvisible
+  @default false
+  @type Boolean
+
+  */
+  isImageuploadingvisible: false,
+
+
+  /**
+  A variable to save employee data after creating it. This object is refered to get the id of the created employee object , which is to be sent as a parameter for file upload
+  @property employee
+  @default Null
+  @type Object
+
+  */
+  employee:'',
+
 
 
   designations:["Select Designation", "Developer" , "Designer", "Manager" , "Accounts Mangager"],
@@ -41,13 +52,19 @@ export default Ember.Controller.extend({
   maritials:["Select Maritial Status", "Married", "Single"],
 
 
+
+
+
+
+
   /**
   * Function determines "Save" button enable or not based on form inputs status.
   @method isSaveDisabled
-  @param {String} employee.firstname
+  @param {String} firstname
   */
-  isSaveDisabled: Ember.computed('employee.firstname'  ,  function() {
-    if( Ember.isEmpty(this.get('employee.firstname'))
+
+  isSaveDisabled: Ember.computed('firstname'  ,  function() {
+    if( Ember.isEmpty(this.get('firstname'))
 
   ){return 'disabled';}
   else{return '';}
@@ -55,15 +72,15 @@ export default Ember.Controller.extend({
 
 
 actions:{
+
   /**
   * Set the designation property via dropdown
   @method selectDesignation
   @param {Object} designation
   */
   selectDesignation:function(designation){
-    this.set('employee.designation',designation);
+    this.set('designation',designation);
   },
-
 
 
   /**
@@ -72,10 +89,8 @@ actions:{
   @param {Object} department
   */
   selectDepartment:function(department){
-    this.set('employee.department',department);
+    this.set('department',department);
   },
-
-
 
   /**
   * Set the gender property via dropdown
@@ -83,9 +98,8 @@ actions:{
   @param {Object} gender
   */
   selectGender:function(gender){
-    this.set('employee.gender',gender);
+    this.set('gender',gender);
   },
-
 
   /**
   * Set the maritialstatus property via dropdown
@@ -93,54 +107,89 @@ actions:{
   @param {Object} maritialstatus
   */
   selectMatitial:function(maritialstatus){
-    this.set('employee.maritialstatus',maritialstatus);
+    this.set('maritialstatus',maritialstatus);
   },
 
 
 
-  saveEmployee:function(){
-    var controller = this;
-    this.get('employee').save();
-    controller.notifications.addNotification({
-      message: 'Saved !' ,
-      type: 'success',
-      autoClear: true
+
+  createEmployee:function(){
+
+    var controller  = this;
+
+    var employee = this.store.createRecord('employee',{
+      firstname :this.get('firstname'),
+      middlename :this.get('middlename'),
+      lastname :this.get('lastname'),
+      email :this.get('email'),
+      contact :this.get('contact'),
+      designation :this.get('designation'),
+      dateofjoin :this.get('dateofjoin'),
+      department :this.get('department'),
+      location :this.get('location'),
+      gender :this.get('gender'),
+      maritialstatus :this.get('maritialstatus'),
+      dob :this.get('dob'),
+      temporaryaddress :this.get('temporaryaddress'),
+      permenantaddress :this.get('permenantaddress'),
     });
+
+    employee.save().then(function(employee){
+      controller.set('firstname','');
+      controller.set('middlename','');
+      controller.set('lastname','');
+      controller.set('email','');
+      controller.set('contact','');
+      controller.set('designation','');
+      controller.set('dateofjoin','');
+      controller.set('department','');
+      controller.set('location','');
+      controller.set('gender','');
+      controller.set('maritialstatus','');
+      controller.set('dob','');
+      controller.set('temporaryaddress','');
+      controller.set('permenantaddress','');
+      controller.set('isImageuploadingvisible',true);
+
+      controller.set('employee',employee);
+
+
+
+
+      // controller.transitionToRoute('dashboard.employees');
+    }).catch(function(){
+      controller.notifications.addNotification({
+        message: 'Sorry, cant save at the moment !' ,
+        type: 'error',
+        autoClear: true
+      });
+    });
+
+
+
   },
-
-
-/**
-Flips the view between div with class "viewemployee" and "editemployee"
-@method filpview
-*/
-  flipview: function() {
-    Ember.$('.editemployee').transition('fade');
-    Ember.$('.viewemployee').transition('fade');
-  },
-
 
 
   /**
-  Uploads profile picture
+   Uploads profile picture
   @method uploadProfilePic
   @param {Object} params.files files which are sent via input
-  @param {Object} params.employee the current employee object which is being sent
+  @param {Object} employee employee object created
   */
-
   uploadProfilePic :function(params){
     var controller = this;
 
 
     var authenticated = controller.get('session.data.authenticated');
     let files = params.files,
-    employee = params.employee;
+    employee = controller.get('employee');
 
 
     var uploader = EmberUploader.Uploader.extend({
       url: ENV.APP.host + '/employees/'+employee.id,
       type: 'PATCH',
-      paramNamespace: 'employee',
-      paramName: 'url',
+      paramNamespace: 'employee', //table name
+      paramName: 'url',     // field  name
       ajaxSettings: function() {
         var settings = this._super.apply(this, arguments);
         settings.headers = {
@@ -186,8 +235,5 @@ Flips the view between div with class "viewemployee" and "editemployee"
 },
 
 }
-
-
-
 
 });

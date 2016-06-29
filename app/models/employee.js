@@ -1,13 +1,11 @@
 import Model from 'ember-data/model';
  import attr from 'ember-data/attr';
 // import { belongsTo, hasMany } from 'ember-data/relationships';
-import {validator, buildValidations}from 'ember-cp-validations';
 
-const Validations = buildValidations({
-  firstname: validator('presence', true)
-});
 
-export default Model.extend(Validations,{
+
+
+export default Model.extend({
   firstname: attr('string'),
   middlename: attr('string'),
   lastname: attr('string'),
@@ -23,6 +21,9 @@ export default Model.extend(Validations,{
   temporaryaddress: attr('string'),
   permenantaddress: attr('string'),
   status: attr('string'),
+  url: attr('string'),
+  fullurl: attr('string'),
+  thumburl: attr('string'),
 
 
 

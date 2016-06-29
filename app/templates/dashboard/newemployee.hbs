@@ -6,69 +6,80 @@
     <form class="ui mini form">
       <h4 class="ui dividing header">Personal Information</h4>
       <div class="field">
-        <label>Name</label>
+
         <div class="two fields">
           <div class="field">
-            <input type="text" name="shipping[first-name]" placeholder="First Name">
+            <label>Name</label>
+            {{input type="text" placeholder="First Name" value=firstname}}
           </div>
           <div class="field">
-            <input type="text" name="shipping[last-name]" placeholder="Middle Name">
+            <label>Middle Name</label>
+            {{input type="text" placeholder="Middle Name" value=middlename}}
           </div>
           <div class="field">
-            <input type="text" name="shipping[last-name]" placeholder="Last Name">
+            <label>Last Name</label>
+            {{input type="text" placeholder="Last Name" value=lastname}}
           </div>
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>Email</label>
-          <input type="text" name="" placeholder="Email">
+          {{input type="email" placeholder="email" value=email}}
         </div>
         <div class="field">
           <label>Contact</label>
-          <input type="text" name="" placeholder="Contact">
+          {{input type="text" placeholder="Contact" value=contact}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>Designation</label>
-          <input type="text" name="" placeholder="Designation">
+          <select onchange={{action "selectDesignation" value="target.value"}} class="form-control">
+                {{#each designations as |designationChoice|}}
+                <option value={{designationChoice}}>{{designationChoice}}</option>
+                {{/each}}
+              </select>
         </div>
         <div class="field">
           <label>Date of Joining</label>
-          <input type="text" name="" placeholder="Date of Joining">
+          {{pikaday-input  placeholder="Date of join" value=dateofjoin}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
-          <label>Departnment</label>
-          <input type="text" name="" placeholder="Departnment">
+          <label>Department</label>
+          <select onchange={{action "selectDepartment" value="target.value"}} class="form-control">
+                {{#each departments as |departmentChoice|}}
+                <option value={{departmentChoice}} >{{departmentChoice}}</option>
+                {{/each}}
+              </select>
         </div>
         <div class="field">
           <label>Location</label>
-          <input type="text" name="" placeholder="Location">
+          {{input type="text" placeholder="Location" value=location}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>Gender</label>
-          <select class="ui fluid dropdown">
-            <option value=""></option>
-        <option value="AL">Male</option>
-        <option value="AK">Female</option>
-          </select>
+          <select onchange={{action "selectGender" value="target.value"}} class="form-control">
+                {{#each genders as |genderChoice|}}
+                <option value={{genderChoice}} >{{genderChoice}}</option>
+                {{/each}}
+              </select>
         </div>
         <div class="field">
           <label>Maritial Status</label>
-          <select class="ui fluid dropdown">
-            <option value=""></option>
-        <option value="AL">Married</option>
-        <option value="AK">Single</option>
-          </select>
+          <select onchange={{action "selectMatitial" value="target.value"}} class="form-control">
+                {{#each maritials as |maritialChoice|}}
+                <option value={{maritialChoice}}>{{maritialChoice}}</option>
+                {{/each}}
+              </select>
         </div>
         <div class="field">
           <label>Date of Birth</label>
-          <input type="text" name="" placeholder="Date of Birth">
+          {{pikaday-input  placeholder="D.O.B" value=dob}}
         </div>
       </div>
 
@@ -77,37 +88,61 @@
       <div class="field">
         <div class="fields">
           <div class="twelve wide field">
-            <label>Temparory</label>
-            <input type="text" name="shipping[address]" placeholder="Street Address">
+            <label>Temporary Address</label>
+            {{textarea value=temporaryaddress cols="80" rows="6"}}
+
           </div>
           <div class="four wide field">
-            <label>Permanent</label>
-            <input type="text" name="shipping[address-2]" placeholder="City #">
+            <label>Permanent Address</label>
+            {{textarea value=permenantaddress cols="80" rows="6"}}
           </div>
         </div>
       </div>
 
 <div class="ui divider"></div>
 
-      <div class="ui button" tabindex="0">Save</div>
+      <div class="ui button {{isSaveDisabled}}" tabindex="0" {{action "createEmployee"}}>Save</div>
     </form>
   </div>
 
+
+
+    {{#if imageUploading }}
+      <img src="/images/load.gif" style="margin-top:10px;padding-left:35px">
+    <br>
+    Uploading image
+    {{else}}
+    {{/if}}
+
+{{#if (eq isImageuploadingvisible true)}}
   <div class="four wide column">
     <div class="ui card br0">
 
-      <div class="no-image">
-        <img>
+{{#if employee.thumburl}}
+
+        {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
+        <div class="image">
+        <img src="{{employee.thumburl}}">
       </div>
+        {{/light-box}}
+        {{else}}
+        <div class="no-image">
+          <img>
+        </div>
+        {{/if}}
+
       <div class="content">
         Profile Picture
         <span class="right floated">
-          <div class="ui mini button  br0">Upload  </div>
+          {{file-upload    on-upload=(action "uploadProfilePic")}}
         </span>
       </div>
 
     </div>
   </div>
+  {{/if}}
+
+
 </div>
 </div>
 

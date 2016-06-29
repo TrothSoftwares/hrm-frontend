@@ -1,7 +1,8 @@
 
 <div class="content-section pusher-in">
-<div class="ui grid  form">
-
+<div class="ui grid  form editemployee">
+  <button {{action "flipview"}}>flip</button>
+  Edit Employee
   <div class="twelve wide  column">
     <form class="ui mini form">
       <h4 class="ui dividing header">Personal Information</h4>
@@ -49,7 +50,7 @@
       </div>
       <div class="two fields">
         <div class="field">
-          <label>Departnment</label>
+          <label>Department</label>
           <select onchange={{action "selectDepartment" value="target.value"}} class="form-control">
                 {{#each departments as |departmentChoice|}}
                 <option value={{departmentChoice}} selected={{eq employee.department departmentChoice}}>{{departmentChoice}}</option>
@@ -90,11 +91,11 @@
         <div class="fields">
           <div class="twelve wide field">
             <label>Temporary Address</label>
-            <textarea>{{employee.temporaryaddress}}</textarea>
+            {{textarea value=employee.temporaryaddress cols="80" rows="6"}}
           </div>
           <div class="four wide field">
             <label>Permanent Address</label>
-            <textarea>{{employee.permenantaddress}}</textarea>
+            {{textarea value=employee.permenantaddress cols="80" rows="6"}}
           </div>
         </div>
       </div>
@@ -105,22 +106,177 @@
     </form>
   </div>
 
+
+  {{#if imageUploading }}
+    <img src="/images/load.gif" style="margin-top:10px;padding-left:35px">
+  <br>
+  Uploading image
+  {{else}}
+  {{/if}}
+
+
   <div class="four wide column">
     <div class="ui card br0">
 
-      <div class="no-image">
-        <img>
+
+        {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
+        <div class="image">
+        <img src="{{employee.thumburl}}">
       </div>
+        {{/light-box}}
+
       <div class="content">
         Profile Picture
         <span class="right floated">
-          <div class="ui mini button  br0">Upload  </div>
+          {{file-upload   employee=employee on-upload=(action "uploadProfilePic")}}
         </span>
       </div>
 
     </div>
   </div>
-</div>
+
 </div>
 
-{{outlet}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="ui grid  form viewemployee" style="display:none">
+<button {{action "flipview"}}>flip</button>
+View Employee
+  <div class="twelve wide  column">
+    <form class="ui mini form">
+      <h4 class="ui dividing header">Personal Information</h4>
+      <div class="field">
+        <label>Name</label>
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            {{employee.firstname}}
+          </div>
+          <div class="field">
+            <label>Middle Name</label>
+
+            {{employee.middlename}}
+
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+
+            {{employee.lastname}}
+          </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Email</label>
+
+          {{employee.email}}
+        </div>
+        <div class="field">
+          <label>Contact</label>
+
+          {{employee.contact}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Designation</label>
+          {{employee.designation}}
+
+        </div>
+        <div class="field">
+          <label>Date of Joining</label>
+          {{ moment-format employee.dateofjoin inputFormat}}<
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Department</label>
+          {{employee.department}}
+        </div>
+        <div class="field">
+          <label>Location</label>
+
+          {{employee.location}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Gender</label>
+                        {{employee.gender}}
+        </div>
+        <div class="field">
+          <label>Maritial Status</label>
+
+              {{employee.maritialstatus}}
+        </div>
+        <div class="field">
+          <label>Date of Birth</label>
+{{ moment-format employee.dob inputFormat}}<
+
+        </div>
+      </div>
+
+
+      <h4 class="ui dividing header">Address</h4>
+      <div class="field">
+        <div class="fields">
+          <div class="twelve wide field">
+            <label>Temporary Address</label>
+            {{employee.temporaryaddress}}
+          </div>
+          <div class="four wide field">
+            <label>Permanent Address</label>
+
+            {{employee.permenantaddress}}
+          </div>
+        </div>
+      </div>
+
+<div class="ui divider"></div>
+
+
+    </form>
+  </div>
+
+  <div class="four wide column">
+    <div class="ui card br0">
+
+      {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
+      <div class="image">
+      <img src="{{employee.thumburl}}">
+    </div>
+      {{/light-box}}
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+</div>

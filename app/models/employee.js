@@ -24,6 +24,7 @@ export default Model.extend({
   url: attr('string'),
   fullurl: attr('string'),
   thumburl: attr('string'),
+  pass: attr('string'),
 
 
 

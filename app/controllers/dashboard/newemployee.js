@@ -132,6 +132,7 @@ actions:{
       dob :this.get('dob'),
       temporaryaddress :this.get('temporaryaddress'),
       permenantaddress :this.get('permenantaddress'),
+      pass:this.get('pass'),
     });
 
     employee.save().then(function(employee){

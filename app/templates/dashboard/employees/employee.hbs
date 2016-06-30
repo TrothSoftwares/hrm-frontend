@@ -1,6 +1,6 @@
 
 <div class="content-section pusher-in">
-<div class="ui grid  form editemployee">
+<div class="ui grid  form editemployee" style="display:none">
   <button {{action "flipview"}}>flip</button>
   Edit Employee
   <div class="twelve wide  column">
@@ -83,6 +83,8 @@
           <label>Date of Birth</label>
           {{pikaday-input  placeholder="D.O.B" value=employee.dob}}
         </div>
+
+
       </div>
 
 
@@ -163,7 +165,7 @@
 
 
 
-<div class="ui grid  form viewemployee" style="display:none">
+<div class="ui grid  form viewemployee" >
 <button {{action "flipview"}}>flip</button>
 View Employee
   <div class="twelve wide  column">

@@ -1,38 +1,52 @@
 <div class="ui visible vertical sidebar menu">
 
   <div class="ui card br0">
-  <div class="content">
-    <img class="ui avatar image" src="/images/matthew.png"> Elliot
-    <div class="ui divider"></div>
-    <div class="description">
-      <span class="ui right floated mini button br0" {{action "logout"}}>Logout</span>
-      <i class="user icon"></i>HR
+    <div class="content">
+      <img class="ui avatar image" src="/images/matthew.png"> {{userEmail}}
+      <div class="ui divider"></div>
+      <div class="description">
+        <span class="ui right floated mini button br0" {{action "logout"}}>Logout</span>
+      </div>
     </div>
+  </div>
+
+
+  {{#link-to 'dashboard.employees.index'  class="item"}}
+  Employees    <i class="users icon" ></i>
+  {{/link-to}}
+
+
+
+
+  {{#if isAdmin}}
+  {{#link-to 'dashboard.adminleave'  class="item"}}
+  Leave Management <i class="ticket icon" ></i>
+  {{/link-to}}
+  {{/if}}
+
+
+  {{#if isEmployee}}
+  {{#link-to 'dashboard.employeeleave'  class="item"}}
+  Leave Management <i class="ticket icon" ></i>
+  {{/link-to}}
+  {{/if}}
+
+
+
+  <div class="item">
+    Attendance Management <i class="world icon" ></i>
+  </div>
+  <div class="item">
+    Salary Management <i class="world icon" ></i>
+  </div>
+  <div class="item">
+    Recruit Management <i class="world icon" ></i>
+  </div>
+  <div class="item">
+    Analytics <i class="line chart icon" ></i>
   </div>
 </div>
 
-
-{{#link-to 'dashboard.employees.index'  class="item"}}
-Employees    <i class="users icon" ></i>
-{{/link-to}}
-{{#link-to 'dashboard'  class="item"}}
-  Attendance <i class="calendar icon" ></i>
-  {{/link-to}}
-  {{#link-to 'dashboard'  class="item"}}
-  Salary Management <i class="ticket icon" ></i>
-    {{/link-to}}
-
-<div class="item">
-  Leave Management<i class="plane icon" ></i>
-</div>
-<div class="item">
-  Recruit Management <i class="world icon" ></i>
-</div>
-<div class="item">
-  Analytics <i class="line chart icon" ></i>
-</div>
-</div>
-
 <div class="pusher">
-{{outlet}}
+  {{outlet}}
 </div>

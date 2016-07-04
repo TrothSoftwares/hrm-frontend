@@ -50,6 +50,7 @@ export default Ember.Controller.extend({
   departments:["Select Departments", "Production", "R&D","Purchasing","Marketing","Human Resource", "Accounts", "Finance"],
   genders:["Select Gender" , "Male", "Female"],
   maritials:["Select Maritial Status", "Married", "Single"],
+  roles:["Select Role", "Admin", "Employee"],
 
 
 
@@ -111,6 +112,14 @@ actions:{
   },
 
 
+  /**
+  * Set the role for every employee via dropdown
+  @method selectRole
+  @param {Object} role
+  */
+  selectRole:function(role){
+    this.set('role',role);
+  },
 
 
   createEmployee:function(){
@@ -133,6 +142,7 @@ actions:{
       temporaryaddress :this.get('temporaryaddress'),
       permenantaddress :this.get('permenantaddress'),
       pass:this.get('pass'),
+      role:this.get('role'),
     });
 
     employee.save().then(function(employee){
@@ -150,6 +160,9 @@ actions:{
       controller.set('dob','');
       controller.set('temporaryaddress','');
       controller.set('permenantaddress','');
+      controller.set('role','');
+      controller.set('pass','');
+
       controller.set('isImageuploadingvisible',true);
 
       controller.set('employee',employee);

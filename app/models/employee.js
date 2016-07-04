@@ -25,6 +25,7 @@ export default Model.extend({
   fullurl: attr('string'),
   thumburl: attr('string'),
   pass: attr('string'),
+  role: attr('string'),
 
 
 

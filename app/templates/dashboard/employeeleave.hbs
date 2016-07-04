@@ -1,0 +1,38 @@
+<div class="ui top attached tabular menu">
+  <a class="active item" data-tab="first">Pending Leaves</a>
+  <a class="item" data-tab="second">New Leave</a>
+</div>
+<div class="ui bottom attached active tab segment" data-tab="first">
+
+
+  <table class="ui celled table">
+  <thead>
+    <tr><th>ID</th>
+    <th>From date</th>
+    <th>To Date</th>
+    <th>Status</th>
+  </tr></thead>
+  <tbody>
+
+    {{#each leaves as |pendingleave index|}}
+    <tr>
+      <td>{{pendingleave.id}}</td>
+      <td>{{pendingleave.fromdate}}</td>
+      <td>{{pendingleave.todate}}</td>
+      <td>{{pendingleave.status}}</td>
+    </tr>
+    {{/each }}
+
+  </tbody>
+
+</table>
+
+
+</div>
+<div class="ui bottom attached tab segment" data-tab="second">
+  Second
+</div>
+
+
+
+{{initialize-semanticuitabs}}

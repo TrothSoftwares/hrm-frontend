@@ -4,5 +4,11 @@ import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin,{
   host: ENV.APP.host,
-  authorizer: 'authorizer:devise'
+  authorizer: 'authorizer:devise',
+  plurals: {
+    leave: 'leaves'
+  },
+  singulars: {
+    leaves: 'leave'
+  }
 });

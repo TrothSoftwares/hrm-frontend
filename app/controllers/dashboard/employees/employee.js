@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
 
 
 
-  inputFormat:'DD/MM/YYYY',
+  inputFormat:'DD/MM/YYYY',                                                                                                   
 
 
   /**

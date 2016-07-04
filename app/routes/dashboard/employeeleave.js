@@ -21,7 +21,9 @@ var route = this;
 
 
      leaverolls: this.store.findAll('leaveroll' ,{reload: true}).then(function(leaverolls){
-       return leaverolls.filterBy('employee.id',1).filterBy('status','pending');
+       return leaverolls.filter(function(item ){
+    return item.get('employee.id') == route.get('session.data.authenticated.employeeid');
+  });
         //   return {
         //
         //
@@ -34,8 +36,9 @@ var route = this;
 
   setupController: function(controller ,model) {
   controller.set('leaves',model.leaverolls);
-      // controller.set('pendingleaves',model.leaverolls.pendingleaves);
-      // controller.set('approvedleaves',model.leaverolls.approvedleaves);
+      controller.set('pendingleaves',model.leaverolls.filterBy('status','pending'));
+      controller.set('approvedleaves',model.leaverolls.filterBy('status','approved'));
+
 
   }
 });

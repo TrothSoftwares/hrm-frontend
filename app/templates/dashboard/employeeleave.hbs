@@ -1,6 +1,7 @@
 <div class="ui top attached tabular menu">
   <a class="active item" data-tab="first">Pending Leaves</a>
-  <a class="item" data-tab="second">New Leave</a>
+  <a class="item" data-tab="second">Approved Leaves</a>
+  <a class="item" data-tab="third">New Leave</a>
 </div>
 <div class="ui bottom attached active tab segment" data-tab="first">
 
@@ -14,7 +15,7 @@
   </tr></thead>
   <tbody>
 
-    {{#each leaves as |pendingleave index|}}
+    {{#each pendingleaves as |pendingleave index|}}
     <tr>
       <td>{{pendingleave.id}}</td>
       <td>{{pendingleave.fromdate}}</td>
@@ -30,7 +31,34 @@
 
 </div>
 <div class="ui bottom attached tab segment" data-tab="second">
-  Second
+  <table class="ui celled table">
+  <thead>
+    <tr><th>ID</th>
+    <th>From date</th>
+    <th>To Date</th>
+    <th>Status</th>
+  </tr></thead>
+  <tbody>
+
+    {{#each approvedleaves as |approvedleave index|}}
+    <tr>
+      <td>{{approvedleave.id}}</td>
+      <td>{{approvedleave.fromdate}}</td>
+      <td>{{approvedleave.todate}}</td>
+      <td>{{approvedleave.status}}</td>
+    </tr>
+    {{/each }}
+
+  </tbody>
+
+</table>
+</div>
+
+
+<div class="ui bottom attached tab segment" data-tab="third">
+
+
+
 </div>
 
 

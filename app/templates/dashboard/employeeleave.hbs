@@ -18,9 +18,9 @@
     {{#each pendingleaves as |pendingleave index|}}
     <tr>
       <td>{{pendingleave.id}}</td>
-      <td>{{pendingleave.fromdate}}</td>
-      <td>{{pendingleave.todate}}</td>
-      <td>{{pendingleave.status}}</td>
+      <td>{{ moment-format   pendingleave.fromdate inputFormat}}</td>
+      <td>{{moment-format   pendingleave.todate inputFormat}}</td>
+      <td style="text-transform:capitalize">{{pendingleave.status}}</td>
     </tr>
     {{/each }}
 
@@ -43,9 +43,9 @@
     {{#each approvedleaves as |approvedleave index|}}
     <tr>
       <td>{{approvedleave.id}}</td>
-      <td>{{approvedleave.fromdate}}</td>
-      <td>{{approvedleave.todate}}</td>
-      <td>{{approvedleave.status}}</td>
+      <td>{{ moment-format approvedleave.fromdate inputFormat}}</td>
+      <td>{{ moment-format approvedleave.todate inputFormat}}</td>
+      <td style="text-transform:capitalize" >{{approvedleave.status}}</td>
     </tr>
     {{/each }}
 
@@ -57,7 +57,21 @@
 
 <div class="ui bottom attached tab segment" data-tab="third">
 
-
+  <form class="ui form">
+    <div class="field">
+      <label>From date</label>
+      {{pikaday-input  placeholder="From" value=fromdate}}
+    </div>
+    <div class="field">
+      <label>To date</label>
+      {{pikaday-input  placeholder="To" value=todate}}
+    </div>
+    <div class="field">
+      <label>Comments</label>
+      {{input type="text" value=comments}}
+    </div>
+    <button class="ui button" type="button" {{action "createLeaveRoll"}}>Apply</button>
+  </form>
 
 </div>
 

@@ -1,0 +1,44 @@
+
+
+
+
+
+<table class="ui celled table">
+  <thead>
+    <tr>
+    <th>ID</th>
+    <th>Employee Name</th>
+    <th>Total</th>
+    <th>Leave</th>
+    <th>Present</th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+
+    {{#each employees as |employee index|}}
+<tr>
+
+
+{{#if (eq employee.editemployee false)}}
+<td>{{incrementone index}}</td>
+<td>{{employee.firstname}} {{employee.lastname}}</td>
+<td>{{employee.salaries.lastObject.totaldays}}</td>
+<td>{{employee.salaries.lastObject.leavedays}}</td>
+<td>{{employee.salaries.lastObject.presentdays}}</td>
+<td><button {{action "editSalary" employee}}>edit</button></td>
+{{else}}
+<td>{{incrementone index}}</td>
+<td>{{employee.firstname}} {{employee.lastname}}</td>
+<td>{{input type="text" value=employee.salaries.lastObject.totaldays }}</td>
+<td>{{input type="text" value=employee.salaries.lastObject.leavedays }}</td>
+<td>{{employee.salaries.lastObject.presentdayscalc}}</td>
+<td><button {{action "saveSalary" employee}}>Save</button></td>
+{{/if}}
+
+</tr>
+
+
+    {{/each}}
+  </tbody>
+
+</table>

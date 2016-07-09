@@ -15,6 +15,7 @@ Router.map(function() {
     this.route('newemployee');
     this.route('employeeleave');
     this.route('adminleave');
+    this.route('attendance');
   });
   this.route('login');
 });

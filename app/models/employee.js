@@ -27,6 +27,10 @@ export default Model.extend({
   pass: attr('string'),
   role: attr('string'),
   leaverolls: hasMany('leaveroll' ,{embedded: 'always', async:true}),
+  salaries: hasMany('salary' ,{embedded: 'always', async:true}),
+
+  editemployee: attr('boolean', { defaultValue: false }),
+
 
 
 

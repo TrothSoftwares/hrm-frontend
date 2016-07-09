@@ -17,11 +17,15 @@ model: function() {
             rejectedLeaves:  projects.filterBy('status', 'rejected')
         };
      }),
+     events:this.store.findAll('event',{reload: true}).then(events => events.toArray()),
+
+
    });
   },
 
   setupController: function(controller ,model) {
 
+      controller.set('occurrences',model.events);
       controller.set('leaverolls',model.leaverolls);
       controller.set('pendingLeaves',model.leaverolls.pendingLeaves);
       controller.set('approvedLeaves',model.leaverolls.approvedLeaves);
@@ -40,6 +44,12 @@ model: function() {
       this.transitionTo('dashboard'); // or whatever
     }
 
+  },
+
+  actions: {
+     reloadModel: function() {
+       this.refresh();
+     }
    }
 
 });

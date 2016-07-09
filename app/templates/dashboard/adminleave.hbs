@@ -7,6 +7,17 @@
 <div class="ui bottom attached active tab segment" data-tab="first">
 
 
+  {{as-calendar
+    title="Events Calendar"
+    occurrences=occurrences
+    defaultTimeZoneQuery="New York|London|Dubai|Hong Kong"
+    dayStartingTime="9:00"
+    dayEndingTime="18:00"
+    timeSlotDuration="00:30"
+    onAddOccurrence=(action "calendarAddOccurrence")
+    onUpdateOccurrence=(action "calendarUpdateOccurrence")
+    onRemoveOccurrence=(action "calendarRemoveOccurrence")}}
+
 
 
 

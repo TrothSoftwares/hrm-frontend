@@ -21,8 +21,6 @@ export default Ember.Route.extend({
     controller.set('leaves',model.leaverolls);
     controller.set('pendingleaves',model.leaverolls.filterBy('status','pending'));
     controller.set('approvedleaves',model.leaverolls.filterBy('status','approved'));
-
-
   },
 
  actions: {

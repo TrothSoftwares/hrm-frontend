@@ -10,6 +10,10 @@
     "pikaday": "^1.4.0",
     "font-awesome": "~4.5.0",
     "ember-uploader": "0.3.11",
-    "lightbox": "2.7.3"
+    "lightbox": "2.7.3",
+    "interact": "1.2.5",
+    "jquery-simulate": "1.0.1",
+    "lodash": "3.10.0",
+    "fontawesome": "~4.5.0"
   }
 }

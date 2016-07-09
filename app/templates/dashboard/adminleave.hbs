@@ -1,1 +1,93 @@
-{{outlet}}
+<div class="ui top attached tabular menu">
+  <a class="active item" data-tab="first"> Events</a>
+  <a class="item" data-tab="second">Pending Leaves</a>
+  <a class="item" data-tab="third">Approved Leaves</a>
+  <a class="item" data-tab="fourth">Rejected</a>
+</div>
+<div class="ui bottom attached active tab segment" data-tab="first">
+
+
+
+
+
+</div>
+<div class="ui bottom attached tab segment" data-tab="second">
+  <table class="ui celled table">
+  <thead>
+    <tr><th>ID</th>
+    <th>From date</th>
+    <th>To Date</th>
+    <th>Status</th>
+  </tr></thead>
+  <tbody>
+
+    {{#each pendingLeaves as |pendingleave index|}}
+    <tr>
+      <td>{{incrementone index}}</td>
+      <td>{{ moment-format pendingleave.fromdate inputFormat}}</td>
+      <td>{{ moment-format pendingleave.todate inputFormat}}</td>
+      <td style="text-transform:capitalize" >{{pendingleave.status}}</td>
+    </tr>
+    {{/each }}
+
+  </tbody>
+
+</table>
+</div>
+
+
+<div class="ui bottom attached tab segment" data-tab="third">
+
+  <table class="ui celled table">
+  <thead>
+    <tr><th>ID</th>
+    <th>From date</th>
+    <th>To Date</th>
+    <th>Status</th>
+  </tr></thead>
+  <tbody>
+
+    {{#each approvedLeaves as |approvedleave index|}}
+    <tr>
+      <td>{{approvedleave.id}}</td>
+      <td>{{ moment-format approvedleave.fromdate inputFormat}}</td>
+      <td>{{ moment-format approvedleave.todate inputFormat}}</td>
+      <td style="text-transform:capitalize" >{{approvedleave.status}}</td>
+    </tr>
+    {{/each }}
+
+  </tbody>
+
+</table>
+
+</div>
+
+<div class="ui bottom attached tab segment" data-tab="fourth">
+
+  <table class="ui celled table">
+  <thead>
+    <tr><th>ID</th>
+    <th>From date</th>
+    <th>To Date</th>
+    <th>Status</th>
+  </tr></thead>
+  <tbody>
+
+    {{#each rejectedLeaves as |rejectedleave index|}}
+    <tr>
+      <td>{{incrementone index}}</td>
+      <td>{{ moment-format rejectedleave.fromdate inputFormat}}</td>
+      <td>{{ moment-format rejectedleave.todate inputFormat}}</td>
+      <td style="text-transform:capitalize" >{{approvedleave.status}}</td>
+    </tr>
+    {{/each }}
+
+  </tbody>
+
+</table>
+
+</div>
+
+
+
+{{initialize-semanticuitabs}}

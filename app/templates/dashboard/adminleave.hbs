@@ -33,6 +33,7 @@
     <th>From date</th>
     <th>To Date</th>
     <th>Status</th>
+    <th></th>
   </tr></thead>
   <tbody>
 
@@ -41,7 +42,23 @@
       <td>{{incrementone index}}</td>
       <td>{{ moment-format pendingleave.fromdate inputFormat}}</td>
       <td>{{ moment-format pendingleave.todate inputFormat}}</td>
+      {{#if (eq pendingleave.editleave false)}}
       <td style="text-transform:capitalize" >{{pendingleave.status}}</td>
+      <td><button {{action "editLeave" pendingleave}}>edit</button></td>
+      {{else}}
+
+        <td>
+      <select onchange={{action "selectStatus"    value="target.value"}} class="form-control">
+        {{#each statuses as |statusChoice|}}
+
+        <option value={{statusChoice}} selected={{eq pendingleave.status statusChoice}}>{{statusChoice}}</option>
+        {{/each}}
+      </select>
+
+
+    </td>
+    <td><button {{action "saveLeave" pendingleave}}>Save</button></td>
+      {{/if}}
     </tr>
     {{/each }}
 

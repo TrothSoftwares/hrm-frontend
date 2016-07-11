@@ -11,7 +11,6 @@ inputFormat:'DD/MM/YYYY',
       var controller = this;
        var employee = this.get('store').findRecord('employee', this.get('session.data.authenticated.employeeid'));
 
-
        employee.then(function(empoyee){
          var leaveroll = controller.store.createRecord('leaveroll',{
            employee:employee,

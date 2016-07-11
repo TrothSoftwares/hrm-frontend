@@ -11,4 +11,5 @@ todate: attr('date'),
 days: attr('number'),
 status: attr('string'),
 comments: attr('string'),
+editleave: attr('boolean', { defaultValue: false }),
 });

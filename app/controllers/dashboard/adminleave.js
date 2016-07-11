@@ -2,10 +2,34 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   inputFormat:'DD/MM/YYYY',
+  currentLeave :{},
+
+  statuses: ['Please Select' , 'pending','approved','rejected'],
 
 
   actions: {
 
+
+editLeave:function(pendingleave){
+  pendingleave.set('editleave',true);
+  this.set('currentLeave', pendingleave);
+},
+
+selectStatus:function(option){
+  var currentLeave = this.get('currentLeave');
+  currentLeave.set('status', option);
+
+},
+
+saveLeave:function(pendingleave){
+  var controller = this;
+  if(pendingleave.status !== 'Please Select'){
+  pendingleave.save().then(function(){
+    controller.send('reloadModel');
+  });
+  }
+
+},
 
 calendarAddOccurrenceOriginal:function(occurrence){
  var controller = this;

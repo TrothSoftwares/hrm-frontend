@@ -59,7 +59,8 @@
     <th>From date</th>
     <th>To Date</th>
     <th>Status</th>
-  </tr></thead>
+  </tr>
+  </thead>
   <tbody>
 
     {{#each approvedLeaves as |approvedleave index|}}
@@ -87,7 +88,6 @@
     <th>Status</th>
   </tr></thead>
   <tbody>
-
     {{#each rejectedLeaves as |rejectedleave index|}}
     <tr>
       <td>{{incrementone index}}</td>
@@ -96,9 +96,7 @@
       <td style="text-transform:capitalize" >{{approvedleave.status}}</td>
     </tr>
     {{/each }}
-
   </tbody>
-
 </table>
 
 </div>
@@ -112,27 +110,14 @@
 
 
 <div class="ui modal">
-  <i class="close icon"></i>
-  <div class="header">
-    Profile Picture
-  </div>
-  <div class="image content">
-    <div class="ui medium image">
-      
-    </div>
-    <div class="description">
-      <div class="ui header">We've auto-chosen a profile image for you.</div>
-      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-      <p>Is it okay to use this photo?</p>
-    </div>
+  <div class="header">Header</div>
+  <div class="content">
+    <p></p>
   </div>
   <div class="actions">
-    <div class="ui black deny button">
-      Nope
-    </div>
-    <div class="ui positive right labeled icon button">
-      Yep, that's me
-      <i class="checkmark icon"></i>
-    </div>
+
+    {{input type="text" value=neweventtitle}}
+    <div class="ui approve button">Create</div>
+    <div class="ui cancel button">Cancel</div>
   </div>
 </div>

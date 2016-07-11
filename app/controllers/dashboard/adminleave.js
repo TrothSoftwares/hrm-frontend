@@ -7,47 +7,61 @@ export default Ember.Controller.extend({
   actions: {
 
 
+calendarAddOccurrenceOriginal:function(occurrence){
+ var controller = this;
+  var newevent = controller.store.createRecord('event',{
+    title: controller.get('neweventtitle'),
+    startsAt: controller.get('neweventtitle'),
+    endsAt: controller.get('neweventtitle'),
+  });
 
 
+  newevent.save().then(function(){
+    var neweventObject = Ember.Object.create({
+      title: controller.get('neweventtitle'),
+      startsAt: occurrence.get('startsAt'),
+      endsAt: occurrence.get('endsAt')
+    });
+    controller.get('occurrences').pushObject(neweventObject);
+    controller.set('neweventtitle' ,'');
+  }
+);
+},
 
 
     calendarAddOccurrence: function(occurrence) {
       var controller = this;
-      // console.log(occurrence);
-      // Ember.$('.ui.modal').modal('show');
-      var newevent = controller.store.createRecord('event',{
-        title:'sssss',
-        startsAt: occurrence.get('startsAt'),
-        endsAt: occurrence.get('endsAt')
+      Ember.$('.ui.modal').modal({
+        closable  : false,
+        onDeny    : function(){
+          controller.set('neweventtitle' ,'');
+        },
+        onApprove : function() {
+          controller.send('calendarAddOccurrenceOriginal',occurrence);
+        }
+      }).modal('show');
+  },
+
+  calendarUpdateOccurrence: function(occurrence, properties) {
+    var controller =  this;
+    occurrence.setProperties(properties);
+    console.log(occurrence);
+
+    setTimeout(function(){
+      controller.store.find('event',occurrence.get('id')).then(function(event){
+        event.save();
       });
+    }, 1000);
+  },
 
 
-      newevent.save().then(function(){
-
-              var neweventObject = Ember.Object.create({
-                title: occurrence.get('title'),
-                startsAt: occurrence.get('startsAt'),
-                endsAt: occurrence.get('endsAt')
-              });
-              controller.get('occurrences').pushObject(neweventObject);
-      }
-    );
 
 
-    },
+  calendarRemoveOccurrence: function(occurrence) {
+    this.get('occurrences').removeObject(occurrence);
 
-    calendarUpdateOccurrence: function(occurrence, properties) {
+    occurrence.destroyRecord();
 
-      occurrence.setProperties(properties);
-
-
-    },
-
-    calendarRemoveOccurrence: function(occurrence) {
-console.log(occurrence.id);
-      this.get('occurrences').removeObject(occurrence);
-
-
-    }
   }
+}
 });

@@ -6,13 +6,25 @@
 @import 'addons/ember-calendar/paint-core';
 @import 'addons/ember-calendar/main';
 
+@font-face {
+    font-family: Oxygen;
+    src: url(fonts/oxygen/Oxygen-Regular.ttf);
+}
+body
+{
+  font-family: Oxygen;
+}
+.oxy
+{
+  font-family: Oxygen !important;
+}
 .br0
 {
   border-radius: 0px !important;
 }
 .pusher
 {
-  margin-left: 210px;
+  margin-left: 16rem;
 }
 .pusher-in
 {
@@ -41,4 +53,12 @@
 {
   min-width:100px !important;
   font-weight: 300 !important;
+}
+.tf-head
+{
+  margin-left: 16rem !important;
+}
+.sidebar-or
+{
+  width: 16rem !important;
 }

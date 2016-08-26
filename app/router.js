@@ -16,6 +16,12 @@ Router.map(function() {
     this.route('employeeleave');
     this.route('adminleave');
     this.route('attendance');
+    this.route('salary-mgt', function() {
+      this.route('employee', function() {
+        this.route('view');
+        this.route('edit');
+      });
+    });
   });
   this.route('login');
 });

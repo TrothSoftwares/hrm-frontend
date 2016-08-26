@@ -1,0 +1,56 @@
+<div class="content-section pusher-in">
+  <div class="ui  grid">
+    <div class="twelve wide column">
+      <div class="ui dividing header">Employee Salary List</div>
+      <div class="ui left icon input">
+        <input type="text" placeholder="Search Employee Name...">
+        <i class="users icon"></i>
+      </div>
+      <div class="ui left icon input">
+        <input type="text" placeholder="Search Employee ID...">
+        <i class="users icon"></i>
+      </div>
+
+      <table class="ui very celled  structured table">
+        <thead>
+          <tr>
+            <th>Sl.No</th>
+            <th>Name</th>
+            <th>Gross Salary</th>
+            <th>View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>John</td>
+            <td>15000</td>
+            <td>{{#link-to 'dashboard.salary-mgt.employee.view'  }}
+            View
+            {{/link-to}}</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jamie</td>
+            <td>12000</td>
+            <td>{{#link-to 'dashboard.salary-mgt.employee.view'  }}
+            View
+            {{/link-to}}</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Jill</td>
+            <td>25000</td>
+            <td>{{#link-to 'dashboard.salary-mgt.employee.view'  }}
+            View
+            {{/link-to}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="column">
+    </div>
+  </div>
+</div>
+
+{{outlet}}

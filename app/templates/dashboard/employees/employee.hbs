@@ -1,10 +1,16 @@
 
-<div class="content-section pusher-in">
-<div class="ui grid  form editemployee" style="display:none">
-  <button {{action "flipview"}}>flip</button>
-  Edit Employee
+<div class=" pusher-in">
+<div class="editemployee" style="display:none">
+  <div class="ht-sm">
+    <h4 class="ui left floated  header">Edit Employee</h4>
+    <div class="ui mini right floated primary button br0 {{isSaveDisabled}}" tabindex="0" {{action "saveEmployee"}}>Save</div>
+    <button class="ui mini right floated button br0" {{action "flipview"}}>Cancel</button>
+  </div>
+
+  <div class="ui grid">
   <div class="twelve wide  column">
-    <form class="ui mini form">
+
+    <form class="ui small form">
       <h4 class="ui dividing header">Personal Information</h4>
       <div class="field">
         <label>Name</label>
@@ -104,38 +110,38 @@
 
 <div class="ui divider"></div>
 
-      <div class="ui button {{isSaveDisabled}}" tabindex="0" {{action "saveEmployee"}}>Save</div>
     </form>
   </div>
 
 
-  {{#if imageUploading }}
-    <img src="/images/load.gif" style="margin-top:10px;padding-left:35px">
-  <br>
-  Uploading image
-  {{else}}
-  {{/if}}
 
 
   <div class="four wide column">
     <div class="ui card br0">
 
 
+        {{#if imageUploading }}
+          <img src="/images/load.gif" style="margin-top:10px;padding:15% 35%">
+        <br>
+        {{else}}
         {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
         <div class="image">
-        <img src="{{employee.thumburl}}">
+        <img src="{{employee.thumburl}}" class="pro-pic">
       </div>
         {{/light-box}}
 
+
+        {{/if}}
+
+
+
       <div class="content">
-        Profile Picture
-        <span class="right floated">
           {{file-upload   employee=employee on-upload=(action "uploadProfilePic")}}
-        </span>
       </div>
 
     </div>
   </div>
+</div>
 
 </div>
 
@@ -165,11 +171,15 @@
 
 
 
-<div class="ui grid  form viewemployee" >
-<button {{action "flipview"}}>flip</button>
-View Employee
+<div class="viewemployee" >
+  <div class="ht-sm">
+    <h4 class="ui left floated  header">Employee Details</h4>
+    <button class="ui mini right floated primary button br0" {{action "flipview"}}>Edit</button>
+  </div>
+<div class="ui grid">
   <div class="twelve wide  column">
-    <form class="ui mini form">
+
+    <form class="ui  form">
       <h4 class="ui dividing header">Personal Information</h4>
       <div class="field">
         <label>Name</label>
@@ -269,7 +279,7 @@ View Employee
 
       {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
       <div class="image">
-      <img src="{{employee.thumburl}}">
+      <img src="{{employee.thumburl}}" class="pro-pic">
     </div>
       {{/light-box}}
 
@@ -277,6 +287,7 @@ View Employee
 
     </div>
   </div>
+</div>
 </div>
 
 

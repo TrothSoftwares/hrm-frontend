@@ -21,30 +21,18 @@
           </tr>
         </thead>
         <tbody>
+
+          {{#each employees as |employee index|}}
           <tr>
             <td>1</td>
-            <td>John</td>
-            <td>15000</td>
-            <td>{{#link-to 'dashboard.salary-mgt.employee.view'  }}
+            <td>{{employee.firstname}}  {{employee.lastname}}</td>
+            <td>{{employee.gross}}</td>
+            <td>{{#link-to 'dashboard.salary-mgt.employee.view'  employee.id }}
             View
             {{/link-to}}</td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Jamie</td>
-            <td>12000</td>
-            <td>{{#link-to 'dashboard.salary-mgt.employee.view'  }}
-            View
-            {{/link-to}}</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Jill</td>
-            <td>25000</td>
-            <td>{{#link-to 'dashboard.salary-mgt.employee.view'  }}
-            View
-            {{/link-to}}</td>
-          </tr>
+          {{/each}}
+
         </tbody>
       </table>
     </div>

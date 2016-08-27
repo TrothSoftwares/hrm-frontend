@@ -1,128 +1,130 @@
 <div class="content-section pusher-in">
-<div class="ui grid  form">
-  <div class="ui sixteen wide column">
-  <div class="ui dividing header">
-    Salary Details
-  </div>
-  <div class=" ui grid">
-    <div class="three wide column">
-      <div class="ui inline field">
-        <label class="l1">Employee ID</label>:
-        <label class="l2"> ID2542 </label>
+  <div class="ui grid  form">
+    <div class="ui sixteen wide column">
+      <div class="ui dividing header">
+        Salary Details
       </div>
-      <div class="ui inline field">
-        <label class="l1">Employee Name</label>:
-        <label class="l2"> John Doe </label>
-      </div>
-    </div>
-    <div class="six wide right aligned column">
-        <div class="inline field">
-          <label class="l1">Basic</label>:
-          <div class="ui transparent input">
-            <input type="text" name=""  placeholder="" readonly value="1500">
+      <div class=" ui grid">
+        <div class="three wide column">
+          <div class="ui inline field">
+            <label class="l1">Employee ID</label>:
+            <label class="l2"> {{employee.id}} </label>
+          </div>
+          <div class="ui inline field">
+            <label class="l1">Employee Name</label>:
+            <label class="l2"> {{employee.firstname}} {{employee.lastname}}</label>
           </div>
         </div>
-        <div class="inline field">
-          <label class="l1">House Rent Allowance</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly  value="350">
+        <div class="six wide right aligned column">
+          <div class="inline field">
+            <label class="l1">Basic</label>:
+
+            <div class="ui transparent  input">
+              {{input type="text" readonly="true"  value=employee.basic}}
+            </div>
+          </div>
+          <div class="inline field">
+            <label class="l1">House Rent Allowance</label>:
+            <div class="ui transparent input">
+
+              {{input type="text" readonly="true"  value=employee.houserentallowance}}
+            </div>
+          </div>
+
+          <div class="inline field">
+            <label class="l1">Adhoc Allowance</label>:
+            <div class="ui transparent input">
+              {{input type="text" readonly="true"  value=employee.adhoc}}
+            </div>
+          </div>
+
+          <div class="inline field">
+            <label class="l1">Transport Allowance</label>:
+            <div class="ui transparent input">
+              {{input type="text" readonly="true"  value=employee.transport}}
+            </div>
+          </div>
+
+          <div class="inline field">
+            <label class="l1">Miscellaneous Allowance</label>:
+            <div class="ui transparent input">
+              {{input type="text" readonly="true"  value=employee.misc}}
+            </div>
+          </div>
+
+          <div class="inline field">
+            <label class="l1">Stat Bonus</label>:
+            <div class="ui transparent input">
+              {{input type="text" readonly="true"  value=employee.statbonus}}
+            </div>
+          </div>
+
+          <div class="inline field">
+            <label class="l1">Other Earnings NT</label>:
+            <div class="ui transparent input">
+              {{input type="text" readonly="true"  value=employee.otherearningsnt}}
+            </div>
+          </div>
+
+          <div class="inline field">
+            <label class="l1">On Call Shift Allowance</label>:
+            <div class="ui transparent input">
+              {{input type="text" readonly="true"  value=employee.oncallshiftallowance}}
+            </div>
+          </div>
+
+
+        </div>
+        <div class="five wide right aligned column">
+          <div class="inline field">
+            <label class="l1">Provident Fund</label>:
+            <div class="ui transparent input">
+              {{input type="text" readonly="true"  value=employee.provfund}}
+            </div>
+          </div>
+
+          <div class="inline field">
+            <label class="l1">Professional Tax</label>:
+            <div class="ui transparent input">
+              {{input type="text" readonly="true"  value=employee.proftax}}
+            </div>
+          </div>
+
+          <div class="inline field">
+            <label class="l1">Income Tax</label>:
+            <div class="ui transparent input">
+              {{input type="text" readonly="true"  value=employee.incometax}}
+            </div>
+          </div>
+
+          <div class="inline field">
+            <label class="l1">ESSP</label>:
+            <div class="ui transparent input">
+              {{input type="text" readonly="true"  value=employee.essp}}
+            </div>
+          </div>
+
+          <div class="inline field">
+            <label class="l1">Gross Salary</label>:
+            <div class="ui transparent input">
+              {{input type="text" readonly="true"  value=employee.gross}}
+            </div>
+          </div>
+        </div>
+        <div class="two wide column">
+          {{#link-to 'dashboard.salary-mgt.employee.edit'}}
+          <div class="ui fluid primary tiny   button br0">
+            Edit
+          </div>
+          {{/link-to}}
+          <br>
+
         </div>
       </div>
-
-        <div class="inline field">
-          <label class="l1">Adhoc Allowance</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly value="620">
-        </div>
-      </div>
-
-        <div class="inline field">
-          <label class="l1">Transport Allowance</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly  value="200">
-        </div>
-      </div>
-
-        <div class="inline field">
-          <label class="l1">Miscellaneous Allowance</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly  value="25000">
-        </div>
-      </div>
-
-        <div class="inline field">
-          <label class="l1">Stat Bonus</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly  value="25000">
-        </div>
-      </div>
-
-        <div class="inline field">
-          <label class="l1">Other Earnings NT</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly  value="25000">
-        </div>
-      </div>
-
-        <div class="inline field">
-          <label class="l1">On Call Shift Allowance</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly  value="25000">
-        </div>
-      </div>
-
+    </div>
+    <div class="four wide column">
 
     </div>
-    <div class="five wide right aligned column">
-        <div class="inline field">
-          <label class="l1">Provident Fund</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly  value="1500">
-        </div>
-      </div>
-
-        <div class="inline field">
-          <label class="l1">Professional Tax</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly  value="350">
-        </div>
-      </div>
-
-        <div class="inline field">
-          <label class="l1">Income Tax</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly value="620">
-        </div>
-      </div>
-
-        <div class="inline field">
-          <label class="l1">ESSP</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly  value="200">
-        </div>
-      </div>
-
-        <div class="inline field">
-          <label class="l1">Gross Salary</label>:
-          <div class="ui transparent input">
-          <input type="text" name=""  placeholder="" readonly  value="25000">
-        </div>
-      </div>
-    </div>
-    <div class="two wide column">
-      {{#link-to 'dashboard.salary-mgt.employee.edit'}}
-      <div class="ui fluid primary tiny   button br0">
-        Edit
-      </div>
-      {{/link-to}}
-<br>
-
-    </div>
-  </div>
-  </div>
-  <div class="four wide column">
 
   </div>
-
-</div>
 </div>

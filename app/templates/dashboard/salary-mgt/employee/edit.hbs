@@ -8,82 +8,120 @@
     <div class="three wide column">
       <div class="ui inline field">
         <label class="l1">Employee ID</label>:
-        <label class="l2"> ID2542 </label>
+        <label class="l2"> {{employee.id}} </label>
       </div>
       <div class="ui inline field">
         <label class="l1">Employee Name</label>:
-        <label class="l2"> John Doe </label>
+        <label class="l2"> {{employee.firstname}} {{employee.lastname}} </label>
       </div>
     </div>
     <div class="six wide right aligned column">
-        <div class="inline field">
-          <label class="l1">Basic</label>:
-          <input type="text" name="" placeholder="" value="1500">
+      <div class="inline field">
+        <label class="l1">Basic</label>:
+
+        <div class="ui   input">
+          {{input type="text" readonly="true"  value=employee.basic}}
         </div>
-        <div class="inline field">
-          <label class="l1">House Rent Allowance</label>:
-          <input type="text" name="" placeholder="" value="350">
+      </div>
+      <div class="inline field">
+        <label class="l1">House Rent Allowance</label>:
+        <div class="ui input">
+
+          {{input type="number"  value=employee.houserentallowance}}
         </div>
-        <div class="inline field">
-          <label class="l1">Adhoc Allowance</label>:
-          <input type="text" name="" placeholder=""value="620">
+      </div>
+
+      <div class="inline field">
+        <label class="l1">Adhoc Allowance</label>:
+        <div class="ui  input">
+          {{input type="number"   value=employee.adhoc}}
         </div>
-        <div class="inline field">
-          <label class="l1">Transport Allowance</label>:
-          <input type="text" name="" placeholder="" value="200">
+      </div>
+
+      <div class="inline field">
+        <label class="l1">Transport Allowance</label>:
+        <div class="ui  input">
+          {{input type="number"  value=employee.transport}}
         </div>
-        <div class="inline field">
-          <label class="l1">Miscellaneous Allowance</label>:
-          <input type="text" name="" placeholder="" value="25000">
+      </div>
+
+      <div class="inline field">
+        <label class="l1">Miscellaneous Allowance</label>:
+        <div class="ui  input">
+          {{input type="number"   value=employee.misc}}
         </div>
-        <div class="inline field">
-          <label class="l1">Stat Bonus</label>:
-          <input type="text" name="" placeholder="" value="25000">
+      </div>
+
+      <div class="inline field">
+        <label class="l1">Stat Bonus</label>:
+        <div class="ui  input">
+          {{input type="number"   value=employee.statbonus}}
         </div>
-        <div class="inline field">
-          <label class="l1">Other Earnings NT</label>:
-          <input type="text" name="" placeholder="" value="25000">
+      </div>
+
+      <div class="inline field">
+        <label class="l1">Other Earnings NT</label>:
+        <div class="ui input">
+          {{input type="number"   value=employee.otherearningsnt}}
         </div>
-        <div class="inline field">
-          <label class="l1">On Call Shift Allowance</label>:
-          <input type="text" name="" placeholder="" value="25000">
+      </div>
+
+      <div class="inline field">
+        <label class="l1">On Call Shift Allowance</label>:
+        <div class="ui  input">
+          {{input type="number"   value=employee.oncallshiftallowance}}
         </div>
+      </div>
+
 
     </div>
     <div class="five wide right aligned column">
-        <div class="inline field">
-          <label class="l1">Provident Fund</label>:
-          <input type="text" name="" placeholder="" value="1500">
+      <div class="inline field">
+        <label class="l1">Provident Fund</label>:
+        <div class="ui  input">
+          {{input type="number"   value=employee.provfund}}
         </div>
-        <div class="inline field">
-          <label class="l1">Professional Tax</label>:
-          <input type="text" name="" placeholder="" value="350">
+      </div>
+
+      <div class="inline field">
+        <label class="l1">Professional Tax</label>:
+        <div class="ui  input">
+          {{input type="number"   value=employee.proftax}}
         </div>
-        <div class="inline field">
-          <label class="l1">Income Tax</label>:
-          <input type="text" name="" placeholder=""value="620">
+      </div>
+
+      <div class="inline field">
+        <label class="l1">Income Tax</label>:
+        <div class="ui  input">
+          {{input type="number"   value=employee.incometax}}
         </div>
-        <div class="inline field">
-          <label class="l1">ESSP</label>:
-          <input type="text" name="" placeholder="" value="200">
+      </div>
+
+      <div class="inline field">
+        <label class="l1">ESSP</label>:
+        <div class="ui  input">
+          {{input type="number"   value=employee.essp}}
         </div>
-        <div class="inline field">
-          <label class="l1">Gross Salary</label>:
-          <input type="text" name="" placeholder="" value="25000">
+      </div>
+
+      <div class="inline field">
+        <label class="l1">Gross Salary</label>:
+        <div class="ui  input">
+          {{input type="number"   value=employee.gross}}
         </div>
+      </div>
     </div>
     <div class="two wide column">
-      {{#link-to 'dashboard.salary-mgt.employee.view'}}
-      <div class="ui fluid primary tiny   button br0">
-        Save
-      </div>
-      {{/link-to}}
+    <div class="ui fluid primary tiny   button br0 {{isSaveDisabled}}" tabindex="0" {{action "saveEmployeeSalary"}}>Save</div>
 <br>
       {{#link-to 'dashboard.salary-mgt.employee.view'}}
       <div class="ui right floated  fluid tiny  button br0">
         Cancel
       </div>
       {{/link-to}}
+
+
+
     </div>
   </div>
   </div>

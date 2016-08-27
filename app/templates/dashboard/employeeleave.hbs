@@ -1,7 +1,9 @@
 <div class="ui top attached tabular menu">
   <a class="active item" data-tab="first">Pending Leaves</a>
   <a class="item" data-tab="second">Approved Leaves</a>
-  <a class="item" data-tab="third">New Leave</a>
+  <a class="item" data-tab="third">Rejected Leave</a>
+  <a class="item" data-tab="fourth">New Leave</a>
+
 </div>
 <div class="ui bottom attached active tab segment" data-tab="first">
 
@@ -55,7 +57,33 @@
 </div>
 
 
+
+
 <div class="ui bottom attached tab segment" data-tab="third">
+  <table class="ui celled table">
+  <thead>
+    <tr><th>ID</th>
+    <th>From date</th>
+    <th>To Date</th>
+    <th>Status</th>
+  </tr></thead>
+  <tbody>
+
+    {{#each rejectedLeaves as |rejectedleave index|}}
+    <tr>
+      <td>{{rejectedleave.id}}</td>
+      <td>{{ moment-format rejectedleave.fromdate inputFormat}}</td>
+      <td>{{ moment-format rejectedleave.todate inputFormat}}</td>
+      <td style="text-transform:capitalize" >{{rejectedleave.status}}</td>
+    </tr>
+    {{/each }}
+
+  </tbody>
+
+</table>
+</div>
+
+<div class="ui bottom attached tab segment" data-tab="fourth">
 
   <form class="ui form">
     <div class="field">
@@ -74,6 +102,10 @@
   </form>
 
 </div>
+
+
+
+
 
 
 

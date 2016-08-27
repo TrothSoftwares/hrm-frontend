@@ -23,6 +23,9 @@ Router.map(function() {
       });
     });
   });
+  this.route('employee', function() {
+    this.route('dashboard');
+  });
   this.route('login');
 });
 

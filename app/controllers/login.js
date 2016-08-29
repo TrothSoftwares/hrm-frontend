@@ -18,6 +18,9 @@ session: Ember.inject.service('session'),
             autoClear: true
           });
         });
-    }
+    },
+
+    
+
   }
 });

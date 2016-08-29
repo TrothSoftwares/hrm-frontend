@@ -6,7 +6,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('dashboard', {path:'/'},function() {
+  this.route('dashboard',function() {
     this.route('employees', function() {
       this.route('employee', {path:':id'}, function() {
         this.route('edit');

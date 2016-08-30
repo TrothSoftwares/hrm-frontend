@@ -12,17 +12,26 @@
 <div class="ui grid">
 <div class="four wide column">
 <div class="ui card br0 w100 mb0" >
+  {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
   <div class="image">
-    <img src="/images/matthew.png" class="br0" >
-  </div>
+  <img src="{{employee.thumburl}}" class="pro-pic">
+</div>
+  {{/light-box}}
   <div class="content">
-    <a class="header oxy">John Doe</a>
+    <a class="header oxy">{{employee.firstname}}</a>
     <div class="description">
       Designer
     </div>
   </div>
 
 </div>
+
+
+
+
+
+
+
 <div class="ui vertical fluid tabular menu  oxy">
   <a class="item active" data-tab="first">Basic Info</a>
   <a class="item" data-tab="second">Attendance</a>
@@ -164,7 +173,7 @@
     <div class="viewemployee" >
       <div class="ht-sm">
         <h4 class="ui left floated  header">Employee Details</h4>
-        <button class="ui mini right floated primary button br0" {{action "flipview"}}>Edit</button>
+
       </div>
     <div class="ui grid">
       <div class="twelve wide  column">
@@ -264,19 +273,7 @@
         </form>
       </div>
 
-      <div class="four wide column">
-        <div class="ui card br0">
 
-          {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
-          <div class="image">
-          <img src="{{employee.thumburl}}" class="pro-pic">
-        </div>
-          {{/light-box}}
-
-
-
-        </div>
-      </div>
     </div>
     </div>
 
@@ -286,10 +283,178 @@
 
   </div>
   <div class="ui tab basic segment " data-tab="second">
-2
+    <div class="ui accordion">
+      <div class=" title">
+        <i class="dropdown icon"></i>
+        {{employee.firstname}} {{employee.lastname}}
+      </div>
+      <div class=" content">
+        <table class="ui celled table">
+          <thead>
+            <tr>
+            <th>ID</th>
+            <th>Employee Name</th>
+            <th>Total</th>
+            <th>Leave</th>
+            <th>Present</th>
+
+            </tr>
+          </thead>
+          <tbody>
+        {{#if (eq employee.editemployee false)}}
+        <td>{{incrementone index}}</td>
+        <td>{{employee.firstname}} {{employee.lastname}}</td>
+        <td>{{employee.attendances.lastObject.totaldays}}</td>
+        <td>{{employee.attendances.lastObject.leavedays}}</td>
+        <td>{{employee.attendances.lastObject.presentdays}}</td>
+
+        {{else}}
+        <td>{{incrementone index}}</td>
+        <td>{{employee.firstname}} {{employee.lastname}}</td>
+        <td>{{input type="text" value=employee.attendances.lastObject.totaldays }}</td>
+        <td>{{input type="text" value=employee.attendances.lastObject.leavedays }}</td>
+        <td>{{employee.attendances.lastObject.presentdayscalc}}</td>
+        <td><button class="ui fluid primary tiny button br0 oxy" {{action "saveSalary" employee}}>Save</button></td>
+        {{/if}}
+      </tbody>
+      </table>
+      </div>
+
+    </div>
+
+
+
+
   </div>
   <div class="ui tab basic segment " data-tab="third">
-3
+
+
+
+
+
+    <div class="content-section pusher-in">
+      <div class="ui grid  form">
+        <div class="ui sixteen wide column">
+          <div class="ui dividing header">
+            Salary Details
+          </div>
+          <div class=" ui grid">
+            <div class="three wide column">
+              <div class="ui inline field">
+                <label class="l1">Employee ID</label>:
+                <label class="l2"> {{employee.id}} </label>
+              </div>
+              <div class="ui inline field">
+                <label class="l1">Employee Name</label>:
+                <label class="l2"> {{employee.firstname}} {{employee.lastname}}</label>
+              </div>
+            </div>
+            <div class="six wide right aligned column">
+              <div class="inline field">
+                <label class="l1">Basic</label>:
+
+                <div class="ui transparent  input">
+                  {{input type="text" readonly="true"  value=employee.basic}}
+                </div>
+              </div>
+              <div class="inline field">
+                <label class="l1">House Rent Allowance</label>:
+                <div class="ui transparent input">
+
+                  {{input type="text" readonly="true"  value=employee.houserentallowance}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Adhoc Allowance</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.adhoc}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Transport Allowance</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.transport}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Miscellaneous Allowance</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.misc}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Stat Bonus</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.statbonus}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Other Earnings NT</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.otherearningsnt}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">On Call Shift Allowance</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.oncallshiftallowance}}
+                </div>
+              </div>
+
+
+            </div>
+            <div class="five wide right aligned column">
+              <div class="inline field">
+                <label class="l1">Provident Fund</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.provfund}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Professional Tax</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.proftax}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Income Tax</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.incometax}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">ESSP</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.essp}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Gross Salary</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.gross}}
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="four wide column">
+
+        </div>
+
+      </div>
+    </div>
+
   </div>
   <div class="ui tab basic segment " data-tab="fourth">
 4

@@ -39,8 +39,9 @@ export default Model.extend({
   otherearningsnt: attr('number'),
   oncallshiftallowance: attr('number'),
   gross: attr('number'),
-  
+
   leaverolls: hasMany('leaveroll' ,{embedded: 'always', async:true}),
+  attendances: hasMany('attendance' ,{embedded: 'always', async:true}),
   salaries: hasMany('salary' ,{embedded: 'always', async:true}),
 
   editemployee: attr('boolean', { defaultValue: false }),

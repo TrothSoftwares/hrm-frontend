@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
 
 
 
-  inputFormat:'DD/MM/YYYY',                                                                                                   
+  inputFormat:'DD/MM/YYYY',
 
 
   /**
@@ -100,12 +100,15 @@ actions:{
 
   saveEmployee:function(){
     var controller = this;
-    this.get('employee').save();
-    controller.notifications.addNotification({
-      message: 'Saved !' ,
-      type: 'success',
-      autoClear: true
+    this.get('employee').save().then(function(){
+      controller.get('employee').reload();
+          controller.notifications.addNotification({
+            message: 'Saved !' ,
+            type: 'success',
+            autoClear: true
+          });
     });
+
   },
 
 

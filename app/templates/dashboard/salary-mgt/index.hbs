@@ -3,13 +3,10 @@
     <div class="twelve wide column">
       <div class="ui dividing header">Employee Salary List</div>
       <div class="ui left icon input">
-        <input type="text" placeholder="Search Employee Name...">
+                 {{input type="text" placeholder="Search..." value=searchTerm }}
         <i class="users icon"></i>
       </div>
-      <div class="ui left icon input">
-        <input type="text" placeholder="Search Employee ID...">
-        <i class="users icon"></i>
-      </div>
+
 
       <table class="ui very celled  structured table">
         <thead>
@@ -22,9 +19,12 @@
         </thead>
         <tbody>
 
-          {{#each employees as |employee index|}}
+
+
+
+          {{#each matchingEmployeeNames as |employee index|}}
           <tr>
-            <td>1</td>
+            <td>{{incrementone index}}</td>
             <td>{{employee.firstname}}  {{employee.lastname}}</td>
             <td>{{employee.gross}}</td>
             <td>{{#link-to 'dashboard.salary-mgt.employee.view'  employee.id }}

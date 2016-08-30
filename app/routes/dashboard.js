@@ -5,12 +5,19 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
 session: Ember.inject.service('session'),
 
-// beforeModel:function(){
-//
-//   if(Ember.isEqual('Employee', this.get('session.data.authenticated.role'))){
-//     this.transitionTo('/employee/dashboard');
-//   }
-// },
+beforeModel:function(){
+
+  if(Ember.isEqual('Employee', this.get('session.data.authenticated.role'))){
+    this.transitionTo('employee');
+  }
+  else if(Ember.isEqual('Admin', this.get('session.data.authenticated.role'))){
+    this.transitionTo('dashboard');
+  }
+  else{
+    this.transitionTo('login');
+  }
+
+},
 
 
 
@@ -42,13 +49,18 @@ setupController: function(controller) {
 
   },
 
+
+
+
   actions: {
     logout() {
 
       this.get('session').invalidate();
-      console.log("redirect to login");
-
+      console.log("redirect to login from employee");
       this.transitionTo('login');
     }
   }
+
+
+
 });

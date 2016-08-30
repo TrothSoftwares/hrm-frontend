@@ -15,6 +15,9 @@ module.exports = function(environment) {
       'style-src': "'self' 'unsafe-inline' *",
       'img-src' : "'self' data: http://fonts.gstatic.com *"
     },
+    'ember-cli-notifications': {
+   icons: 'bootstrap'
+ },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -40,8 +43,8 @@ module.exports = function(environment) {
 
   ENV['ember-simple-auth'] = {
     authenticationRoute: 'login',
-     routeAfterAuthentication: 'dashboard',
-     routeIfAlreadyAuthenticated: 'dashboard'
+    routeAfterAuthentication: 'dashboard',
+    routeIfAlreadyAuthenticated: 'dashboard'
   };
 
 

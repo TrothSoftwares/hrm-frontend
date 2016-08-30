@@ -6,4 +6,10 @@ export default Ember.Controller.extend({
 userEmail: Ember.computed('session', function() {
   return (this.get('session.data.authenticated.email'));
 }),
+
+
+
+
+
+
 });

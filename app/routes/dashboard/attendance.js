@@ -26,9 +26,7 @@ setupController: function(controller ,model) {
       return true;
     }
     else{
-      // manage the unauthorized attempt
-      this.transitionTo('dashboard'); // or whatever
+      this.transitionTo('dashboard');
     }
-
   },
 });

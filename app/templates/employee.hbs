@@ -36,7 +36,7 @@
   <a class="item active" data-tab="first">Basic Info</a>
   <a class="item" data-tab="second">Attendance</a>
   <a class="item" data-tab="third">Salary</a>
-  <a class="item" data-tab="fourth">Link</a>
+  <a class="item" data-tab="fourth">Leave</a>
 </div>
 </div>
 <div class="twelve wide column">
@@ -332,6 +332,8 @@
 
 
 
+
+
     <div class="content-section pusher-in">
       <div class="ui grid  form">
         <div class="ui sixteen wide column">
@@ -445,7 +447,7 @@
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
         <div class="four wide column">
@@ -457,7 +459,123 @@
 
   </div>
   <div class="ui tab basic segment " data-tab="fourth">
-4
+
+
+
+    <div class="ui top attached tabular menu">
+      <a class="active item" data-tab="fifth">Pending Leaves</a>
+      <a class="item" data-tab="sixth">Approved Leaves</a>
+      <a class="item" data-tab="seventh">Rejected Leave</a>
+      <a class="item" data-tab="eight">New Leave</a>
+
+    </div>
+    <div class="ui bottom attached active tab segment" data-tab="fifth">
+
+
+      <table class="ui celled table">
+      <thead>
+        <tr><th>ID</th>
+        <th>From date</th>
+        <th>To Date</th>
+        <th>Status</th>
+      </tr></thead>
+      <tbody>
+
+        {{#each pendingleaves as |pendingleave index|}}
+        <tr>
+          <td>{{pendingleave.id}}</td>
+          <td>{{ moment-format   pendingleave.fromdate inputFormat}}</td>
+          <td>{{moment-format   pendingleave.todate inputFormat}}</td>
+          <td style="text-transform:capitalize">{{pendingleave.status}}</td>
+        </tr>
+        {{/each }}
+
+      </tbody>
+
+    </table>
+
+
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="sixth">
+      <table class="ui celled table">
+      <thead>
+        <tr><th>ID</th>
+        <th>From date</th>
+        <th>To Date</th>
+        <th>Status</th>
+      </tr></thead>
+      <tbody>
+
+        {{#each approvedleaves as |approvedleave index|}}
+        <tr>
+          <td>{{approvedleave.id}}</td>
+          <td>{{ moment-format approvedleave.fromdate inputFormat}}</td>
+          <td>{{ moment-format approvedleave.todate inputFormat}}</td>
+          <td style="text-transform:capitalize" >{{approvedleave.status}}</td>
+        </tr>
+        {{/each }}
+
+      </tbody>
+
+    </table>
+    </div>
+
+
+
+
+    <div class="ui bottom attached tab segment" data-tab="seventh">
+      <table class="ui celled table">
+      <thead>
+        <tr><th>ID</th>
+        <th>From date</th>
+        <th>To Date</th>
+        <th>Status</th>
+      </tr></thead>
+      <tbody>
+
+        {{#each rejectedLeaves as |rejectedleave index|}}
+        <tr>
+          <td>{{rejectedleave.id}}</td>
+          <td>{{ moment-format rejectedleave.fromdate inputFormat}}</td>
+          <td>{{ moment-format rejectedleave.todate inputFormat}}</td>
+          <td style="text-transform:capitalize" >{{rejectedleave.status}}</td>
+        </tr>
+        {{/each }}
+
+      </tbody>
+
+    </table>
+    </div>
+
+    <div class="ui bottom attached tab segment" data-tab="eight">
+
+      <form class="ui form">
+        <div class="field">
+          <label>From date</label>
+          {{pikaday-input  placeholder="From" value=fromdate}}
+        </div>
+        <div class="field">
+          <label>To date</label>
+          {{pikaday-input  placeholder="To" value=todate}}
+        </div>
+        <div class="field">
+          <label>Comments</label>
+          {{input type="text" value=comments}}
+        </div>
+        <button class="ui button" type="button" {{action "createLeaveRoll"}}>Apply</button>
+      </form>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
   </div>
 
 </div>

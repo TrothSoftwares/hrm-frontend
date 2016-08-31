@@ -30,17 +30,9 @@ inputFormat:'DD/MM/YYYY',
           controller.send('reloadModel');
 
 
-
        });
 
-
-
-
-
-
-
     }
-
 
   }
 });

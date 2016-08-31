@@ -23,7 +23,7 @@ model: function() {
 
 setupController: function(controller,model) {
   controller.set('employee',model.employee);
-  controller.set('leaves',model.leaverolls);
+  controller.set('leaves',model.leaverolls.sortBy('status'));
   controller.set('pendingleaves',model.leaverolls.filterBy('status','pending'));
   controller.set('approvedleaves',model.leaverolls.filterBy('status','approved'));
   controller.set('rejectedLeaves',model.leaverolls.filterBy('status','rejected'));

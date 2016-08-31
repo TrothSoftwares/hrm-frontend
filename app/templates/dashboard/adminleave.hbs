@@ -41,6 +41,7 @@
     <th>To Date</th>
     <th>Status</th>
     <th></th>
+
   </tr></thead>
   <tbody>
 
@@ -50,12 +51,9 @@
       <td>{{pendingleave.employee.firstname}}</td>
       <td>{{ moment-format pendingleave.fromdate inputFormat}}</td>
       <td>{{ moment-format pendingleave.todate inputFormat}}</td>
-      {{#if (eq pendingleave.editleave false)}}
-      <td style="text-transform:capitalize" >{{pendingleave.status}}</td>
-      <td><button {{action "editLeave" pendingleave}}>edit</button></td>
-      {{else}}
 
-        <td>
+
+        <!-- <td>
       <select onchange={{action "selectStatus"    value="target.value"}} class="form-control">
         {{#each statuses as |statusChoice|}}
 
@@ -64,9 +62,16 @@
       </select>
 
 
+    </td> -->
+    <td>
+      <div class="ui buttons">
+        <button class="ui positive button" {{action "approveLeave" pendingleave}}>Approve</button>
+        <div class="or"></div>
+        <button class="ui button" {{action 'disapproveLeave' pendingleave}}>Disapprove</button>
+
+      </div>
     </td>
-    <td><button {{action "saveLeave" pendingleave}}>Save</button></td>
-      {{/if}}
+
     </tr>
     {{/each }}
 

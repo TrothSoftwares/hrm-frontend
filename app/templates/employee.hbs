@@ -326,13 +326,8 @@
 
 
   </div>
+
   <div class="ui tab basic segment " data-tab="third">
-
-
-
-
-
-
 
     <div class="content-section pusher-in">
       <div class="ui grid  form">
@@ -458,18 +453,17 @@
     </div>
 
   </div>
+
   <div class="ui tab basic segment " data-tab="fourth">
 
-
-
     <div class="ui top attached tabular menu">
-      <a class="active item" data-tab="fifth">Pending Leaves</a>
-      <a class="item" data-tab="sixth">Approved Leaves</a>
-      <a class="item" data-tab="seventh">Rejected Leave</a>
-      <a class="item" data-tab="eight">New Leave</a>
+      <!-- <a class="active item" data-tab="fifth">Pending Leaves</a>
+      <a class="item" data-tab="sixth">Approved Leaves</a> -->
+      <a class="item active " data-tab="seventh">Leaves</a>
+      <a class="item" data-tab="eight">Apply Leave</a>
 
     </div>
-    <div class="ui bottom attached active tab segment" data-tab="fifth">
+    <!-- <div class="ui bottom attached active tab segment" data-tab="fifth">
 
 
       <table class="ui celled table">
@@ -497,13 +491,15 @@
 
     </div>
     <div class="ui bottom attached tab segment" data-tab="sixth">
+
       <table class="ui celled table">
       <thead>
         <tr><th>ID</th>
         <th>From date</th>
         <th>To Date</th>
         <th>Status</th>
-      </tr></thead>
+      </tr>
+     </thead>
       <tbody>
 
         {{#each approvedleaves as |approvedleave index|}}
@@ -518,12 +514,12 @@
       </tbody>
 
     </table>
-    </div>
+    </div> -->
 
 
 
 
-    <div class="ui bottom attached tab segment" data-tab="seventh">
+    <div class="ui bottom attached active  tab segment" data-tab="seventh">
       <table class="ui celled table">
       <thead>
         <tr><th>ID</th>
@@ -533,12 +529,12 @@
       </tr></thead>
       <tbody>
 
-        {{#each rejectedLeaves as |rejectedleave index|}}
+        {{#each leaves as |leave index|}}
         <tr>
-          <td>{{rejectedleave.id}}</td>
-          <td>{{ moment-format rejectedleave.fromdate inputFormat}}</td>
-          <td>{{ moment-format rejectedleave.todate inputFormat}}</td>
-          <td style="text-transform:capitalize" >{{rejectedleave.status}}</td>
+          <td>{{leave.id}}</td>
+          <td>{{ moment-format leave.fromdate inputFormat}}</td>
+          <td>{{ moment-format leave.todate inputFormat}}</td>
+          <td style="text-transform:capitalize" >{{leave.status}}</td>
         </tr>
         {{/each }}
 

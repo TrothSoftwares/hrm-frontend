@@ -16,6 +16,7 @@ Router.map(function() {
     this.route('employeeleave');
     this.route('adminleave');
     this.route('attendance');
+    this.route('recruit-mgt');
     this.route('salary-mgt', function() {
       this.route('employee' , {path: ':id'}, function() {
         this.route('view');
@@ -30,5 +31,7 @@ Router.map(function() {
 });
 
 export default Router;
+
+//
 
 // begins work on 25 of august after stopping works on july 10th for marriage purpose. After marriage works are going good so far.

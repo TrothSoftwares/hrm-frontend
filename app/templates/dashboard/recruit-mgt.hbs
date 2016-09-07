@@ -1,0 +1,83 @@
+<div class="pusher-in">
+  <div class="ui top fixed menu tf-head">
+  <div class="ui header oxy h-item" {{action "getcurrentpath"}}>
+    Recruit Management
+  </div>
+</div>
+</div>
+<div class="content-section pusher-in">
+  <div class="ui grid">
+    <div class=" ten wide column">
+      <div class="ui dividing oxy header">All Employees</div>
+      <div class="ui left icon input">
+        <input type="text" placeholder="Search Jobs">
+        <i class="users icon"></i>
+      </div>
+      {{#link-to 'dashboard.newemployee'}}
+
+      {{/link-to}}
+      <table class="ui very basic structured center aligned table">
+        <thead>
+          <tr>
+            <th>Sl.No</th>
+            <th>Job Title </th>
+            <th>Vacancies</th>
+            <th>Applications</th>
+            <th>Recommendations</th>
+            <th></th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>System Admin</td>
+            <td>2</td>
+            <td>3</td>
+            <td>1</td>
+            <td>
+              <div class="ui oxy tiny blue button">Open</div>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+    <div class=" six wide right aligned column">
+      <div class="ui dividing oxy header"> Add New Job</div>
+      <div class="ui form">
+
+      <div class="inline field">
+        <label class="l1">Job Title</label>:
+
+        <div class="ui   input">
+          {{input type="text"   }}
+        </div>
+      </div>
+      <div class="inline field">
+        <label class="l1">Salary</label>:
+        <div class="ui input">
+          {{input type="number"  }}
+        </div>
+      </div>
+      <div class="inline field">
+        <label class="l1">Eligibilities</label>:
+        <div class="ui  input">
+          {{input type="text"   value=employee.adhoc}}
+        </div>
+      </div>
+      <div class="inline field">
+        <div class="ui  input">
+          {{input type="text"   value=employee.adhoc}}
+        </div>
+      </div>
+      <div class="inline field">
+        <div class="ui oxy small button">Add New </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+{{outlet}}

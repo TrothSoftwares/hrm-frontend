@@ -24,11 +24,29 @@ selectStatus:function(option){
 saveLeave:function(pendingleave){
   var controller = this;
   if(pendingleave.status !== 'Please Select'){
+    pendingleave.save().then(function(){
+      controller.send('reloadModel');
+    });
+  }
+},
+
+
+approveLeave:function(pendingleave){
+  var controller = this;
+  pendingleave.set('status','approved');
   pendingleave.save().then(function(){
     controller.send('reloadModel');
   });
-  }
+},
 
+
+
+disapproveLeave:function(pendingleave){
+  var controller = this;
+  pendingleave.set('status','rejected');
+  pendingleave.save().then(function(){
+    controller.send('reloadModel');
+  });
 },
 
 calendarAddOccurrenceOriginal:function(occurrence){

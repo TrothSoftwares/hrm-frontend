@@ -44,7 +44,11 @@ export default Model.extend({
   attendances: hasMany('attendance' ,{embedded: 'always', async:true}),
   salaries: hasMany('salary' ,{embedded: 'always', async:true}),
 
+  jobs: hasMany('job'), 
+
   editemployee: attr('boolean', { defaultValue: false }),
+
+
 
 
 

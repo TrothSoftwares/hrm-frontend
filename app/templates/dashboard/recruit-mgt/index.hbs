@@ -10,6 +10,7 @@
     <div class=" sixteen wide column">
 
       <table class="ui very basic structured center aligned table">
+
         <thead>
           <tr>
             <th>Sl.No</th>
@@ -21,24 +22,17 @@
           </tr>
         </thead>
         <tbody>
+          {{#each jobs as |job index|}}
           <tr>
-            <td>1</td>
-            <td>System Admin</td>
-            <td>2</td>
-            <td>3</td>
+            <td>{{incrementone index}}</td>
+            <td>{{job.header}}</td>
+            <td>{{job.nofvaccancy}}</td>
+            <td>{{job.location}}</td>
             <td>
               {{#link-to 'dashboard.recruit-mgt.job'  class="ui oxy tiny blue button"}}Open {{/link-to}}
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Designer</td>
-            <td>1</td>
-            <td>4</td>
-            <td>
-              {{#link-to 'dashboard.recruit-mgt.job'  class="ui oxy tiny blue button"}}Open {{/link-to}}
-            </td>
-          </tr>
+      {{/each}}
 
         </tbody>
       </table>

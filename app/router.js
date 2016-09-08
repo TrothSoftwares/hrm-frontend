@@ -17,7 +17,7 @@ Router.map(function() {
     this.route('adminleave');
     this.route('attendance');
     this.route('recruit-mgt', function() {
-      this.route('job');
+      this.route('job' ,{path: 'id'});
     });
     this.route('salary-mgt', function() {
       this.route('employee' , {path: ':id'}, function() {

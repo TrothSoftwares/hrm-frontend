@@ -1,0 +1,120 @@
+<div class="content-section pusher-in">
+  <div class="ui  fluid tabular menu  oxy">
+    <a class="item active" data-tab="first">All Openings</a>
+    <a class="item" data-tab="second">Add New Job </a>
+
+  </div>
+  <div class="ui active tab basic segment " data-tab="first">
+
+  <div class="ui grid">
+    <div class=" sixteen wide column">
+
+      <table class="ui very basic structured center aligned table">
+        <thead>
+          <tr>
+            <th>Sl.No</th>
+            <th>Job Title </th>
+            <th>Vacancies</th>
+            <th>Applications</th>
+            <th></th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>System Admin</td>
+            <td>2</td>
+            <td>3</td>
+            <td>
+              {{#link-to 'dashboard.recruit-mgt.job'  class="ui oxy tiny blue button"}}Open {{/link-to}}
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Designer</td>
+            <td>1</td>
+            <td>4</td>
+            <td>
+              {{#link-to 'dashboard.recruit-mgt.job'  class="ui oxy tiny blue button"}}Open {{/link-to}}
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="ui  tab basic segment " data-tab="second">
+  <div class="ui grid">
+    <div class=" sixteen wide column">
+    <div class="ui dividing oxy header"> Add New Job</div>
+    </div>
+    <div class=" six wide right aligned column">
+      <div class="ui small form">
+
+      <div class="inline field">
+        <label class="l1">Job Title</label>:
+
+        <div class="ui   input">
+          {{input type="text"   }}
+        </div>
+      </div>
+      <div class="inline field">
+        <label class="l1">Salary</label>:
+        <div class="ui input">
+          {{input type="number"  }}
+        </div>
+      </div>
+      <div class="inline field">
+        <label class="l1">Skills Required</label>:
+        <div class="ui  input">
+          {{input type="text"   value=employee.adhoc}}
+        </div>
+      </div>
+      <div class="inline field">
+        <div class="ui  input">
+          {{input type="text"   value=employee.adhoc}}
+        </div>
+      </div>
+      <div class="inline field">
+        <div class="ui  input">
+          {{input type="text"   value=employee.adhoc}}
+        </div>
+      </div>
+      <div class="inline field">
+      </div>
+    </div>
+
+    </div>
+    <div class=" six wide right aligned column">
+      <div class="ui small form">
+      <div class="inline field">
+        <label class="l1">No.of Vacancies</label>:
+        <div class="ui   input">
+          {{input type="number"   }}
+        </div>
+      </div>
+      <div class="inline field">
+        <label class="l1">Location</label>:
+        <div class="ui input">
+          {{input type="text"  }}
+        </div>
+      </div>
+    </div>
+    <div class="ui divider">
+
+    </div>
+    <div class="ui oxy tiny blue button">Save</div>
+    <div class="ui oxy tiny  button">Cancel</div>
+
+    </div>
+    <div class=" four wide right aligned column">
+
+    </div>
+  </div>
+</div>
+</div>
+{{initialize-semanticuitabs}}
+
+{{outlet}}

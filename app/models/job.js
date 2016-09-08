@@ -10,7 +10,8 @@ skills: attr('string'),
 salary: attr('number'),
 nofvaccancy: attr('number'),
 location: attr('string'),
-employees: hasMany('employee')
+employees: hasMany('employee'),
+bids: hasMany('bid'),
 
 
 

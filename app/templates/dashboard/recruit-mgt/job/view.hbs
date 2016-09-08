@@ -14,13 +14,14 @@
         </tr>
       </thead>
       <tbody>
-        
+        {{#each job.bids as |bid index|}}
         <tr>
-          <td>1</td>
-          <td>2121</td>
-          <td>John Doe</td>
+          <td>{{incrementone index}}</td>
+          <td>{{bid.employee.id}}</td>
+          <td>{{bid.employee.firstname}} {{bid.employee.lastname}}</td>
 
         </tr>
+        {{/each}}
 
 
       </tbody>

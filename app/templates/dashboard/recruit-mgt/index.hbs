@@ -49,33 +49,30 @@
 
       <div class="inline field">
         <label class="l1">Job Title</label>:
-
         <div class="ui   input">
-          {{input type="text"   }}
+          {{input type="text"  value=header }}
+        </div>
+      </div>
+
+      <div class="inline field">
+        <label class="l1">Description</label>:
+        <div class="ui input">
+          {{input type="text" value=desc  }}
         </div>
       </div>
       <div class="inline field">
         <label class="l1">Salary</label>:
         <div class="ui input">
-          {{input type="number"  }}
+          {{input type="number" value=salary  }}
         </div>
       </div>
       <div class="inline field">
         <label class="l1">Skills Required</label>:
         <div class="ui  input">
-          {{input type="text"   value=employee.adhoc}}
+          {{input type="text"   value=skills}}
         </div>
       </div>
-      <div class="inline field">
-        <div class="ui  input">
-          {{input type="text"   value=employee.adhoc}}
-        </div>
-      </div>
-      <div class="inline field">
-        <div class="ui  input">
-          {{input type="text"   value=employee.adhoc}}
-        </div>
-      </div>
+
       <div class="inline field">
       </div>
     </div>
@@ -86,20 +83,20 @@
       <div class="inline field">
         <label class="l1">No.of Vacancies</label>:
         <div class="ui   input">
-          {{input type="number"   }}
+          {{input type="number" value=nofvaccancy  }}
         </div>
       </div>
       <div class="inline field">
         <label class="l1">Location</label>:
         <div class="ui input">
-          {{input type="text"  }}
+          {{input type="text"  value=location }}
         </div>
       </div>
     </div>
     <div class="ui divider">
 
     </div>
-    <div class="ui oxy tiny blue button">Save</div>
+    <div class="ui oxy tiny blue button" {{action "createJob"}}>Save </div>
     <div class="ui oxy tiny  button">Cancel</div>
 
     </div>
@@ -108,7 +105,7 @@
     </div>
   </div>
 </div>
-</div>
 {{initialize-semanticuitabs}}
+</div>
 
 {{outlet}}

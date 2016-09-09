@@ -43,31 +43,28 @@
     <div class="inline field">
       <label class="l1">Job Title</label>:
       <div class="ui transparent  input">
-        {{input type="text" value="System Administrator"  }}
+        {{input type="text" value=job.header  }}
+      </div>
+    </div>
+    <div class="inline field">
+      <label class="l1">Description</label>:
+      <div class="ui transparent  input">
+        {{input type="text" value=job.desc}}
       </div>
     </div>
     <div class="inline field">
       <label class="l1">Salary</label>:
       <div class="ui transparent input">
-        {{input type="number" value="25000" }}
+        {{input type="number" value=job.salary }}
       </div>
     </div>
     <div class="inline field">
       <label class="l1">Skills Required</label>:
       <div class="ui transparent input">
-        {{input type="text"   value="Skill 1"}}
+        {{input type="text"   value=job.skills}}
       </div>
     </div>
-    <div class="inline field">
-      <div class="ui transparent input">
-        {{input type="text"   value="Skill 2"}}
-      </div>
-    </div>
-    <div class="inline field">
-      <div class="ui transparent input">
-        {{input type="text"   value="Skill 3"}}
-      </div>
-    </div>
+
     <div class="inline field">
     </div>
   </div>
@@ -78,28 +75,28 @@
     <div class="inline field">
       <label class="l1">No.of Vacancies</label>:
       <div class="ui  transparent input">
-        {{input type="number" value="2"  }}
+        {{input type="number" value=job.nofvaccancy  }}
       </div>
     </div>
     <div class="inline field">
       <label class="l1">Location</label>:
       <div class="ui transparent input">
-        {{input type="text" value="Ernakulam" }}
+        {{input type="text" value=job.location}}
       </div>
     </div>
   </div>
   <div class="ui divider">
 
   </div>
-  <div class="ui oxy tiny blue button">Edit </div>
-  <div class="ui oxy tiny red button">Delete</div>
+  <div class="ui oxy tiny blue button"   {{action "flipview"}} >Edit </div>
+  <div class="ui oxy tiny red button"  {{action "deleteJob"}}>Delete</div>
 
   </div>
 
 </div>
 </div>
 
-<div class="editjob">
+<div class="editjob"   style="display:none" >
 
   <div class="ui grid">
 <div class=" sixteen wide column">
@@ -111,31 +108,28 @@
     <div class="inline field">
       <label class="l1">Job Title</label>:
       <div class="ui   input">
-        {{input type="text" value="System Administrator"  }}
+        {{input type="text" value=job.header}}
+      </div>
+    </div>
+    <div class="inline field">
+      <label class="l1">Description</label>:
+      <div class="ui input">
+        {{input type="text" value=job.desc  }}
       </div>
     </div>
     <div class="inline field">
       <label class="l1">Salary</label>:
       <div class="ui input">
-        {{input type="number" value="25000" }}
+        {{input type="number" value=job.salary}}
       </div>
     </div>
     <div class="inline field">
       <label class="l1">Skills Required</label>:
       <div class="ui  input">
-        {{input type="text"   value="Skill 1"}}
+        {{input type="text"   value=job.skills}}
       </div>
     </div>
-    <div class="inline field">
-      <div class="ui  input">
-        {{input type="text"   value="Skill 2"}}
-      </div>
-    </div>
-    <div class="inline field">
-      <div class="ui  input">
-        {{input type="text"   value="Skill 3"}}
-      </div>
-    </div>
+
     <div class="inline field">
     </div>
   </div>
@@ -146,21 +140,21 @@
     <div class="inline field">
       <label class="l1">No.of Vacancies</label>:
       <div class="ui   input">
-        {{input type="number" value="2"  }}
+        {{input type="number" value=job.nofvaccancy}}
       </div>
     </div>
     <div class="inline field">
       <label class="l1">Location</label>:
       <div class="ui input">
-        {{input type="text" value="Ernakulam" }}
+        {{input type="text" value=job.location}}
       </div>
     </div>
   </div>
   <div class="ui divider">
 
   </div>
-  <div class="ui oxy tiny blue button">Save</div>
-  <div class="ui oxy tiny  button">Cancel</div>
+  <div class="ui oxy tiny blue button" {{action "saveJob"}}>Save</div>
+  <div class="ui oxy tiny  button"  {{action "flipview"}} >Cancel</div>
 
   </div>
 

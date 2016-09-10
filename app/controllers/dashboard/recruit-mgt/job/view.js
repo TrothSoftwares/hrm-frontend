@@ -2,6 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+
+  isSaveButtonDisabled: Ember.computed( 'job.header'   ,  function() {
+    if( Ember.isEmpty(this.get('job.header'))
+  ){return 'disabled';}
+  else{return '';}
+  }),
+
   actions:{
 
     flipview: function() {

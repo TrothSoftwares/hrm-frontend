@@ -10,6 +10,7 @@
     <div class=" sixteen wide column">
 
       <table class="ui very basic structured center aligned table">
+
         <thead>
           <tr>
             <th>Sl.No</th>
@@ -21,24 +22,17 @@
           </tr>
         </thead>
         <tbody>
+          {{#each jobs as |job index|}}
           <tr>
-            <td>1</td>
-            <td>System Admin</td>
-            <td>2</td>
-            <td>3</td>
+            <td>{{incrementone index}}</td>
+            <td>{{job.header}}</td>
+            <td>{{job.nofvaccancy}}</td>
+            <td>{{job.location}}</td>
             <td>
-              {{#link-to 'dashboard.recruit-mgt.job'  class="ui oxy tiny blue button"}}Open {{/link-to}}
+              {{#link-to 'dashboard.recruit-mgt.job.view' job  class="ui oxy tiny blue button"}}Open {{/link-to}}
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Designer</td>
-            <td>1</td>
-            <td>4</td>
-            <td>
-              {{#link-to 'dashboard.recruit-mgt.job'  class="ui oxy tiny blue button"}}Open {{/link-to}}
-            </td>
-          </tr>
+      {{/each}}
 
         </tbody>
       </table>
@@ -55,13 +49,13 @@
 
       <div class="inline field">
         <label class="l1">Job Title</label>:
-
         <div class="ui   input">
-          {{input type="text"   }}
+          {{input type="text"  value=header }}
         </div>
       </div>
+
       <div class="inline field">
-        <label class="l1">Salary</label>:
+        <label class="l1">Description</label>:
         <div class="ui input">
           {{input type="number"  }}
         </div>
@@ -72,6 +66,24 @@
         </div>
         <label class="l1" style="width:45%;float:right">Description :</label>
 
+
+          {{input type="text" value=desc  }}
+        </div>
+      </div>
+      <div class="inline field">
+        <label class="l1">Salary</label>:
+        <div class="ui input">
+          {{input type="number" value=salary  }}
+        </div>
+      </div>
+      <div class="inline field">
+        <label class="l1">Skills Required</label>:
+        <div class="ui  input">
+          {{input type="text"   value=skills}}
+        </div>
+      </div>
+
+      <div class="inline field">
       </div>
     </div>
 
@@ -81,20 +93,20 @@
       <div class="inline field">
         <label class="l1">No.of Vacancies</label>:
         <div class="ui   input">
-          {{input type="number"   }}
+          {{input type="number" value=nofvaccancy  }}
         </div>
       </div>
       <div class="inline field">
         <label class="l1">Location</label>:
         <div class="ui input">
-          {{input type="text"  }}
+          {{input type="text"  value=location }}
         </div>
       </div>
     </div>
     <div class="ui divider">
 
     </div>
-    <div class="ui oxy tiny blue button">Save</div>
+    <div class="ui oxy tiny blue button" {{action "createJob"}}>Save </div>
     <div class="ui oxy tiny  button">Cancel</div>
 
     </div>
@@ -102,7 +114,6 @@
 
     </div>
   </div>
-</div>
 </div>
 {{initialize-semanticuitabs}}
 

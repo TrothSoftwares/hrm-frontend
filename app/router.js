@@ -17,7 +17,9 @@ Router.map(function() {
     this.route('adminleave');
     this.route('attendance');
     this.route('recruit-mgt', function() {
-      this.route('job');
+      this.route('job' ,{path: ':id'} , function(){
+        this.route('view');
+      });
     });
     this.route('salary-mgt', function() {
       this.route('employee' , {path: ':id'}, function() {
@@ -28,6 +30,11 @@ Router.map(function() {
   });
   this.route('employee', function() {
     this.route('dashboard', function() {
+      this.route('recruit-mgt', function() {
+        this.route('job', function() {
+          this.route('view');
+        });
+      });
     });
   });
   this.route('login');
@@ -37,4 +44,8 @@ export default Router;
 
 //
 
+
 // begins work on 25 of august after stopping works on july 10th for marriage purpose. After marriage works are going good so far.
+
+
+// Todo Things after recruit module wind up

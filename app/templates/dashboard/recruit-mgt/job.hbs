@@ -1,1 +1,162 @@
+<div class="content-section pusher-in">
+<div class="ui grid">
+  <div class="five wide column">
+    <div class="ui dividing oxy header">Applicants</div>
+
+    <table class="ui very basic structured center small aligned table">
+      <thead>
+        <tr>
+          <th>Sl.No</th>
+          <th>Empoyee ID</th>
+          <th>Empoyee</th>
+          <th></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2121</td>
+          <td>John Doe</td>
+          <td>
+            {{#link-to 'dashboard.recruit-mgt.job'  class="ui oxy mini blue button"}}Open {{/link-to}}
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>4545</td>
+          <td>Doe John</td>
+          <td>
+            {{#link-to 'dashboard.recruit-mgt.job'  class="ui oxy mini blue button"}}Open {{/link-to}}
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+  <div class="eleven wide column">
+
+
+
+<div class="viewjob">
+    <div class="ui grid">
+  <div class=" sixteen wide column">
+  <div class="ui dividing oxy header">Job Title: System Administrator</div>
+  </div>
+  <div class=" eight wide right aligned column">
+    <div class="ui small form">
+
+    <div class="inline field">
+      <label class="l1">Job Title</label>:
+      <div class="ui transparent  input">
+        {{input type="text" value="System Administrator"  }}
+      </div>
+    </div>
+    <div class="inline field">
+      <label class="l1">Salary</label>:
+      <div class="ui transparent input">
+        {{input type="number" value="25000" }}
+      </div>
+    </div>
+    <div class="inline field">
+      <div class="ui transparent"style="width:45%;float:right" >
+        <textarea style="padding:5px;margin:0px 0px 0px 7px" rows="5"></textarea>
+      </div>
+      <label class="l1" style="width:45%;float:right">Description :</label>
+
+    </div>
+  </div>
+
+  </div>
+  <div class=" eight wide right aligned column">
+    <div class="ui small form">
+    <div class="inline field">
+      <label class="l1">No.of Vacancies</label>:
+      <div class="ui  transparent input">
+        {{input type="number" value="2"  }}
+      </div>
+    </div>
+    <div class="inline field">
+      <label class="l1">Location</label>:
+      <div class="ui transparent input">
+        {{input type="text" value="Ernakulam" }}
+      </div>
+    </div>
+  </div>
+  <div class="ui divider">
+
+  </div>
+  <div class="ui oxy tiny blue button">Edit </div>
+  <div class="ui oxy tiny red button">Delete</div>
+
+  </div>
+
+</div>
+</div>
+
+<div class="editjob">
+
+  <div class="ui grid">
+<div class=" sixteen wide column">
+<div class="ui dividing oxy header">Edit Job</div>
+</div>
+  <div class=" eight wide right aligned column">
+    <div class="ui small form">
+
+    <div class="inline field">
+      <label class="l1">Job Title</label>:
+      <div class="ui   input">
+        {{input type="text" value="System Administrator"  }}
+      </div>
+    </div>
+    <div class="inline field">
+      <label class="l1">Salary</label>:
+      <div class="ui input">
+        {{input type="number" value="25000" }}
+      </div>
+    </div>
+    <div class="inline field">
+      <div class=""style="width:52%;float:right" >
+        <textarea style="padding:5px;margin:0px 0px 0px 7px" rows="5"></textarea>
+      </div>
+      <label class="l1" style="width:40%;float:right">Description :</label>
+
+    </div>
+    <div class="inline field">
+    </div>
+  </div>
+
+  </div>
+  <div class=" eight wide right aligned column">
+    <div class="ui small form">
+    <div class="inline field">
+      <label class="l1">No.of Vacancies</label>:
+      <div class="ui   input">
+        {{input type="number" value="2"  }}
+      </div>
+    </div>
+    <div class="inline field">
+      <label class="l1">Location</label>:
+      <div class="ui input">
+        {{input type="text" value="Ernakulam" }}
+      </div>
+    </div>
+  </div>
+  <div class="ui divider">
+
+  </div>
+  <div class="ui oxy tiny blue button">Save</div>
+  <div class="ui oxy tiny  button">Cancel</div>
+
+  </div>
+
+</div>
+</div>
+<div class="">
+
+</div>
+</div>
+</div>
+</div>
 {{outlet}}

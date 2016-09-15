@@ -27,6 +27,7 @@ Router.map(function() {
         this.route('edit');
       });
     });
+    this.route('analytics');
   });
   this.route('employee', function() {
     this.route('dashboard', function() {
@@ -35,6 +36,7 @@ Router.map(function() {
           this.route('view');
         });
       });
+      this.route('analytics');
     });
   });
   this.route('login');

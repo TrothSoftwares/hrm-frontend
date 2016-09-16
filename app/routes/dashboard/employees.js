@@ -7,11 +7,11 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       employees: this.store.findAll('employee' ,{reload :true})
     });
-
   },
 
   setupController: function(controller,model) {
     controller.set('employees',model.employees);
+    
   },
 
 });

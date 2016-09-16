@@ -45,9 +45,11 @@ export default Model.extend({
   salaries: hasMany('salary' ,{embedded: 'always', async:true}),
 
   jobs: hasMany('job'),
-  bids: hasMany('bid'), 
+  bids: hasMany('bid'),
 
   editemployee: attr('boolean', { defaultValue: false }),
+
+  
 
 
 

@@ -14,4 +14,10 @@ export default DS.Model.extend({
   presentdayscalc: Ember.computed('totaldays' , 'leavedays', function() {
       return parseInt(this.get('totaldays')) - parseInt(this.get('leavedays'));
   }),
+
+  presentdaysPercentage: Ember.computed('totaldays' , 'leavedays', function() {
+      var presentDays =  parseInt(this.get('totaldays')) - parseInt(this.get('leavedays'));
+      return Math.round((presentDays / parseInt(this.get('totaldays'))) * 100);
+  }),
+  
 });

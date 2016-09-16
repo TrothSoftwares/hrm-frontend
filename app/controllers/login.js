@@ -8,6 +8,13 @@ session: Ember.inject.service('session'),
   }),
 
   actions: {
+
+
+    // insertNewline: function() {
+    //     Ember.$('#id_button').click();
+    // },
+
+
     authenticate(){
       var controller = this;
         this.get('session').authenticate('authenticator:devise', this.get('email'), this.get('password')).catch(function(){
@@ -20,7 +27,7 @@ session: Ember.inject.service('session'),
         });
     },
 
-    
+
 
   }
 });

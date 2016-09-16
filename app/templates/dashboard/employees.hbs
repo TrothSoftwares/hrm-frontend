@@ -1,7 +1,7 @@
 
 <div class="pusher-in">
   <div class="ui top fixed menu tf-head">
-  <div class="ui header h-item" {{action "getcurrentpath"}}>
+  <div class="ui header oxy h-item" {{action "getcurrentpath"}}>
     Employee Management
   </div>
 </div>
@@ -10,13 +10,13 @@
 <div class="content-section pusher-in">
   <div class="ui grid">
     <div class=" six wide column">
-      <div class="ui dividing header">All Employees</div>
+      <div class="ui dividing header oxy">All Employees</div>
       <div class="ui left icon input">
         <input type="text" placeholder="Search Employee...">
         <i class="users icon"></i>
       </div>
       {{#link-to 'dashboard.newemployee'}}
-      <div class="ui right floated tiny  button br0">
+      <div class="ui right floated tiny oxy button br0">
         <i class="plus icon"></i>
         Add New Employee
       </div>
@@ -49,7 +49,6 @@
       </table>
     </div>
     <div class=" ten wide column">
-      <div class="ui dividing header">Employee Stats</div>
 
       {{outlet}}
     </div>

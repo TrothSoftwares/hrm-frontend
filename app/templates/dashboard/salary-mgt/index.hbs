@@ -1,14 +1,13 @@
 <div class="content-section pusher-in">
   <div class="ui  grid">
-    <div class="twelve wide column">
-      <div class="ui dividing header">Employee Salary List</div>
+    <div class="sixteen wide column">
       <div class="ui left icon input">
-                 {{input type="text" placeholder="Search..." value=searchTerm }}
+                 {{input type="text" placeholder="Search Employee..." value=searchTerm }}
         <i class="users icon"></i>
       </div>
 
 
-      <table class="ui very celled  structured table">
+      <table class="ui  basic  structured center aligned table">
         <thead>
           <tr>
             <th>Sl.No</th>
@@ -27,8 +26,8 @@
             <td>{{incrementone index}}</td>
             <td>{{employee.firstname}}  {{employee.lastname}}</td>
             <td>{{employee.gross}}</td>
-            <td>{{#link-to 'dashboard.salary-mgt.employee.view'  employee.id }}
-            View
+            <td>{{#link-to 'dashboard.salary-mgt.employee.view' employee.id class='ui oxy tiny blue button'   }}
+            Open
             {{/link-to}}</td>
           </tr>
           {{/each}}

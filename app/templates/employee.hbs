@@ -5,7 +5,9 @@
   <div class="item" style="padding:8px 5px">
     <img src="/images/hr-logo.png" style="width:5em">
   </div>
-  <button class="ui mini right floated button br0" {{action "logout"}}>Log Out</button>
+  <div class="right item">
+    <button class="ui mini right floated basic button br0 oxy" {{action "logout"}}>Log Out</button>
+  </div>
 </div>
 
 <div class="ui bottom attached segment mb0" >
@@ -18,10 +20,14 @@
 </div>
   {{/light-box}}
   <div class="content">
-    <a class="header oxy">{{employee.firstname}}</a>
+    <a class="header oxy">{{employee.firstname}} {{employee.lastname}}</a>
     <div class="description">
       Designer
     </div>
+    <div class="description">
+      ID4144
+    </div>
+
   </div>
 
 </div>
@@ -173,17 +179,14 @@
 
 
     <div class="viewemployee" >
-      <div class="ht-sm">
-        <h4 class="ui left floated  header">Employee Details</h4>
 
-      </div>
     <div class="ui grid">
-      <div class="twelve wide  column">
+      <div class=" ui fourteen wide  column segment  ">
+        <h1 class="ui dividing header oxy">Basic Information</h1>
 
         <form class="ui  form">
-          <h4 class="ui dividing header">Personal Information</h4>
+          <h3 class="ui header oxy">Personal Information</h3>
           <div class="field">
-            <label>Name</label>
             <div class="two fields">
               <div class="field">
                 <label>First Name</label>
@@ -201,6 +204,9 @@
                 {{employee.lastname}}
               </div>
             </div>
+          </div>
+          <div class="ui divider">
+
           </div>
           <div class="two fields">
             <div class="field">
@@ -285,12 +291,8 @@
 
   </div>
   <div class="ui tab basic segment " data-tab="second">
-    <div class="ui accordion">
-      <div class=" title">
-        <i class="dropdown icon"></i>
-        {{employee.firstname}} {{employee.lastname}}
-      </div>
-      <div class=" content">
+    <h1 class="ui dividing header oxy">Attendance</h1>
+
         <table class="ui celled table">
           <thead>
             <tr>
@@ -320,9 +322,7 @@
         {{/if}}
       </tbody>
       </table>
-      </div>
 
-    </div>
 
 
 
@@ -334,21 +334,11 @@
     <div class="content-section pusher-in">
       <div class="ui grid  form">
         <div class="ui sixteen wide column">
-          <div class="ui dividing header">
-            Salary Details
-          </div>
+          <h1 class="ui dividing header oxy">Salary Details</h1>
+
           <div class=" ui grid">
-            <div class="three wide column">
-              <div class="ui inline field">
-                <label class="l1">Employee ID</label>:
-                <label class="l2"> {{employee.id}} </label>
-              </div>
-              <div class="ui inline field">
-                <label class="l1">Employee Name</label>:
-                <label class="l2"> {{employee.firstname}} {{employee.lastname}}</label>
-              </div>
-            </div>
-            <div class="six wide right aligned column">
+
+            <div class="eight wide right aligned column">
               <div class="inline field">
                 <label class="l1">Basic</label>:
 
@@ -408,7 +398,7 @@
 
 
             </div>
-            <div class="five wide right aligned column">
+            <div class="eight wide right aligned column">
               <div class="inline field">
                 <label class="l1">Provident Fund</label>:
                 <div class="ui transparent input">
@@ -457,6 +447,7 @@
   </div>
 
   <div class="ui tab basic segment " data-tab="fourth">
+
 
     <div class="ui top attached tabular menu">
       <!-- <a class="active item" data-tab="fifth">Pending Leaves</a>
@@ -576,6 +567,7 @@
 
   </div>
   <div class="ui tab basic segment " data-tab="fifth">
+    <h1 class="ui dividing header oxy">Jobs </h1>
 
     <div class="ui cards">
     <div class="card">

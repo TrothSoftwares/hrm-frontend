@@ -1,9 +1,9 @@
 <div class="pusher-in">
   <div class="ui top fixed menu tf-head">
-  <div class="ui header oxy h-item" >
-    Attendance Management
+    <div class="ui header oxy h-item" >
+      Attendance Management
+    </div>
   </div>
-</div>
 </div>
 
 <div class="content-section pusher-in">
@@ -12,69 +12,80 @@
     <table class="ui very basic structured center aligned table widthfix">
       <thead>
         <tr>
-        <th>ID</th>
-        <th>Employee Name</th>
-        <th>Total</th>
-        <th>Leave</th>
-        <th>Present</th>
-        <th></th>
+          <th>ID</th>
+          <th>Employee Name</th>
+          <th>Total</th>
+          <th>Leave</th>
+          <th>Present</th>
+          <th></th>
         </tr>
       </thead>
 
       <tbody>
         {{#each employees as |employee index|}}
         <tr>
-        {{#if (eq employee.editemployee false)}}
-        <td>{{incrementone index}}</td>
-        <td>{{employee.firstname}} {{employee.lastname}}</td>
-        <td>{{employee.attendances.lastObject.totaldays}}</td>
-        <td>{{employee.attendances.lastObject.leavedays}}</td>
-        <td>{{employee.attendances.lastObject.presentdays}}</td>
-        <td><button class="ui fluid primary tiny button br0 oxy" {{action "editSalary" employee}}>Edit</button></td>
-        {{else}}
-        <td>{{incrementone index}}</td>
-        <td>{{employee.firstname}} {{employee.lastname}}</td>
-        <td>{{input type="text" value=employee.attendances.lastObject.totaldays }}</td>
-        <td>{{input type="text" value=employee.attendances.lastObject.leavedays }}</td>
-        <td>{{employee.attendances.lastObject.presentdayscalc}}</td>
-        <td><button class="ui fluid primary tiny button br0 oxy" {{action "saveSalary" employee}}>Save</button></td>
-        {{/if}}
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
+          {{#if (eq employee.editemployee  false)}}
+          <td>{{incrementone index}}</td>
+          <td>{{employee.firstname}} {{employee.lastname}}</td>
+          <td>{{employee.attendances.lastObject.totaldays}}</td>
+          <td>{{employee.attendances.lastObject.leavedays}}</td>
+          <td>{{employee.attendances.lastObject.presentdays}}</td>
+          <td><button class="ui fluid primary tiny button br0 oxy" {{action "editSalary" employee}}>Edit</button></td>
+          <td><button class="ui fluid primary tiny button br0 oxy" {{action "viewHistory" employee}}>View History</button></td>
+          <td>
+
+            <div class="ui modal modal_{{employee.id}}">
+              <i class="close icon"></i>
+              <div class="header">
+                Profile Picture
+              </div>
+              <div class="image content">
 
 
-  <div class="ui grid  form">
 
-          {{#each employees as |employee index|}}
+                <table class="ui very basic structured center aligned table widthfix">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Employee Name</th>
+                      <th>Total</th>
+                      <th>Leave</th>
+                      <th>Present</th>
+                      <th></th>
+                    </tr>
+                  </thead>
 
-
-        <div class="ui accordion">
-          <div class=" title">
-            <i class="dropdown icon"></i>
-            {{employee.firstname}} {{employee.lastname}}
-          </div>
-          <div class=" content">
-            <table class="ui celled table">
-              <thead>
+                  <tbody>
+                {{#each employee.attendances as |attendance index|}}
                 <tr>
-                <th>ID</th>
-                <th>Employee Name</th>
-                <th>Total</th>
-                <th>Leave</th>
-                <th>Present</th>
-                <th></th>
+
+                  <td>{{incrementone index}}</td>
+                  <td>{{employee.firstname}} {{employee.lastname}}</td>
+                  <td>{{attendance.totaldays}}</td>
+                  <td>{{attendance.leavedays}}</td>
+                  <td>{{attendance.presentdays}}</td>
                 </tr>
-              </thead>
-              <tbody>
-            {{#if (eq employee.editemployee false)}}
-            <td>{{incrementone index}}</td>
-            <td>{{employee.firstname}} {{employee.lastname}}</td>
-            <td>{{employee.attendances.lastObject.totaldays}}</td>
-            <td>{{employee.attendances.lastObject.leavedays}}</td>
-            <td>{{employee.attendances.lastObject.presentdays}}  </td>
-            <td><button class="ui fluid primary tiny button br0 oxy" {{action "editSalary" employee}}>Edit</button></td>
+
+                  {{/each}}
+                </tbody>
+              </table>
+
+
+
+
+
+
+
+
+
+
+
+
+              </div>
+            </div>
+
+            </td>
+
             {{else}}
             <td>{{incrementone index}}</td>
             <td>{{employee.firstname}} {{employee.lastname}}</td>
@@ -83,16 +94,60 @@
             <td>{{employee.attendances.lastObject.presentdayscalc}}</td>
             <td><button class="ui fluid primary tiny button br0 oxy" {{action "saveSalary" employee}}>Save</button></td>
             {{/if}}
-          </tbody>
-          </table>
-          </div>
-
-        </div>
-
+          </tr>
           {{/each}}
+        </tbody>
+      </table>
 
-        </div>
-      </div>
+
+      <!-- <div class="ui grid  form">
+
+      {{#each employees as |employee index|}}
+
+
+      <div class="ui accordion">
+      <div class=" title">
+      <i class="dropdown icon"></i>
+      {{employee.firstname}} {{employee.lastname}}
+    </div>
+    <div class=" content">
+    <table class="ui celled table">
+    <thead>
+    <tr>
+    <th>ID</th>
+    <th>Employee Name</th>
+    <th>Total</th>
+    <th>Leave</th>
+    <th>Present</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+{{#if (eq employee.editemployee false)}}
+<td>{{incrementone index}}</td>
+<td>{{employee.firstname}} {{employee.lastname}}</td>
+<td>{{employee.attendances.lastObject.totaldays}}</td>
+<td>{{employee.attendances.lastObject.leavedays}}</td>
+<td>{{employee.attendances.lastObject.presentdays}}  </td>
+<td><button class="ui fluid primary tiny button br0 oxy" {{action "editSalary" employee}}>Edit</button></td>
+{{else}}
+<td>{{incrementone index}}</td>
+<td>{{employee.firstname}} {{employee.lastname}}</td>
+<td>{{input type="text" value=employee.attendances.lastObject.totaldays }}</td>
+<td>{{input type="text" value=employee.attendances.lastObject.leavedays }}</td>
+<td>{{employee.attendances.lastObject.presentdayscalc}}</td>
+<td><button class="ui fluid primary tiny button br0 oxy" {{action "saveSalary" employee}}>Save</button></td>
+{{/if}}
+</tbody>
+</table>
+</div>
+
+</div>
+
+{{/each}}
+
+</div> -->
+</div>
 </div>
 
 

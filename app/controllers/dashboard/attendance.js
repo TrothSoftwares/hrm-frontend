@@ -17,6 +17,9 @@ export default Ember.Controller.extend({
         attendance.set('presentdays',attendance.get('presentdayscalc'));
         attendance.save();
       });
+    },
+    viewHistory:function(employee){
+      Ember.$('.ui.modal_'+employee.id).modal('show');
     }
   }
 });

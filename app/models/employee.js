@@ -44,8 +44,8 @@ export default Model.extend({
   gross: attr('number'),
 
   grossComputed: Ember.computed('basic' , 'houserentallowance','adhoc','transport','misc','statbonus','provfund','proftax','incometax','essp','otherearningsnt' ,'oncallshiftallowance',function() {
-    return parseInt(this.get('basic')) +
-           parseFloat(this.get('houserentallowance')) +
+    return parseInt(this.get('basic'))  +
+           parseInt(this.get('houserentallowance'))+
            parseFloat(this.get('adhoc')) +
            parseFloat(this.get('transport')) +
            parseFloat(this.get('misc')) +

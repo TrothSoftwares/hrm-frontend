@@ -11,6 +11,7 @@ isSaveDisabled:'',
     saveEmployeeSalary:function(){
 
       var controller = this;
+      controller.set('employee.gross' , controller.get('employee.grossComputed'));
       controller.get('employee').save().then(function(){
         controller.notifications.addNotification({
           message: 'Saved !' ,
@@ -18,7 +19,7 @@ isSaveDisabled:'',
           autoClear: true
         });
         controller.transitionToRoute('dashboard.salary-mgt');
-        
+
       });
 
     }

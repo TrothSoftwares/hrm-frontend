@@ -10,9 +10,9 @@ session: Ember.inject.service('session'),
   actions: {
 
 
-    // insertNewline: function() {
-    //     Ember.$('#id_button').click();
-    // },
+    insertNewline: function() {
+        Ember.$('#id_button').click();
+    },
 
 
     authenticate(){

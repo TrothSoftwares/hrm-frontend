@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
 
   session: Ember.inject.service('session'),
   inputFormat:'DD/MM/YYYY',
-  
+
   actions:{
     createLeaveRoll:function(){
       var controller = this;
@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
        var employee = this.get('store').findRecord('employee', this.get('session.data.authenticated.employeeid'));
 
 
-       employee.then(function(empoyee){
+       employee.then(function(){
          var leaveroll = controller.store.createRecord('leaveroll',{
            employee:employee,
            fromdate: controller.get('fromdate'),
@@ -30,6 +30,26 @@ export default Ember.Controller.extend({
 
 
        });
+
+    },
+
+    applyJob:function(job){
+
+
+ var controller = this;
+
+
+ var newBid = controller.store.createRecord('bid',{
+
+  //  'job': job,
+  //  'employee': controller.get('session.data.authenticated.employeeid'),
+
+   job: 1,
+   employee: 1
+ }
+);
+
+newBid.save();
 
     }
 

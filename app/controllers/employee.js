@@ -34,24 +34,29 @@ export default Ember.Controller.extend({
     },
 
     applyJob:function(job){
-
-
  var controller = this;
 
+ // var currentUser = controller.store.findRecord('employee',controller.get('session.data.authenticated.employeeid'));
+ //
+ // job.get('employees').addObject(currentUser);
+ //
+ // currentUser.get('jobs').addObject(job);
 
- var newBid = controller.store.createRecord('bid',{
 
-  //  'job': job,
-  //  'employee': controller.get('session.data.authenticated.employeeid'),
 
-   job: 1,
-   employee: 1
- }
+
+var employee = controller.get('store').peekRecord('employee',controller.get('session.data.authenticated.employeeid'));
+
+ var newBid = controller.get('store').createRecord('bid',{
+   'uniq': 1,
+   'job': job,
+   'employee': employee,
+   }
 );
-
 newBid.save();
-
     }
+
+
 
   }
 });

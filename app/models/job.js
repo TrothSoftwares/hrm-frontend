@@ -10,8 +10,10 @@ skills: attr('string'),
 salary: attr('number'),
 nofvaccancy: attr('number'),
 location: attr('string'),
-employees: hasMany('employee'),
-bids: hasMany('bid'),
+
+
+employees: hasMany('employee' , {embedded: 'always', async:true}),
+bids: hasMany('bid' , {embedded: 'always', async:true}),
 
 
 

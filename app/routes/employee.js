@@ -25,6 +25,7 @@ model: function() {
 setupController: function(controller,model) {
 
   var route = this;
+  var employeeid = route.get('session.data.authenticated.employeeid').toString();
 
   controller.set('employee',model.employees);
   controller.set('jobs',model.jobs);
@@ -35,16 +36,21 @@ setupController: function(controller,model) {
     model.jobs.forEach(function(job){
 
       job.get('bids').then(function(bids){
+
+        var bidArray = [];
         bids.forEach(function(bid){
-          if(bid.get('employee.id') == route.get('session.data.authenticated.employeeid') ){
-            job.set('isApplicableText','Applied');
-            job.set('isApplicable','disabled');
-          }
-          else{
-            job.set('isApplicable','');
-            job.set('isApplicableText','Apply');
-          }
+          bidArray.push(bid.get('employee.id'));
         });
+
+          if(bidArray.indexOf(employeeid) > -1){
+                job.set('isApplicableText','Applied');
+                job.set('isApplicable','disabled');
+          }
+          else {
+                job.set('isApplicable','');
+                job.set('isApplicableText','Apply');
+          }
+
       });
     }));
 

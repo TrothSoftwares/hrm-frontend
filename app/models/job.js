@@ -26,7 +26,7 @@ bids: hasMany('bid' , {embedded: 'always', async:true}),
 //   });
 // },
 
-isApplicable: attr('bool', {default:'yes'}),
+isApplicable: attr('string'),
 
 
 

@@ -13,6 +13,7 @@
 body
 {
   font-family: Oxygen;
+  background: #eee;
 }
 .oxy
 {
@@ -103,4 +104,14 @@ height: 60px;
 .widthfix td
 {
   width: 20%;
+
+}
+.bgw
+{
+  background: #fff !important;
+}
+.tseg
+{
+  border: 1px solid #D4D4D5 !important;
+  border-top: none !important;
 }

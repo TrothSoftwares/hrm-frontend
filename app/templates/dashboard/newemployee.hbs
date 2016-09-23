@@ -95,7 +95,6 @@
           <div class="twelve wide field">
             <label>Temporary Address</label>
             {{textarea value=temporaryaddress cols="80" rows="6"}}
-
           </div>
           <div class="four wide field">
             <label>Permanent Address</label>
@@ -104,27 +103,24 @@
         </div>
       </div>
 
-      <div class="field">
-        <!-- showpassworddiv  {{showpassworddiv}} <br>
-        isPassword{{isPasswordOk}} -->
+      <!-- <div class="field">
         <label>User Role</label>
         <select onchange={{action "selectRole" value="target.value"}} class="form-control">
               {{#each roles as |roleChoice|}}
               <option value={{roleChoice}}>{{roleChoice}}</option>
               {{/each}}
             </select>
-      </div>
+      </div> -->
 
-      {{#if showpassworddiv}}
+
       <div class="field">
         <label>Password</label>
         {{input type="text" placeholder="Password" value=pass}}
       </div>
-      {{/if}}
+      
 
 
 <div class="ui divider"></div>
-
       <div class="ui button {{isSaveDisabled}}" tabindex="0" {{action "createEmployee"}}>Save</div>
     </form>
   </div>

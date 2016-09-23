@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import EmberUploader from 'ember-uploader';
 import ENV from '../../config/environment';
-import { Mixin } from 'ember-validations';
+
 
 
 

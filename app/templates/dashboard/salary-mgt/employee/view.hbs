@@ -1,11 +1,20 @@
 <div class="content-section pusher-in">
-  <div class="ui grid  form">
+  <div class="ui grid  form ">
     <div class="ui sixteen wide column">
-      <div class="ui dividing header">
+      <div class="ui basic segment bgw">
+      <div class="ui  header oxy">
         Salary Details
+        {{#link-to 'dashboard.salary-mgt.employee.edit'}}
+        <div class="ui  basic mini right floated  button ">
+          Edit
+        </div>
+        {{/link-to}}
+      </div>
+      <div class="ui divider">
+
       </div>
       <div class=" ui grid">
-        <div class="three wide column">
+        <div class="five wide column">
           <div class="ui inline field">
             <label class="l1">Employee ID</label>:
             <label class="l2"> {{employee.id}} </label>
@@ -111,16 +120,10 @@
             </div>
           </div>
         </div>
-        <div class="two wide column">
-          {{#link-to 'dashboard.salary-mgt.employee.edit'}}
-          <div class="ui fluid primary tiny   button br0">
-            Edit
-          </div>
-          {{/link-to}}
-          <br>
 
-        </div>
       </div>
+    </div>
+
     </div>
     <div class="four wide column">
 

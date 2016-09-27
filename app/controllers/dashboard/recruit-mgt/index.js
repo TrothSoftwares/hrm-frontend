@@ -2,11 +2,25 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+
+  isSaveDisabled: Ember.computed('header'  , 'nofvaccancy' , 'location' ,  function() {
+
+    if( Ember.isEmpty(this.get('header')) ||
+    Ember.isEmpty(this.get('nofvaccancy'))  ||
+    Ember.isEmpty(this.get('location'))
+
+  ){return 'disabled';}
+  else{return '';}
+  }),
+  
   actions:{
+
+
+
     createJob:function(){
 
 
-console.log("sdsdf");
+
       var controller = this;
       var job= controller.store.createRecord('job',{
         header: controller.get('header'),

@@ -173,13 +173,9 @@
         </div>
       </div>
     </div>
-
     </div>
 
-
-
     <div class="viewemployee" >
-
     <div class="ui grid">
       <div class=" ui fourteen wide  column segment  ">
         <h1 class="ui dividing header oxy">Basic Information</h1>
@@ -194,29 +190,23 @@
               </div>
               <div class="field">
                 <label>Middle Name</label>
-
                 {{employee.middlename}}
-
               </div>
               <div class="field">
                 <label>Last Name</label>
-
                 {{employee.lastname}}
               </div>
             </div>
           </div>
           <div class="ui divider">
-
           </div>
           <div class="two fields">
             <div class="field">
               <label>Email</label>
-
               {{employee.email}}
             </div>
             <div class="field">
               <label>Contact</label>
-
               {{employee.contact}}
             </div>
           </div>
@@ -255,11 +245,8 @@
             <div class="field">
               <label>Date of Birth</label>
     {{ moment-format employee.dob inputFormat}}<
-
             </div>
           </div>
-
-
           <h4 class="ui dividing header">Address</h4>
           <div class="field">
             <div class="fields">
@@ -274,25 +261,15 @@
               </div>
             </div>
           </div>
-
     <div class="ui divider"></div>
-
-
         </form>
       </div>
-
-
     </div>
     </div>
-
-
-
     </div>
-
   </div>
   <div class="ui tab basic segment " data-tab="second">
     <h1 class="ui dividing header oxy">Attendance</h1>
-
         <table class="ui celled table">
           <thead>
             <tr>
@@ -301,7 +278,6 @@
             <th>Total</th>
             <th>Leave</th>
             <th>Present</th>
-
             </tr>
           </thead>
           <tbody>
@@ -311,7 +287,6 @@
         <td>{{employee.attendances.lastObject.totaldays}}</td>
         <td>{{employee.attendances.lastObject.leavedays}}</td>
         <td>{{employee.attendances.lastObject.presentdays}}</td>
-
         {{else}}
         <td>{{incrementone index}}</td>
         <td>{{employee.firstname}} {{employee.lastname}}</td>
@@ -568,59 +543,26 @@
   </div>
   <div class="ui tab basic segment " data-tab="fifth">
     <h1 class="ui dividing header oxy">Jobs </h1>
-
     <div class="ui cards">
+      {{#each jobs as |job|}}
     <div class="card">
       <div class="content">
-        <div class="header oxy">Developer</div>
+        <div class="header oxy">{{job.header}}</div>
       </div>
       <div class="content">
-        <div class="meta">Salary : 25000</div>
-        <div class="meta">Vacancies : 3</div>
-        <div class="meta">Location : Ernakulam</div>
+        <div class="meta">Salary : {{job.salary}}</div>
+        <div class="meta">Vacancies : {{job.nofvaccancy}}</div>
+        <div class="meta">Location : {{job.location}}</div>
+
         <div class="description">
-          Job Description goes here.Job Description goes here.Job Description goes here.
-          Job Description goes here.
+          {{job.desc}}
         </div>
       </div>
       <div class="extra content">
-        <div class="ui basic green button">Apply</div>
+        <div class="ui basic green button {{job.isApplicable}}" {{action "applyJob" job}}>{{job.isApplicableText}}</div>
       </div>
     </div>
-    <div class="card">
-      <div class="content">
-        <div class="header oxy">System Admin</div>
-      </div>
-      <div class="content">
-        <div class="meta">Salary : 20000</div>
-        <div class="meta">Vacancies : 1</div>
-        <div class="meta">Location : Ernakulam</div>
-        <div class="description">
-          Job Description goes here.Job Description goes here.Job Description goes here.
-          Job Description goes here.
-        </div>
-      </div>
-      <div class="extra content">
-        <div class="ui basic green button">Apply</div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="content">
-        <div class="header oxy">Designer</div>
-      </div>
-      <div class="content">
-        <div class="meta">Salary : 15000</div>
-        <div class="meta">Vacancies : 2</div>
-        <div class="meta">Location : Ernakulam</div>
-        <div class="description">
-          Job Description goes here.Job Description goes here.Job Description goes here.
-          Job Description goes here.
-        </div>
-      </div>
-      <div class="extra content">
-        <div class="ui basic green button">Apply</div>
-      </div>
-    </div>
+    {{/each}}
 
   </div>
 

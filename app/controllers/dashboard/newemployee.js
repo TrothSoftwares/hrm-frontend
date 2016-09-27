@@ -43,6 +43,8 @@ export default Ember.Controller.extend({
 
   */
   employee:'',
+  designation:'',
+  showpassworddiv :false,
 
 
 
@@ -64,13 +66,32 @@ export default Ember.Controller.extend({
   @param {String} firstname
   */
 
-  isSaveDisabled: Ember.computed('firstname'  ,  function() {
-    if( Ember.isEmpty(this.get('firstname'))
+  isSaveDisabled: Ember.computed('firstname'  , 'lastname' , 'email', 'dob', 'designation' ,'department', 'gender', 'maritialstatus','role', 'isPasswordOk' ,  function() {
+
+    if( Ember.isEmpty(this.get('firstname')) ||
+    Ember.isEmpty(this.get('lastname')) ||
+    Ember.isEmpty(this.get('email')) ||
+    Ember.isEmpty(this.get('dob')) ||
+    Ember.isEmpty(this.get('designation')) ||
+    Ember.isEmpty(this.get('department')) ||
+    Ember.isEmpty(this.get('gender')) ||
+    Ember.isEmpty(this.get('maritialstatus')) ||
+    Ember.isEmpty(this.get('role')) ||
+    this.get('isPasswordOk') === true
 
   ){return 'disabled';}
   else{return '';}
 }),
 
+
+isPasswordOk: Ember.computed('showpassworddiv', function(){
+  if(this.get('showpassworddiv') === true ){
+    return true;
+  }
+  if(this.get('showpassworddiv') ===false){
+    return false;
+  }
+}),
 
 actions:{
 
@@ -118,7 +139,16 @@ actions:{
   @param {Object} role
   */
   selectRole:function(role){
+
     this.set('role',role);
+
+    if(role === 'Employee'){
+      this.set('showpassworddiv' , true);
+    }
+    if(role === 'Admin' || role === 'Select Role'){
+      this.set('showpassworddiv' , false);
+    }
+
   },
 
 
@@ -185,7 +215,7 @@ actions:{
 
 
   /**
-   Uploads profile picture
+  Uploads profile picture
   @method uploadProfilePic
   @param {Object} params.files files which are sent via input
   @param {Object} employee employee object created

@@ -29,7 +29,7 @@
             <td>{{job.nofvaccancy}}</td>
             <td>{{job.location}}</td>
             <td>
-              {{#link-to 'dashboard.recruit-mgt.job.view' job  class="ui oxy tiny blue button"}}Open {{/link-to}}
+              {{#link-to 'dashboard.recruit-mgt.job.view' job  }}Open {{/link-to}}
             </td>
           </tr>
       {{/each}}
@@ -92,8 +92,8 @@
     <div class="ui divider">
 
     </div>
-    <div class="ui oxy tiny blue button" {{action "createJob"}}>Save </div>
-    <div class="ui oxy tiny  button">Cancel</div>
+    <span class="tbtn {{isSaveDisabled}}" {{action "createJob"}}>Save </span> | 
+    <span class="tbtn">Cancel</span>
 
     </div>
     <div class=" four wide right aligned column">

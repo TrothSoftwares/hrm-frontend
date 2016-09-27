@@ -103,11 +103,10 @@
           </div>
         </div>
       </div>
+
       <div class="field">
-        <label>Password</label>
-        {{input type="text" placeholder="Password" value=pass}}
-      </div>
-      <div class="field">
+        <!-- showpassworddiv  {{showpassworddiv}} <br>
+        isPassword{{isPasswordOk}} -->
         <label>User Role</label>
         <select onchange={{action "selectRole" value="target.value"}} class="form-control">
               {{#each roles as |roleChoice|}}
@@ -115,6 +114,13 @@
               {{/each}}
             </select>
       </div>
+
+      {{#if showpassworddiv}}
+      <div class="field">
+        <label>Password</label>
+        {{input type="text" placeholder="Password" value=pass}}
+      </div>
+      {{/if}}
 
 
 <div class="ui divider"></div>

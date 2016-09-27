@@ -179,10 +179,9 @@
 <div class="ui grid">
   <div class="twelve wide  column">
 
-    <form class="ui  form ">
-      <h4 class="ui dividing header">Personal Information</h4>
+    <form class="ui  form blform ">
+      <h4 class="ui dividing header oxy">Personal Information</h4>
       <div class="field">
-        <label>Name</label>
         <div class="two fields">
           <div class="field">
             <label>First Name</label>
@@ -203,6 +202,35 @@
       </div>
       <div class="two fields">
         <div class="field">
+          <label>Gender</label>
+                        {{employee.gender}}
+        </div>
+        <div class="field">
+          <label>Maritial Status</label>
+
+              {{employee.maritialstatus}}
+        </div>
+        <div class="field">
+          <label>Date of Birth</label>
+{{ moment-format employee.dob inputFormat}}<
+
+        </div>
+      </div>
+      <div class="field">
+        <div class="fields">
+          <div class="eight wide field">
+            <label>Temporary Address</label>
+            {{employee.temporaryaddress}}
+          </div>
+          <div class="eight wide field">
+            <label>Permanent Address</label>
+
+            {{employee.permenantaddress}}
+          </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
           <label>Email</label>
 
           {{employee.email}}
@@ -213,6 +241,8 @@
           {{employee.contact}}
         </div>
       </div>
+      <h4 class="ui dividing header oxy">Company Profile</h4>
+
       <div class="two fields">
         <div class="field">
           <label>Designation</label>
@@ -235,38 +265,10 @@
           {{employee.location}}
         </div>
       </div>
-      <div class="two fields">
-        <div class="field">
-          <label>Gender</label>
-                        {{employee.gender}}
-        </div>
-        <div class="field">
-          <label>Maritial Status</label>
-
-              {{employee.maritialstatus}}
-        </div>
-        <div class="field">
-          <label>Date of Birth</label>
-{{ moment-format employee.dob inputFormat}}<
-
-        </div>
-      </div>
 
 
-      <h4 class="ui dividing header">Address</h4>
-      <div class="field">
-        <div class="fields">
-          <div class="twelve wide field">
-            <label>Temporary Address</label>
-            {{employee.temporaryaddress}}
-          </div>
-          <div class="four wide field">
-            <label>Permanent Address</label>
 
-            {{employee.permenantaddress}}
-          </div>
-        </div>
-      </div>
+
 
 <div class="ui divider"></div>
 

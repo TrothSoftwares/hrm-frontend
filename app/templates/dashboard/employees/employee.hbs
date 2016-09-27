@@ -5,6 +5,7 @@
     <h4 class="ui left floated oxy header">Edit Employee</h4>
     <div class="ui mini right floated primary button br0 {{isSaveDisabled}}" tabindex="0" {{action "saveEmployee"}}>Save</div>
     <button class="ui mini right floated button br0" {{action "flipview"}}>Cancel</button>
+    <button class="ui mini right floated button br0" {{action "deleteEmployee" employee}}>Delete</button>
   </div>
 
   <div class="ui grid">
@@ -42,7 +43,7 @@
       <div class="two fields">
         <div class="field">
           <label>Designation</label>
-          <select onchange={{action "selectDesignation" value="target.value"}} class="form-control">
+              <select onchange={{action "selectDesignation" value="target.value"}} class="form-control">
                 {{#each designations as |designationChoice|}}
                 <option value={{designationChoice}} selected={{eq employee.designation designationChoice}}>{{designationChoice}}</option>
                 {{/each}}

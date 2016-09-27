@@ -58,4 +58,18 @@ export default Router;
 3. Get Month of attendance
 scenario 1.if the attendance record is to be created on this month then the date of month will be this month
 2. Else
+
+3. Delete employee,
+
+Delete:
+1. User with id
+2.attendances
+3. bids
+4.Leave rolls
+5.
+
+
+
+
+
 */

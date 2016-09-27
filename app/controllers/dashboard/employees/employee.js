@@ -5,6 +5,7 @@ import ENV from '../../../config/environment';
 
 
 
+
 /**
 * Route to create New Employee
 @module employeeEmployeeController
@@ -13,6 +14,8 @@ import ENV from '../../../config/environment';
 
 
 export default Ember.Controller.extend({
+
+  ajax: Ember.inject.service(),
 
   /**
   Property injected to supply token , which should be attached with file upload via ember-cli-upload
@@ -110,6 +113,37 @@ actions:{
             Ember.$('.editemployee').transition('fade');
             Ember.$('.viewemployee').transition('fade');
     });
+
+  },
+
+  deleteEmployee:function(employee){
+    var controller = this
+
+    var confirm = window.confirm("Are you sure want to delete?")
+
+    if(confirm){
+
+
+      // employee.get('leaverolls').each(function(leaveroll){
+      //   leaveroll.destroyRecord();
+      // }).then(function(){
+      //   employee.get('bids').each(function(bid){
+      //     bid.destroyRecord();
+      //   }).then(function(){
+      //     employee.get('attendances').each(function(attendance){
+      //       attendance.destroyRecord();
+      //     });
+      //   });
+      // });
+
+      controller.get('ajax').request(ENV.APP.host + '/users/5', {
+              method: 'DELETE',
+
+            });
+
+
+
+    }
 
   },
 

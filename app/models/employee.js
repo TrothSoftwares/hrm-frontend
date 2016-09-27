@@ -29,19 +29,19 @@ export default Model.extend({
   role: attr('string'),
 
 
-  basic: attr('number'),
-  houserentallowance: attr('number'),
-  adhoc: attr('number'),
-  transport: attr('number'),
-  misc: attr('number'),
-  statbonus: attr('number'),
-  provfund: attr('number'),
-  proftax: attr('number'),
-  incometax: attr('number'),
-  essp: attr('number'),
-  otherearningsnt: attr('number'),
-  oncallshiftallowance: attr('number'),
-  gross: attr('number'),
+  basic: attr('number' , {default:0}),
+  houserentallowance: attr('number' , {default:0}),
+  adhoc: attr('number' , {default:0}),
+  transport: attr('number' , {default:0}),
+  misc: attr('number' , {default:0}),
+  statbonus: attr('number' , {default:0}),
+  provfund: attr('number' , {default:0}),
+  proftax: attr('number' , {default:0}),
+  incometax: attr('number' , {default:0}),
+  essp: attr('number' , {default:0}),
+  otherearningsnt: attr('number' , {default:0}),
+  oncallshiftallowance: attr('number' , {default:0}),
+  gross: attr('number' , {default:0}),
 
   grossComputed: Ember.computed('basic' , 'houserentallowance','adhoc','transport','misc','statbonus','provfund','proftax','incometax','essp','otherearningsnt' ,'oncallshiftallowance',function() {
     return parseInt(this.get('basic'))  +

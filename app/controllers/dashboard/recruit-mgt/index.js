@@ -1,4 +1,4 @@
-import Ember from 'ember';
+  import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
@@ -12,7 +12,10 @@ export default Ember.Controller.extend({
   ){return 'disabled';}
   else{return '';}
   }),
-  
+
+  allActive:'active', // propety added to make tabs active
+  addActive:'',
+
   actions:{
 
 
@@ -34,12 +37,22 @@ export default Ember.Controller.extend({
       });
 
       job.save().then(function(){
+
+        controller.notifications.addNotification({
+          message: 'Job Created !' ,
+          type: 'success',
+          autoClear: true
+        });
         controller.set('header','');
         controller.set('desc','');
         controller.set('skills','');
         controller.set('salary','');
         controller.set('nofvaccancy','');
         controller.set('location','');
+
+        controller.set('addActive','');
+        controller.set('allActive','active');
+
       });
 
     }

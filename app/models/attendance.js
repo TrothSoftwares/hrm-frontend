@@ -10,6 +10,7 @@ export default DS.Model.extend({
   presentdays: attr('number'),
   status: attr('string'),
   comments: attr('string'),
+  updatedat: attr('date'),
 
   presentdayscalc: Ember.computed('totaldays' , 'leavedays', function() {
       return parseInt(this.get('totaldays')) - parseInt(this.get('leavedays'));
@@ -19,5 +20,5 @@ export default DS.Model.extend({
       var presentDays =  parseInt(this.get('totaldays')) - parseInt(this.get('leavedays'));
       return Math.round((presentDays / parseInt(this.get('totaldays'))) * 100);
   }),
-  
+
 });

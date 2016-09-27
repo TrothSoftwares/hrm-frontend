@@ -40,14 +40,14 @@ export default Ember.Route.extend({
 
 
     controller.set('chartData',    [{
-
+      
       data: [{
         name: '0-25 %',
         y: arr25.length
       }, {
         name: '25-50 %',
         y: arr50.length,
-        
+
       }, {
         name: '50-75 %',
         y: arr75.length,

@@ -47,7 +47,7 @@
             <div class="ui modal modal_{{employee.id}}">
               <i class="close icon"></i>
               <div class="header">
-                Profile Picture
+                Attendance History
               </div>
               <div class="image content">
                 <table class="ui very basic structured center aligned table widthfix">
@@ -58,9 +58,7 @@
                       <th>Total</th>
                       <th>Leave</th>
                       <th>Present</th>
-                      <th></th>
-                      <th></th>
-
+                      <th>Month</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -71,6 +69,7 @@
                       <td>{{attendance.totaldays}}</td>
                       <td>{{attendance.leavedays}}</td>
                       <td>{{attendance.presentdays}}</td>
+                      <td>{{moment-format attendance.updatedat outputFormat}}</td>
                     </tr>
                     {{/each}}
                   </tbody>

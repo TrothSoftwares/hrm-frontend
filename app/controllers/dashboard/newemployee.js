@@ -5,6 +5,7 @@ import ENV from '../../config/environment';
 
 
 
+
 /**
 * Route to create New Employee
 @module newEmployeeController
@@ -12,6 +13,9 @@ import ENV from '../../config/environment';
 */
 
 export default Ember.Controller.extend({
+
+
+
   session: Ember.inject.service('session'),
 
 
@@ -48,8 +52,8 @@ export default Ember.Controller.extend({
 
 
 
-  designations:["Select Designation", "Developer" , "Designer", "Manager" , "Accounts Mangager"],
-  departments:["Select Departments", "Production", "R&D","Purchasing","Marketing","Human Resource", "Accounts", "Finance"],
+  designations:["Select Designation", "Developer" , "Designer", "Manager" , "Accounts Manager"],
+  departments:["Select Department", "Production", "R&D","Purchasing","Marketing","Human Resource", "Accounts", "Finance"],
   genders:["Select Gender" , "Male", "Female"],
   maritials:["Select Maritial Status", "Married", "Single"],
   roles:["Select Role", "Admin", "Employee"],
@@ -66,18 +70,22 @@ export default Ember.Controller.extend({
   @param {String} firstname
   */
 
-  isSaveDisabled: Ember.computed('firstname'  , 'lastname' , 'email', 'dob', 'designation' ,'department', 'gender', 'maritialstatus','role', 'isPasswordOk' ,  function() {
+  isSaveDisabled: Ember.computed('firstname'  , 'lastname' , 'email', 'dob',  'pass', 'designation' ,'department', 'gender', 'maritialstatus' ,  function() {
+
+
 
     if( Ember.isEmpty(this.get('firstname')) ||
     Ember.isEmpty(this.get('lastname')) ||
     Ember.isEmpty(this.get('email')) ||
     Ember.isEmpty(this.get('dob')) ||
-    Ember.isEmpty(this.get('designation')) ||
-    Ember.isEmpty(this.get('department')) ||
-    Ember.isEmpty(this.get('gender')) ||
-    Ember.isEmpty(this.get('maritialstatus')) ||
-    Ember.isEmpty(this.get('role')) ||
-    this.get('isPasswordOk') === true
+    Ember.isEmpty(this.get('designation')) || Ember.isEqual(this.get('designation') , 'Select Designation')||
+    Ember.isEmpty(this.get('department')) || Ember.isEqual(this.get('department') , 'Select Department')||
+    Ember.isEmpty(this.get('gender')) || Ember.isEqual(this.get('gender') , 'Select Gender') ||
+    Ember.isEmpty(this.get('maritialstatus')) || Ember.isEqual(this.get('maritialstatus') , 'Select Select Maritial Status') ||
+    Ember.isEmpty(this.get('pass'))
+
+    // Ember.isEmpty(this.get('role')) ||
+    // this.get('showpassworddiv') === true
 
   ){return 'disabled';}
   else{return '';}
@@ -172,7 +180,25 @@ actions:{
       temporaryaddress :this.get('temporaryaddress'),
       permenantaddress :this.get('permenantaddress'),
       pass:this.get('pass'),
-      role:this.get('role'),
+      // role:this.get('role'),
+      role:'Employee',
+
+      basic:0,
+      houserentallowance:0,
+      adhoc:0,
+      transport:0,
+      misc:0,
+      statbonus:0,
+      provfund:0,
+      proftax:0,
+      incometax:0,
+      essp:0,
+      otherearningsnt:0,
+      oncallshiftallowance:0,
+      gross:0
+
+
+
     });
 
     employee.save().then(function(employee){
@@ -193,6 +219,7 @@ actions:{
       controller.set('role','');
       controller.set('pass','');
 
+
       controller.set('isImageuploadingvisible',true);
 
       controller.set('employee',employee);
@@ -200,7 +227,7 @@ actions:{
 
 
 
-      // controller.transitionToRoute('dashboard.employees');
+      controller.transitionToRoute('dashboard.employees');
     }).catch(function(){
       controller.notifications.addNotification({
         message: 'Sorry, cant save at the moment !' ,

@@ -1,17 +1,10 @@
 <div class="ui visible vertical secondary bgw sidebar  labeled icon  menu oxy sidebar-or">
 
-  <div class="ui  card br0">
-    <div class="content">
-      <img class="ui avatar image" src="/images/matthew.png"> {{userEmail}}
-      <div class="ui divider"></div>
-      <div class="description">
-        <span class="ui right floated mini button br0 oxy" {{action "logout"}}>Logout</span>
-      </div>
-    </div>
-  </div>
-  <div class=" item">
+
+  <div class=" item" style="    padding: 0px 0.92857143em;">
     <img src="/images/hr.png" alt="" />
   </div>
+
   {{#link-to 'dashboard.index'  class="item"}}
       <i class="home icon" ></i>
       Home
@@ -53,6 +46,9 @@
     Analytics
     {{/link-to}}
 
+    <div class="lobtn">
+      <span class="ui  basic fluid mini button  oxy" {{action "logout"}}>Logout</span>
+    </div>
     <!--
   <div class="item">
     Analytics <i class="line chart icon" ></i>

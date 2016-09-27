@@ -12,7 +12,8 @@
     <div class=" six wide column">
       <div class="ui dividing header oxy">All Employees</div>
       <div class="ui left icon input">
-        <input type="text" placeholder="Search Employee...">
+
+        {{input type="text" placeholder="Search Employee..." value=searchTerm }}
         <i class="users icon"></i>
       </div>
       {{#link-to 'dashboard.newemployee'}}
@@ -27,18 +28,16 @@
             <th>Sl.No</th>
             <th>Name</th>
             <th>Designation</th>
-            <th>Status</th>
-            <th></th>
+             <th></th>
           </tr>
         </thead>
         <tbody>
-          {{#each employees as |employee index|}}
+          {{#each matchingEmployeeNames as |employee index|}}
           <tr>
             <td>{{incrementone index}}</td>
             <td>{{employee.firstname}}</td>
             <td>{{employee.designation}}</td>
-            <td>{{employee.status}}</td>
-            <td>
+             <td>
             <td>{{link-to "View"  'dashboard.employees.employee'  employee }}</td>
           </td>
           </tr>

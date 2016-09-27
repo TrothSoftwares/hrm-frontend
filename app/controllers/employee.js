@@ -9,6 +9,9 @@ export default Ember.Controller.extend({
 
 
 
+  
+
+
   actions:{
     createLeaveRoll:function(){
       var controller = this;

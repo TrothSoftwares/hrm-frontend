@@ -278,23 +278,23 @@
             <th>Total</th>
             <th>Leave</th>
             <th>Present</th>
+            <th>Month</th>
             </tr>
           </thead>
           <tbody>
-        {{#if (eq employee.editemployee false)}}
+            {{#each employee.attendances as |attendance index|}}
+            <tr>
         <td>{{incrementone index}}</td>
         <td>{{employee.firstname}} {{employee.lastname}}</td>
-        <td>{{employee.attendances.lastObject.totaldays}}</td>
-        <td>{{employee.attendances.lastObject.leavedays}}</td>
-        <td>{{employee.attendances.lastObject.presentdays}}</td>
-        {{else}}
-        <td>{{incrementone index}}</td>
-        <td>{{employee.firstname}} {{employee.lastname}}</td>
-        <td>{{input type="text" value=employee.attendances.lastObject.totaldays }}</td>
-        <td>{{input type="text" value=employee.attendances.lastObject.leavedays }}</td>
-        <td>{{employee.attendances.lastObject.presentdayscalc}}</td>
-        <td><button class="ui fluid primary tiny button br0 oxy" {{action "saveSalary" employee}}>Save</button></td>
-        {{/if}}
+        <td>{{attendance.totaldays}}</td>
+        <td>{{attendance.leavedays}}</td>
+        <td>{{attendance.presentdays}}</td>
+        <td>{{moment-format attendance.updatedat outputMonthFormat}}</td>
+      </tr>
+      {{/each}}
+
+
+
       </tbody>
       </table>
 

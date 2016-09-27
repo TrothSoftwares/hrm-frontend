@@ -50,7 +50,7 @@
                       <th>Total</th>
                       <th>Leave</th>
                       <th>Present</th>
-                      <th></th>
+                      <th>Month</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -61,6 +61,7 @@
                       <td>{{attendance.totaldays}}</td>
                       <td>{{attendance.leavedays}}</td>
                       <td>{{attendance.presentdays}}</td>
+                      <td>{{moment-format attendance.updatedat outputFormat}}</td>
                     </tr>
                     {{/each}}
                   </tbody>

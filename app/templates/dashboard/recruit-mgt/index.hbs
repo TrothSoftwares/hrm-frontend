@@ -1,10 +1,12 @@
 <div class="content-section pusher-in">
   <div class="ui  fluid tabular menu  oxy">
-    <a class="item active" data-tab="first">All Openings</a>
-    <a class="item" data-tab="second">Add New Job </a>
+    <!-- allActive: {{allActive}}<br>
+    addActive: {{addActive}} -->
+    <a class="item {{allActive}}" data-tab="first">All Openings</a>
+    <a class="item {{addActive}}" data-tab="second">Add New Job </a>
 
   </div>
-  <div class="ui active tab basic segment " data-tab="first">
+  <div class="ui {{allActive}} tab basic segment " data-tab="first">
 
   <div class="ui grid">
     <div class=" sixteen wide column">
@@ -39,7 +41,7 @@
     </div>
   </div>
 </div>
-<div class="ui  tab basic segment " data-tab="second">
+<div class="ui  {{addActive}} tab basic segment " data-tab="second">
   <div class="ui grid">
     <div class=" sixteen wide column">
     <div class="ui dividing oxy header"> Add New Job</div>
@@ -56,7 +58,7 @@
 
       <div class="inline field">
         <div class=""style="width:50%;float:right" >
-          <textarea style="padding:5px;margin:0px 0px 0px 7px" rows="5"></textarea>
+          {{textarea class="ui input" style="padding:5px;margin:0px 0px 0px 7px" rows="5" value=desc}}
         </div>
         <label class="l1" style="width:45%;float:right">Description :</label>
 
@@ -75,6 +77,14 @@
             {{input type="number" value=salary  }}
           </div>
         </div>
+
+        <div class="inline field">
+          <label class="l1">Skills Required</label>:
+          <div class="ui   input">
+            {{input type="text"   value=skills}}
+          </div>
+        </div>
+
 
       <div class="inline field">
         <label class="l1">No.of Vacancies</label>:

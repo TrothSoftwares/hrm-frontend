@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
 
   session: Ember.inject.service('session'),
   inputFormat:'DD/MM/YYYY',
+  outputMonthFormat:'MMMM',
 
 
 

@@ -52,7 +52,7 @@ export default Ember.Controller.extend({
 
 
 
-  designations:["Select Designation", "Developer" , "Designer", "Manager" , "Accounts Mangager"],
+  designations:["Select Designation", "Developer" , "Designer", "Manager" , "Accounts Manager"],
   departments:["Select Department", "Production", "R&D","Purchasing","Marketing","Human Resource", "Accounts", "Finance"],
   genders:["Select Gender" , "Male", "Female"],
   maritials:["Select Maritial Status", "Married", "Single"],
@@ -181,7 +181,7 @@ actions:{
       permenantaddress :this.get('permenantaddress'),
       pass:this.get('pass'),
       // role:this.get('role'),
-      role:this.get('employee'),
+      role:'Employee',
 
       basic:0,
       houserentallowance:0,

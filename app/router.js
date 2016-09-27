@@ -44,10 +44,18 @@ Router.map(function() {
 
 export default Router;
 
-//
+
 
 
 // begins work on 25 of august after stopping works on july 10th for marriage purpose. After marriage works are going good so far.
 
 
-// Todo Things after recruit module wind up
+//Todo this weekend
+
+/*
+1. Active tab select after Save
+2. Employee side attendance history view.
+3. Get Month of attendance
+scenario 1.if the attendance record is to be created on this month then the date of month will be this month
+2. Else
+*/

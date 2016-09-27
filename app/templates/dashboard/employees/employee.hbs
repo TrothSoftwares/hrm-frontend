@@ -124,18 +124,25 @@
           <img src="/images/load.gif" style="margin-top:10px;padding:15% 35%">
         <br>
         {{else}}
+
+        {{#if employee.fullurl}}
+
+
         {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
         <div class="image">
         <img src="{{employee.thumburl}}" class="pro-pic">
       </div>
         {{/light-box}}
+        {{else}}
+        <img src="/images/nil.jpg" style="">
+        {{/if}}
 
 
         {{/if}}
 
 
 
-      <div class="content">
+      <div class="content" style="overfow:hidden">
           {{file-upload   employee=employee on-upload=(action "uploadProfilePic")}}
       </div>
 
@@ -279,11 +286,16 @@
   <div class="four wide column">
     <div class="ui card br0">
 
+      {{#if employee.fullurl}}
       {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
       <div class="image">
       <img src="{{employee.thumburl}}" class="pro-pic">
     </div>
       {{/light-box}}
+      {{else}}
+      <img src="/images/nil.jpg" style="">
+      {{/if}}
+
 
 
 

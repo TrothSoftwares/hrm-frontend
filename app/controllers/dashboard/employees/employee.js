@@ -107,6 +107,8 @@ actions:{
             type: 'success',
             autoClear: true
           });
+            Ember.$('.editemployee').transition('fade');
+            Ember.$('.viewemployee').transition('fade');
     });
 
   },
@@ -173,7 +175,6 @@ Flips the view between div with class "viewemployee" and "editemployee"
         type: 'success',
         autoClear: true
       });
-      console.log(jqXHR + textStatus + errorThrown);
       controller.set('imageUploading',false);
     });
 

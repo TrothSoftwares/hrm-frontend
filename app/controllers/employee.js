@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
 
 
 
-  
+
 
 
   actions:{
@@ -27,6 +27,11 @@ export default Ember.Controller.extend({
           status: 'pending'
         });
         leaveroll.save().then(function(){
+          controller.notifications.addNotification({
+            message: 'Applied!' ,
+            type: 'success',
+            autoClear: true
+          });
           controller.set('fromdate','');
           controller.set('todate','');
           controller.set('comments','');

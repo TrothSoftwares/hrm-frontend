@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
+
 export default Ember.Route.extend({
 session: Ember.inject.service('session'),
 
@@ -9,7 +10,18 @@ model: function() {
   var route = this;
 
   return Ember.RSVP.hash({
-    employees: this.store.findRecord('employee' , this.get('session.data.authenticated.employeeid') ,{reload :true}),
+    employees: this.store.findRecord('employee' , this.get('session.data.authenticated.employeeid') ,{reload :true}).catch(function(){
+      route.notifications.addNotification({
+        message: 'Employee Not Found !' ,
+        type: 'error',
+        autoClear: true
+      });
+      route.get('session').invalidate();
+      route.transitionTo('login');
+
+    }
+
+    ),
     leaverolls: this.store.findAll('leaveroll' ,{reload: true}).then(function(leaverolls){
       return leaverolls.filter(function(item ){
         return item.get('employee.id') == route.get('session.data.authenticated.employeeid');

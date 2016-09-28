@@ -123,23 +123,33 @@ actions:{
 
     if(confirm){
 
+employee.destroyRecord().then(function(){
+  controller.notifications.addNotification({
+    message: 'Deleted !' ,
+    type: 'success',
+    autoClear: true
+  });
+  controller.transitionToRoute('dashboard.employees.index');
+});
+    //  var leaverolls = employee.get('leaverolls');
+    //  leaverolls.forEach(function(leaveroll){
+    //     leaveroll.destroyRecord().then(function(){
+    //       var bids =  employee.get('bids');
+    //       bids.forEach(function(bid){
+    //         bid.destroyRecord();
+    //       }).then(function(){
+    //         var attendances =  employee.get('attendances');
+    //         attendances.forEach(function(attendance){
+    //           attendance.destroyRecord();
+    //         });
+    //       });
+    //     });
+    //   });
 
-      // employee.get('leaverolls').each(function(leaveroll){
-      //   leaveroll.destroyRecord();
-      // }).then(function(){
-      //   employee.get('bids').each(function(bid){
-      //     bid.destroyRecord();
-      //   }).then(function(){
-      //     employee.get('attendances').each(function(attendance){
-      //       attendance.destroyRecord();
-      //     });
-      //   });
-      // });
-
-      controller.get('ajax').request(ENV.APP.host + '/users/5', {
-              method: 'DELETE',
-
-            });
+      // controller.get('ajax').request(ENV.APP.host + '/users/5', {
+      //         method: 'DELETE',
+      //
+      //       });
 
 
 

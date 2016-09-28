@@ -6,9 +6,18 @@ export default Ember.Route.extend({
   },
 
   setupController: function(controller ,model) {
-  controller.set('employee',model);  
-  }
+  controller.set('employee',model);
+},
 
+
+  actions: {
+    
+
+    reloadModel: function() {
+      this.refresh();
+    }
+
+  }
 
 
 

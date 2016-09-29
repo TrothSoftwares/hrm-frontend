@@ -11,17 +11,21 @@
   <div class="ui grid">
     <div class=" six wide column">
       <div class="ui dividing header oxy">All Employees</div>
-      <div class="ui left icon input">
+      <div class="ui mini form">
+      <div class="ui left icon  input">
 
         {{input type="text" placeholder="Search Employee..." value=searchTerm }}
         <i class="users icon"></i>
       </div>
-      {{#link-to 'dashboard.newemployee'}}
-      <div class="ui basic right floated mini oxy button ">
-        <i class="plus icon"></i>
-        Add New Employee
-      </div>
-      {{/link-to}}
+
+            {{#link-to 'dashboard.newemployee'}}
+            <div class="ui basic right floated mini oxy button ">
+              <i class="plus icon"></i>
+              Add New Employee
+            </div>
+            {{/link-to}}
+    </div>
+
       <table class="ui very basic structured  center aligned small table bgw">
         <thead>
           <tr>

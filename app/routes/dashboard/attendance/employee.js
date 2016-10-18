@@ -11,7 +11,6 @@ export default Ember.Route.extend({
 
 
   actions: {
-
     reloadModel: function() {
       this.refresh();
     }

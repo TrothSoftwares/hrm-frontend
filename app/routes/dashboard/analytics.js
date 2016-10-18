@@ -5,11 +5,13 @@ export default Ember.Route.extend({
   model: function() {
 
     return Ember.RSVP.hash({
-      attendances: this.store.findAll('attendance' ,{reload :true})
+      attendances: this.store.findAll('attendance' ,{reload :true}),
+      employees: this.store.findAll('employee' ,{reload :true})
     });
   },
   setupController: function(controller,model) {
     controller.set('attendances',model.attendances);
+    controller.set('employees',model.employees);
 
 
     // var attes = model.attendances;
@@ -39,23 +41,37 @@ export default Ember.Route.extend({
     });
 
 
-    controller.set('chartData',    [{
 
-      data: [{
-        name: '0-25 %',
-        y: arr25.length
-      }, {
-        name: '25-50 %',
-        y: arr50.length,
 
-      }, {
-        name: '50-75 %',
-        y: arr75.length,
-      }, {
-        name: '75-100 %',
-        y: arr100.length
-      }],
-    }]);
+
+    controller.set('attendanceData',{
+    labels: [
+        "0-25 %",
+        "25-50%",
+        "50-75%",
+        "75-100%",
+
+    ],
+    datasets: [
+        {
+            data: [arr25.length,  arr50.length,arr75.length ,arr100.length],
+            backgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FECE56",
+                "#FFCE56"
+            ],
+            hoverBackgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FVCE56",
+                "#FFCE56"
+            ]
+        }]
+});
+
+
+
 
 
 

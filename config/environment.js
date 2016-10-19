@@ -71,7 +71,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.host =  'http://trothhr-backend.herokuapp.com';
+    ENV.APP.host =  'http://trothhr-back.herokuapp.com';
   }
 
   return ENV;

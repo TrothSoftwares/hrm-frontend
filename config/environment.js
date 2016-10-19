@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'hrm-frontend',
+    modulePrefix: 'trothhr-front',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

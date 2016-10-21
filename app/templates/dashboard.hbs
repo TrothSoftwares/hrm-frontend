@@ -1,15 +1,12 @@
 <div class="ui visible vertical secondary bgw sidebar  labeled icon  menu oxy sidebar-or">
 
-
-  <div class=" item" style="    padding: 0px 0.92857143em;">
+  {{#link-to 'dashboard.index'  }}
+  <div class=" item br0" style="    padding: 2px 0.92857143em;box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);">
     <img src="/images/hr.png" alt="" />
   </div>
-
-  {{#link-to 'dashboard.index'  class="item"}}
-      <i class="home icon" ></i>
-      Home
   {{/link-to}}
-  {{#link-to 'dashboard.employees.index'  class="item"}}
+
+  {{#link-to 'dashboard.employees.index'  class="item mtop-sm"}}
       <i class="users icon" ></i>
       Employees
   {{/link-to}}

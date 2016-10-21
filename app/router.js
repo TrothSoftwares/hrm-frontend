@@ -15,7 +15,12 @@ Router.map(function() {
     this.route('newemployee');
     this.route('employeeleave');
     this.route('adminleave');
-    this.route('attendance');
+    // this.route('attendance');
+    this.route('attendance', function() {
+      this.route('employee' ,{path:':id'}, function() {
+        this.route('view');
+      });
+    });
     this.route('recruit-mgt', function() {
       this.route('job' ,{path: ':id'} , function(){
         this.route('view');
@@ -37,6 +42,8 @@ Router.map(function() {
         });
       });
       this.route('analytics');
+
+    
     });
   });
   this.route('login');

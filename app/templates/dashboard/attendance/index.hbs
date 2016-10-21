@@ -5,6 +5,8 @@
        -   {{moment-format date outputFormat }}
     </div>
     <div class="ui right item">
+      <span class="tbtn oxy"{{action "printPage"}}>Print Page</span>
+      &emsp;
       <span class="tbtn oxy"{{action "closeAttendance"}}>Close Attendance</span>
 
     </div>
@@ -42,41 +44,14 @@
           <td>{{employee.attendances.lastObject.leavedays}}</td>
           <td>{{employee.attendances.lastObject.presentdays}}</td>
           <td><span class="tbtn" {{action "editSalary" employee}}>Edit</span></td>
-          <td><span class="tbtn"{{action "viewHistory" employee}}>View History</span></td>
-          <td>
-            <div class="ui modal modal_{{employee.id}}">
-              <i class="close icon"></i>
-              <div class="header">
-                Attendance History
-              </div>
-              <div class="image content">
-                <table class="ui very basic structured center aligned small table widthfix">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Employee Name</th>
-                      <th>Total</th>
-                      <th>Leave</th>
-                      <th>Present</th>
-                      <th>Month</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {{#each employee.attendances as |attendance index|}}
-                    <tr>
-                      <td>{{incrementone index}}</td>
-                      <td>{{employee.firstname}} {{employee.lastname}}</td>
-                      <td>{{attendance.totaldays}}</td>
-                      <td>{{attendance.leavedays}}</td>
-                      <td>{{attendance.presentdays}}</td>
-                      <td>{{moment-format attendance.updatedat outputFormat}}</td>
-                    </tr>
-                    {{/each}}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </td>
+          <td><span class="tbtn">
+            {{#link-to 'dashboard.attendance.employee.view' employee  class="item"}}
+                View History
+            {{/link-to}}
+          </span></td>
+
+
+
           {{else}}
           <td>{{incrementone index}}</td>
           <td>{{employee.firstname}} {{employee.lastname}}</td>
@@ -183,4 +158,3 @@
 
 
 {{initialize-semanticuitabs}}
-{{outlet}}

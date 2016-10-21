@@ -3,9 +3,11 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
 
-  printReport:function(){
+actions:{
+  printPage:function(){
     window.print();
-  },
+  }
+}
 
 
 });

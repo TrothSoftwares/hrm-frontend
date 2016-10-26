@@ -16,5 +16,6 @@
     "lodash": "3.10.0",
     "fontawesome": "~4.5.0",
     "offline": "^0.7.17"
+
   }
 }

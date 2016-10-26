@@ -60,6 +60,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
+    ENV.APP.host =  'http://localhost:3000';
     ENV.baseURL = '/';
     ENV.locationType = 'none';
 

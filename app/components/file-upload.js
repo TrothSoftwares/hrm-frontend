@@ -9,7 +9,7 @@ export default EmberUploader.FileField.extend({
 
          this.get('on-upload')({
               files: files,
-
+              
        employee : this.get('employee')
        });
   }

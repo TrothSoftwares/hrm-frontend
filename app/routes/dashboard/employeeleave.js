@@ -10,7 +10,7 @@ export default Ember.Route.extend({
 
       leaverolls: this.store.findAll('leaveroll' ,{reload: true}).then(function(leaverolls){
         return leaverolls.filter(function(item ){
-          return item.get('employee.id') == route.get('session.data.authenticated.employeeid');
+          return item.get('user.id') == route.get('session.data.authenticated.id');
         });
 
       }),

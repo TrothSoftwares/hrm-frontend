@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function(params) {
-      return this.store.findRecord('employee', params.id );
+      return this.store.findRecord('user', params.id );
   },
 
   setupController: function(controller ,model) {
@@ -11,7 +11,7 @@ export default Ember.Route.extend({
 
 
   actions: {
-    
+
 
     reloadModel: function() {
       this.refresh();

@@ -5,7 +5,7 @@ import Model from 'ember-data/model';
 export default Model.extend({
 
 
-employee: belongsTo('employee' ,{async:true}),
+user: belongsTo('user' ,{async:true}),
 fromdate: attr('date'),
 todate: attr('date'),
 days: attr('number'),

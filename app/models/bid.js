@@ -7,7 +7,7 @@ export default Model.extend({
 
 
 uniqq: attr('number'),
-employee: belongsTo('employee'),
+user: belongsTo('user'),
 job: belongsTo('job'),
 
 });

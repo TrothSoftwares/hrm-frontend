@@ -15,7 +15,7 @@ nofvaccancy: attr('number'),
 location: attr('string'),
 
 
-employees: hasMany('employee' , {embedded: 'always', async:true}),
+users: hasMany('users' , {embedded: 'always', async:true}),
 bids: hasMany('bid' , {embedded: 'always', async:true}),
 
 

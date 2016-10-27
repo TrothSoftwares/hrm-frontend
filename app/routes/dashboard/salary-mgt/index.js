@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     model: function() {
 
       return Ember.RSVP.hash({
-        employees: this.store.findAll('employee' ,{reload :true})
+        employees: this.store.findAll('user' ,{reload :true})
       });
 
     },

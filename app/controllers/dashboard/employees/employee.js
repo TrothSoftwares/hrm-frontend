@@ -186,9 +186,9 @@ Flips the view between div with class "viewemployee" and "editemployee"
 
 
     var uploader = EmberUploader.Uploader.extend({
-      url: ENV.APP.host + '/employees/'+employee.id,
+      url: ENV.APP.host + '/users/'+employee.id,
       type: 'PATCH',
-      paramNamespace: 'employee',
+      paramNamespace: 'user',
       paramName: 'url',
       ajaxSettings: function() {
         var settings = this._super.apply(this, arguments);

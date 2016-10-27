@@ -6,7 +6,7 @@ export default Ember.Route.extend({
 
     return Ember.RSVP.hash({
       attendances: this.store.findAll('attendance' ,{reload :true}),
-      employees: this.store.findAll('employee' ,{reload :true})
+      employees: this.store.findAll('users' ,{reload :true})
     });
   },
   setupController: function(controller,model) {

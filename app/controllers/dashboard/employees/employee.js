@@ -50,7 +50,7 @@ export default Ember.Controller.extend({
   @param {String} employee.firstname
   */
   isSaveDisabled: Ember.computed('employee.firstname'  ,  function() {
-    if( Ember.isEmpty(this.get('employee.firstname'))
+    if(Ember.isEmpty(this.get('employee.firstname'))
 
   ){return 'disabled';}
   else{return '';}
@@ -131,26 +131,6 @@ employee.destroyRecord().then(function(){
   });
   controller.transitionToRoute('dashboard.employees.index');
 });
-    //  var leaverolls = employee.get('leaverolls');
-    //  leaverolls.forEach(function(leaveroll){
-    //     leaveroll.destroyRecord().then(function(){
-    //       var bids =  employee.get('bids');
-    //       bids.forEach(function(bid){
-    //         bid.destroyRecord();
-    //       }).then(function(){
-    //         var attendances =  employee.get('attendances');
-    //         attendances.forEach(function(attendance){
-    //           attendance.destroyRecord();
-    //         });
-    //       });
-    //     });
-    //   });
-
-      // controller.get('ajax').request(ENV.APP.host + '/users/5', {
-      //         method: 'DELETE',
-      //
-      //       });
-
 
 
     }

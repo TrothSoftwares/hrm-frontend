@@ -81,8 +81,8 @@ export default Ember.Controller.extend({
     Ember.isEmpty(this.get('designation')) || Ember.isEqual(this.get('designation') , 'Select Designation')||
     Ember.isEmpty(this.get('department')) || Ember.isEqual(this.get('department') , 'Select Department')||
     Ember.isEmpty(this.get('gender')) || Ember.isEqual(this.get('gender') , 'Select Gender') ||
-    Ember.isEmpty(this.get('maritialstatus')) || Ember.isEqual(this.get('maritialstatus') , 'Select Select Maritial Status') ||
-    Ember.isEmpty(this.get('pass'))
+    Ember.isEmpty(this.get('maritialstatus')) || Ember.isEqual(this.get('maritialstatus') , 'Select Select Maritial Status')
+
 
     // Ember.isEmpty(this.get('role')) ||
     // this.get('showpassworddiv') === true
@@ -92,14 +92,7 @@ export default Ember.Controller.extend({
 }),
 
 
-isPasswordOk: Ember.computed('showpassworddiv', function(){
-  if(this.get('showpassworddiv') === true ){
-    return true;
-  }
-  if(this.get('showpassworddiv') ===false){
-    return false;
-  }
-}),
+
 
 actions:{
 
@@ -150,12 +143,6 @@ actions:{
 
     this.set('role',role);
 
-    if(role === 'Employee'){
-      this.set('showpassworddiv' , true);
-    }
-    if(role === 'Admin' || role === 'Select Role'){
-      this.set('showpassworddiv' , false);
-    }
 
   },
 
@@ -164,7 +151,7 @@ actions:{
 
     var controller  = this;
 
-    var employee = this.store.createRecord('employee',{
+    var employee = this.store.createRecord('user',{
       firstname :this.get('firstname'),
       middlename :this.get('middlename'),
       lastname :this.get('lastname'),
@@ -179,7 +166,7 @@ actions:{
       dob :this.get('dob'),
       temporaryaddress :this.get('temporaryaddress'),
       permenantaddress :this.get('permenantaddress'),
-      pass:this.get('pass'),
+      pass:'hremployee',
       // role:this.get('role'),
       role:'Employee',
 
@@ -217,7 +204,7 @@ actions:{
       controller.set('temporaryaddress','');
       controller.set('permenantaddress','');
       controller.set('role','');
-      controller.set('pass','');
+
 
 
       controller.set('isImageuploadingvisible',true);
@@ -257,7 +244,7 @@ actions:{
 
 
     var uploader = EmberUploader.Uploader.extend({
-      url: ENV.APP.host + '/employees/'+employee.id,
+      url: ENV.APP.host + '/users/'+employee.id,
       type: 'PATCH',
       paramNamespace: 'employee', //table name
       paramName: 'url',     // field  name

@@ -26,7 +26,6 @@ export default DS.Model.extend({
   url: DS.attr('string'),
   fullurl: DS.attr('string'),
   thumburl: DS.attr('string'),
-  pass: DS.attr('string'),
   role: DS.attr('string'),
 
 

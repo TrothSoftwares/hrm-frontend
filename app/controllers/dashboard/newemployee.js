@@ -163,10 +163,13 @@ actions:{
       location :this.get('location'),
       gender :this.get('gender'),
       maritialstatus :this.get('maritialstatus'),
+
+
+
       dob :this.get('dob'),
       temporaryaddress :this.get('temporaryaddress'),
       permenantaddress :this.get('permenantaddress'),
-      pass:'hremployee',
+      password:'hremployee',
       // role:this.get('role'),
       role:'Employee',
 

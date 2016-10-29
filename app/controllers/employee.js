@@ -7,21 +7,16 @@ export default Ember.Controller.extend({
   inputFormat:'DD/MM/YYYY',
   outputMonthFormat:'MMMM',
 
-
-
-
-
-
   actions:{
     createLeaveRoll:function(){
       var controller = this;
 
-      var employee = this.get('store').findRecord('employee', this.get('session.data.authenticated.employeeid'));
+      var employee = this.get('store').findRecord('user', this.get('session.data.authenticated.id'));
 
 
       employee.then(function(){
         var leaveroll = controller.store.createRecord('leaveroll',{
-          employee:employee,
+          user:employee,
           fromdate: controller.get('fromdate'),
           todate: controller.get('todate'),
           status: 'pending'
@@ -48,12 +43,13 @@ export default Ember.Controller.extend({
       var controller = this;
 
 
-      var employee = controller.get('store').peekRecord('employee',controller.get('session.data.authenticated.employeeid'));
+      var employee = controller.get('store').peekRecord('user',controller.get('session.data.authenticated.id'));
+
 
       var newBid = controller.get('store').createRecord('bid',{
         'uniq': 1,
         'job': job,
-        'employee': employee,
+        'user': employee,
       }
     );
     newBid.save().then(function(){

@@ -10,9 +10,10 @@ export default Ember.Controller.extend({
     var searchTerm = this.get('searchTerm').toLowerCase();
 
     return this.get('employees').filter(function(agent) {
+      // return agent;
       return agent.get('firstname').toLowerCase().indexOf(searchTerm) !==-1;
     });
   }),
 
-  
+
 });

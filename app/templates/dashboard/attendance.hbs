@@ -4,11 +4,6 @@
       Attendance Management
        -   {{moment-format date outputFormat }}
     </div>
-    <div class="ui right item">
-      <span class="tbtn oxy"{{action "closeAttendance"}}>Close Attendance</span>
-
-    </div>
-
   </div>
 </div>
 
@@ -16,8 +11,9 @@
 
 <div class="content-section pusher-in">
   <div class="ui basic segment  form bgw ">
-
-    <table class="ui very basic structured center aligned table widthfix ">
+    <div class="ui mini right floated green button oxy "{{action "closeAttendance"}}> Close Attendance</div>
+    <div class="clearfix mtop" ></div>
+    <table class="ui structured center aligned  table widthfix ">
 
       <thead>
         <tr>
@@ -26,7 +22,8 @@
           <th>Total</th>
           <th>Leave</th>
           <th>Present</th>
-          <th></th>
+          <th> Edit</th>
+          <th> History</th>
           <th></th>
 
         </tr>
@@ -41,8 +38,8 @@
           <td>{{employee.attendances.lastObject.totaldays}}</td>
           <td>{{employee.attendances.lastObject.leavedays}}</td>
           <td>{{employee.attendances.lastObject.presentdays}}</td>
-          <td><span class="tbtn" {{action "editSalary" employee}}>Edit</span></td>
-          <td><span class="tbtn"{{action "viewHistory" employee}}>View History</span></td>
+          <td><span class="tbtn" {{action "editSalary" employee}}>edit</span></td>
+          <td><span class="tbtn"{{action "viewHistory" employee}}>view history</span></td>
           <td>
             <div class="ui modal modal_{{employee.id}}">
               <i class="close icon"></i>

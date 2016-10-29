@@ -24,7 +24,7 @@ body
 }
 .pusher
 {
-  margin-left: 16rem;
+  margin-left: 120px;
 }
 .pusher-in
 {
@@ -57,17 +57,17 @@ body
 }
 .tf-head
 {
-  margin-left: 16rem !important;
-  width:84% !important;
+  margin-left: 120px !important;
+  width:91% !important;
 }
 .sidebar-or
 {
-  width: 16rem !important;
-  padding: 0px 10px;
+  width: 120px !important;
 }
 .sidebar-or .item
 {
-  border: none !important;
+font-size: .8rem;
+text-transform: uppercase !important;
 }
 .mtop
 {
@@ -317,6 +317,7 @@ height: 60px;
 .blform label
 {
   color: rgb(97, 168, 221) !important;
+  font-size: 1.1em !important;
 }
 .tbtn
 {
@@ -331,7 +332,7 @@ height: 60px;
 {
   position: absolute;
   bottom: 10px;
-  left: 75px;
+  left: 25px;
 }
 .smip input[type="text"]
 {
@@ -341,7 +342,7 @@ height: 60px;
 {
   width: 150px !important;
 }
-.ui.icon.menu .item {
+.ui.icon.menu .item  i {
 
     color: #0e8daa;
   }
@@ -355,5 +356,16 @@ canvas{
      height: auto !important;
  }
 
+ .ui.table th
+ {
+   padding: 0.5em 0.78571429em
+ }
+.salcol .l1
+{
+  width: 150px !important;
+}
 
+input [type=file] {
+  width: 100%;
+}
 /* End of for chartjs options*/

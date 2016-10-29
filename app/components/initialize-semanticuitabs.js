@@ -5,6 +5,6 @@ export default Ember.Component.extend({
   Ember.$('.menu .item').tab();
 
   Ember.$('.ui.accordion').accordion();
-  
+  Ember.$('.small.modal').modal();
  }
 });

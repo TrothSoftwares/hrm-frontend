@@ -10,8 +10,8 @@
 <div class="content-section pusher-in">
 <div class="ui top attached tabular  menu oxy">
   <!-- <a class="active item " data-tab="first"> Events</a> -->
-  <a class="active item" data-tab="second">Pending Leaves</a>
-  <a class="item" data-tab="third">Approved Leaves</a>
+  <a class="active item" data-tab="second">Pending Leave</a>
+  <a class="item" data-tab="third">Approved Leave</a>
   <a class="item" data-tab="fourth">Rejected</a>
 </div>
   <!-- <div class="ui bottom attached active tab segment " data-tab="first">
@@ -32,7 +32,7 @@
 
 </div> -->
 <div class="ui bottom attached active tab segment" data-tab="second">
-  <table class="ui celled table">
+  <table class="ui celled small selectable table">
   <thead>
     <tr>
     <th>ID</th>
@@ -40,7 +40,6 @@
     <th>From date</th>
     <th>To Date</th>
     <th>Status</th>
-    <th></th>
 
   </tr></thead>
   <tbody>
@@ -63,11 +62,11 @@
 
 
     </td> -->
-    <td>
-      <div class="ui buttons">
-        <button class="ui positive button" {{action "approveLeave" pendingleave}}>Approve</button>
+    <td >
+      <div class="ui mini  buttons" >
+        <button class="ui positive button oxy" {{action "approveLeave" pendingleave}}>Approve</button>
         <div class="or"></div>
-        <button class="ui button" {{action 'disapproveLeave' pendingleave}}>Disapprove</button>
+        <button class="ui primary button oxy" style="background:#0e8daa" {{action 'disapproveLeave' pendingleave}}>Disapprove</button>
 
       </div>
     </td>
@@ -83,7 +82,7 @@
 
 <div class="ui bottom attached tab segment" data-tab="third">
 
-  <table class="ui celled table">
+  <table class="ui celled small selectable table">
   <thead>
     <tr>
     <th>ID</th>
@@ -113,7 +112,7 @@
 
 <div class="ui bottom attached tab segment" data-tab="fourth">
 
-  <table class="ui celled table">
+  <table class="ui celled small selectable table">
   <thead>
     <tr>
     <th>ID</th>

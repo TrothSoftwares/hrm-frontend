@@ -1,15 +1,15 @@
 <div class="content-section pusher-in">
   <div class="ui grid small form ">
     <div class="ui sixteen wide column">
-      <div class="ui basic segment bgw">
+      <div class="ui  segment bgw">
       <div class="ui  header oxy">
         Salary Details
 
-        <div class="ui  basic mini right floated  button " {{action "printPage"}}>
+        <div class="ui  blue mini right floated  button oxy " {{action "printPage"}}>
           Print
         </div>
         {{#link-to 'dashboard.salary-mgt.employee.edit'}}
-        <div class="ui  basic mini right floated  button ">
+        <div class="ui  green mini right floated  button oxy">
           Edit
         </div>
         {{/link-to}}
@@ -29,7 +29,7 @@
             <label class="l2"> {{employee.firstname}} {{employee.lastname}}</label>
           </div>
         </div>
-        <div class="six wide right aligned column">
+        <div class="six wide column salcol">
           <div class="inline field">
             <label class="l1">Basic</label>:
 
@@ -89,7 +89,7 @@
 
 
         </div>
-        <div class="five wide right aligned column">
+        <div class="five wide column salcol">
           <div class="inline field">
             <label class="l1">Provident Fund</label>:
             <div class="ui transparent input">

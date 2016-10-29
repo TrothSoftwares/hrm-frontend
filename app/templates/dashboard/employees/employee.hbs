@@ -1,12 +1,12 @@
 
-<div class=" pusher-in segment bgw ">
-<div class="editemployee" style="display:none">
+<div class=" pusher-in ui segment bgw ">
+<div class="editemployee segment" style="display:none">
   <div class="ht-sm">
     <h4 class="ui left floated oxy header">Edit Employee</h4>
 
-    <div class="ui mini right floated basic blue button oxy {{isSaveDisabled}}" tabindex="0" {{action "saveEmployee"}}>Save</div>
-    <button class="ui mini right floated basic button oxy" {{action "flipview"}}>Cancel</button>
-    <button class="ui mini right floated basic button oxy" {{action "deleteEmployee" employee}}>Delete</button>
+    <div class="ui mini right floated  green button oxy {{isSaveDisabled}}" tabindex="0" {{action "saveEmployee"}}>Save</div>
+    <button class="ui mini right floated green button oxy" {{action "flipview"}}>Cancel</button>
+    <button class="ui mini right floated green button oxy" {{action "deleteEmployee" employee}}>Delete</button>
   </div>
 
   <div class="ui grid">
@@ -147,6 +147,7 @@
       <div class="content" style="overflow:hidden">
           {{file-upload   employee=employee on-upload=(action "uploadProfilePic")}}
       </div>
+      
 
     </div>
   </div>
@@ -169,10 +170,10 @@
 
 
 
-<div class="viewemployee" >
+<div class="viewemployee " >
   <div class="ht-sm">
     <h4 class="ui left floated oxy header">Employee Details</h4>
-    <button class="ui mini right floated basic button oxy" {{action "flipview"}}>Edit</button>
+    <button class="ui mini right floated green button oxy" {{action "flipview"}}>Edit</button>
   </div>
 <div class="ui grid">
   <div class="twelve wide  column">

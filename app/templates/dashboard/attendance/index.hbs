@@ -1,25 +1,17 @@
-<div class="pusher-in">
-  <div class="ui top fixed menu tf-head">
-    <div class="ui header oxy h-item" >
-      Attendance Management
-       -   {{moment-format date outputFormat }}
-    </div>
-    <div class="ui right item">
-      <span class="tbtn oxy"{{action "printPage"}}>Print Page</span>
-      &emsp;
-      <span class="tbtn oxy"{{action "closeAttendance"}}>Close Attendance</span>
 
-    </div>
-
-  </div>
-</div>
 
 
 
 <div class="content-section pusher-in">
   <div class="ui basic segment  form bgw ">
+    Attendance Management
+     -   {{moment-format date outputFormat }}
+    <div class="ui right floated  oxy green mini button "  {{action "printPage"}}>Print Page</div>
+    <div class="ui  right floated oxy mini blue button "  {{action "closeAttendance"}}>Close Attendance</div>
+    <div class="mtop">
 
-    <table class="ui very basic structured center aligned table widthfix ">
+    </div>
+    <table class="ui structured center aligned table widthfix ">
 
       <thead>
         <tr>
@@ -28,8 +20,8 @@
           <th>Total</th>
           <th>Leave</th>
           <th>Present</th>
-          <th></th>
-          <th></th>
+          <th>Edit</th>
+          <th>View History </th>
 
         </tr>
       </thead>
@@ -43,10 +35,10 @@
           <td>{{employee.attendances.lastObject.totaldays}}</td>
           <td>{{employee.attendances.lastObject.leavedays}}</td>
           <td>{{employee.attendances.lastObject.presentdays}}</td>
-          <td><span class="tbtn" {{action "editSalary" employee}}>Edit</span></td>
+          <td><span class="tbtn" {{action "editSalary" employee}}>edit</span></td>
           <td><span class="tbtn">
             {{#link-to 'dashboard.attendance.employee.view' employee  class="item"}}
-                View History
+                view history
             {{/link-to}}
           </span></td>
 

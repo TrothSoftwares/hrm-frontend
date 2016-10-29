@@ -1,13 +1,21 @@
-{{#link-to 'dashboard.attendance'}}
-<button class="ui left attached button">Back</button>
-{{/link-to}}
 
-<div class="ui ">
-    <div class="header">
-    Attendance History
-  </div>
-  <div class="image content">
-    <table class="ui very basic structured center aligned table widthfix">
+<div class="content-section pusher-in">
+  <div class="ui basic segment  form bgw ">
+    <div class="ui left floated header oxy">
+        Attendance History
+      </div>
+{{#link-to 'dashboard.attendance'}}
+
+<div class="ui mini right floated green  button oxy">Back</div>
+{{/link-to}}
+<div class="clearfix mtop">
+
+</div>
+<div class="ui  grid mtop-sm">
+
+
+
+    <table class="ui  structured center aligned table widthfix">
       <thead>
         <tr>
           <th>ID</th>
@@ -31,5 +39,7 @@
         {{/each}}
       </tbody>
     </table>
-  </div>
+</div>
+</div>
+
 </div>

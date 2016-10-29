@@ -2,13 +2,12 @@
   <div class="ui grid">
     <div class="five wide column">
       <div class="ui dividing oxy header">Applicants</div>
-      <table class="ui very basic structured center small aligned table">
+      <table class="ui  structured center small aligned table">
         <thead>
           <tr>
             <th>Sl.No</th>
             <th>Empoyee ID</th>
             <th>Empoyee</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -23,12 +22,12 @@
       </table>
     </div>
     <div class="eleven wide column">
-      <div class="viewjob">
+      <div class="viewjob ui segment">
         <div class="ui grid">
           <div class=" sixteen wide column">
             <div class="ui dividing oxy header">Job Title: {{job.header}}</div>
           </div>
-          <div class=" eight wide right aligned column">
+          <div class=" eight wide  column">
             <div class="ui small form">
 
               <div class="inline field">
@@ -38,7 +37,7 @@
                 </div>
               </div>
               <div class="inline field">
-                <label class="l1" style="float:left;width:215px">Description</label>
+                <label class="l1" style="float:left;width:101px">Description</label>
                   <div class="" style="float:left">
                   : {{job.desc}}
 
@@ -63,7 +62,7 @@
             </div>
 
           </div>
-          <div class=" eight wide right aligned column">
+          <div class=" eight wide column">
             <div class="ui small form">
               <div class="inline field">
                 <label class="l1">No.of Vacancies</label>:
@@ -81,15 +80,15 @@
             <div class="ui divider">
 
             </div>
-            <div class="ui basic oxy mini blue button"   {{action "flipview"}} >Edit </div>
-            <div class="ui basic oxy mini red button"  {{action "deleteJob"}}>Delete</div>
+            <div class="ui right floated oxy mini green button"   {{action "flipview"}} >Edit </div>
+            <div class="ui  right floated oxy mini blue button"  {{action "deleteJob"}}>Delete</div>
 
           </div>
 
         </div>
       </div>
 
-      <div class="editjob"   style="display:none" >
+      <div class="editjob ui segment"   style="display:none" >
 
         <div class="ui grid">
           <div class=" sixteen wide column">
@@ -146,8 +145,8 @@
             <div class="ui divider">
 
             </div>
-            <div class="ui basic oxy mini blue button {{isSaveButtonDisabled}} "  {{action "saveJob"}}>Save</div>
-            <div class="ui basic oxy mini  button"  {{action "flipview"}} >Cancel</div>
+            <div class="ui  oxy mini blue button"  {{action "flipview"}} >Cancel</div>
+            <div class="ui  oxy mini green button {{isSaveButtonDisabled}} "  {{action "saveJob"}}>Save</div>
 
           </div>
 

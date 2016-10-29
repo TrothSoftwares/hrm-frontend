@@ -6,7 +6,7 @@
 
     <div class="ui mini right floated  green button oxy {{isSaveDisabled}}" tabindex="0" {{action "saveEmployee"}}>Save</div>
     <button class="ui mini right floated green button oxy" {{action "flipview"}}>Cancel</button>
-    <button class="ui mini right floated green button oxy" {{action "deleteEmployee" employee}}>Delete</button>
+    <button class="ui mini right floated blue button oxy" {{action "deleteEmployee" employee}}>Delete</button>
   </div>
 
   <div class="ui grid">
@@ -145,9 +145,11 @@
 
 
       <div class="content" style="overflow:hidden">
-          {{file-upload   employee=employee on-upload=(action "uploadProfilePic")}}
-      </div>
-      
+
+          {{file-upload   id="uploadprofile"   employee=employee on-upload=(action "uploadProfilePic")}}
+
+          <input type="button" value="Change Profile Picture " class="ui mini green fluid button oxy" onclick="document.getElementById('uploadprofile').click();" />
+              </div>
 
     </div>
   </div>

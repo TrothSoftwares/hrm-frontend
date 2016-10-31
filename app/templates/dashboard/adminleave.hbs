@@ -47,7 +47,7 @@
     {{#each pendingLeaves as |pendingleave index|}}
     <tr>
       <td>{{incrementone index}}</td>
-      <td>{{pendingleave.employee.firstname}}</td>
+      <td>{{pendingleave.user.firstname}}</td>
       <td>{{ moment-format pendingleave.fromdate inputFormat}}</td>
       <td>{{ moment-format pendingleave.todate inputFormat}}</td>
 
@@ -97,7 +97,7 @@
     {{#each approvedLeaves as |approvedleave index|}}
     <tr>
       <td>{{approvedleave.id}}</td>
-      <td>{{approvedleave.employee.firstname}}</td>
+      <td>{{approvedleave.user.firstname}}</td>
       <td>{{ moment-format approvedleave.fromdate inputFormat}}</td>
       <td>{{ moment-format approvedleave.todate inputFormat}}</td>
       <td style="text-transform:capitalize" >{{approvedleave.status}}</td>
@@ -125,7 +125,7 @@
     {{#each rejectedLeaves as |rejectedleave index|}}
     <tr>
       <td>{{incrementone index}}</td>
-      <td>{{rejectedleave.employee.firstname}}</td>
+      <td>{{rejectedleave.user.firstname}}</td>
       <td>{{ moment-format rejectedleave.fromdate inputFormat}}</td>
       <td>{{ moment-format rejectedleave.todate inputFormat}}</td>
       <td style="text-transform:capitalize" >{{rejectedleave.status}}</td>

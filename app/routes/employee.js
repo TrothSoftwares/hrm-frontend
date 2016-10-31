@@ -10,7 +10,7 @@ model: function() {
   var route = this;
 
   return Ember.RSVP.hash({
-    employees: this.store.findRecord('employee' , this.get('session.data.authenticated.employeeid') ,{reload :true}).catch(function(){
+    employees: this.store.findRecord('user' , this.get('session.data.authenticated.id') ,{reload :true}).catch(function(){
       route.notifications.addNotification({
         message: 'Employee Not Found !' ,
         type: 'error',
@@ -24,7 +24,7 @@ model: function() {
     ),
     leaverolls: this.store.findAll('leaveroll' ,{reload: true}).then(function(leaverolls){
       return leaverolls.filter(function(item ){
-        return item.get('employee.id') == route.get('session.data.authenticated.employeeid');
+        return item.get('user.id') == route.get('session.data.authenticated.id');
       });
     }),
     jobs: this.store.findAll('job',{reload: true}),
@@ -37,7 +37,7 @@ model: function() {
 setupController: function(controller,model) {
 
   var route = this;
-  var employeeid = route.get('session.data.authenticated.employeeid').toString();
+  var employeeid = route.get('session.data.authenticated.id').toString();
 
   controller.set('employee',model.employees);
   controller.set('jobs',model.jobs);

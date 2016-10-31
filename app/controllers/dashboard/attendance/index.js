@@ -19,6 +19,7 @@ export default Ember.Controller.extend({
         //check current month , if todays date is more than issuedate , set
         employee.set('editemployee',false);
         employee.get('attendances').forEach(function(attendance){
+
           attendance.set('presentdays',attendance.get('presentdayscalc'));
           attendance.save();
         });
@@ -28,20 +29,17 @@ export default Ember.Controller.extend({
       },
 
       closeAttendance:function(){
-
         var confirmDelete = window.confirm("Are you sure to close the attendance?");
         if(confirmDelete){
           var controller = this;
           var employees = controller.get('employees');
           employees.forEach(function(employee){
             let newAttendance = controller.store.createRecord('attendance' ,{
-              'employee':employee
+              'user':employee
             });
             newAttendance.save();
           });
         }
-
-
       },
       printPage:function(){
         window.print();

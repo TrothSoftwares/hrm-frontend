@@ -56,7 +56,7 @@ setupController: function(controller) {
     logout() {
 
       this.get('session').invalidate();
-      console.log("redirect to login from employee");
+      
       this.transitionTo('login');
     }
   }

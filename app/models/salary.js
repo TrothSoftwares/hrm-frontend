@@ -4,7 +4,7 @@ import { belongsTo } from 'ember-data/relationships';
 import Ember from 'ember';
 
 export default Model.extend({
-employee: belongsTo('employee' ,{async:true}),
+user: belongsTo('user' ,{async:true}),
 issuedate: attr('date'),
 totaldays: attr('number'),
 leavedays: attr('number'),

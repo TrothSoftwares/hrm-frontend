@@ -9,6 +9,6 @@ test('visiting /login', function(assert) {
   fillIn('input.password','password');
   click('div.submit');
     andThen(function() {
-    assert.equal(currentURL(), '/' , 'Login Sucessful');
+    assert.equal(currentURL(), '/employees' , 'Login Sucessful');
   });
 });

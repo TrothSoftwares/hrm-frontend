@@ -10,7 +10,11 @@ model:function(){
 
   return Ember.RSVP.hash({
 
-   employees:this.store.findAll('user',{reload: true}),
+    employees: this.store.findAll('user' ,{reload: true}).then(function(data){
+      return data.filter(function(item){
+         return item.get('role') !== 'Admin';
+      });
+    })
 
 
  });

@@ -1,21 +1,20 @@
 {
   "name": "trothhr-front",
   "dependencies": {
-    "ember": "~2.6.0",
+    "ember": "2.10.0-beta.2",
     "ember-cli-shims": "0.1.1",
     "ember-cli-test-loader": "0.2.2",
     "ember-qunit-notifications": "0.1.0",
-    "semantic-ui": "^2.2.1",
+    "semantic-ui": "^2.2.6",
     "selectize": "miguelcobain/selectize.js#master",
     "pikaday": "^1.4.0",
     "font-awesome": "~4.5.0",
     "ember-uploader": "0.3.11",
     "lightbox": "2.7.3",
     "interact": "1.2.5",
-    "jquery": "1.11.3",
+    "jquery-simulate": "1.0.1",
     "lodash": "3.10.0",
     "fontawesome": "~4.5.0",
     "offline": "^0.7.17"
-
   }
 }

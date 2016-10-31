@@ -56,9 +56,9 @@
     "ember-rl-dropdown": "0.7.0",
     "ember-simple-auth": "1.1.0",
     "ember-truth-helpers": "1.2.0",
-    "liquid-fire": "0.21.3",
+    "liquid-fire": "0.26.4",
     "loader.js": "^4.0.1",
-    "semantic-ui-ember": "1.0.0"
+    "semantic-ui-ember": "2.0.0"
   },
   "dependencies": {
     "ember-cli-lightbox": "0.0.3"

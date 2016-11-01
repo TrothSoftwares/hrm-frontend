@@ -7,6 +7,47 @@
 
 </div>
 {{outlet}}
+
 <div id="calendar" style="width:30%;height:300px;">
     {{show-calendario}}
+</div>
+<br><br><br>
+
+<div>
+
+
+
+
+
+<div class="ui small feed">
+  <h4 class="ui header">Recent Leave Applications</h4>
+  {{#each leaverolls.pendingLeaves  as |pendingLeave|}}
+    <div class="event">
+    <div class="content">
+      <div class="summary">
+         {{pendingLeave.user.firstname}} applied for Leave  from {{moment-format pendingLeave.fromdate outputFormat}}  to {{moment-format pendingLeave.todate outputFormat}}
+      </div>
+    </div>
+  </div>
+    {{/each}}
+</div>
+
+
+
+
+
+<div class="ui small feed">
+  <h4 class="ui header">Recent Job Applications</h4>
+  {{#each bids as |bid|}}
+  <div class="event">
+    <div class="content">
+      <div class="summary">
+         {{bid.user.firstname}} applied for {{bid.job.header}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+
 </div>

@@ -10,4 +10,6 @@ uniqq: attr('number'),
 user: belongsTo('user'),
 job: belongsTo('job'),
 
+
+
 });

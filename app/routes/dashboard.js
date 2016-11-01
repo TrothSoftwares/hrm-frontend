@@ -11,7 +11,8 @@ beforeModel:function(){
     this.transitionTo('employee');
   }
   else if(Ember.isEqual('Admin', this.get('session.data.authenticated.role'))){
-    this.transitionTo('dashboard.employees.index');
+
+    this.transitionTo('dashboard.index');
   }
   else{
     this.transitionTo('login');
@@ -56,7 +57,7 @@ setupController: function(controller) {
     logout() {
 
       this.get('session').invalidate();
-      
+
       this.transitionTo('login');
     }
   }

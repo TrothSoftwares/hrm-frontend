@@ -13,10 +13,16 @@
     "lightbox": "2.7.3",
     "interact": "1.2.5",
     "jquery-simulate": "~1.0.1",
+
+
+
     "jquery":"3.1.1",
     "lodash": "3.10.0",
     "fontawesome": "~4.5.0",
     "offline": "^0.7.17",
     "fullcalendar": "^3.0.1"
-  }
+  },
+  "resolutions": {
+   "jquery": "~3.1.1"
+ }
 }

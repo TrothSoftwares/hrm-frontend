@@ -92,10 +92,10 @@ actions:{
 
   /**
   * Set the maritialstatus property via dropdown
-  @method selectMatitial
+  @method selectMaritial
   @param {Object} maritialstatus
   */
-  selectMatitial:function(maritialstatus){
+  selectMaritial:function(maritialstatus){
     this.set('employee.maritialstatus',maritialstatus);
   },
 
@@ -110,8 +110,8 @@ actions:{
             type: 'success',
             autoClear: true
           });
-            Ember.$('.editemployee').transition('fade');
-            Ember.$('.viewemployee').transition('fade');
+            $('.editemployee').transition('fade');
+            $('.viewemployee').transition('fade');
     });
 
   },
@@ -143,8 +143,8 @@ Flips the view between div with class "viewemployee" and "editemployee"
 @method filpview
 */
   flipview: function() {
-    Ember.$('.editemployee').transition('fade');
-    Ember.$('.viewemployee').transition('fade');
+    $('.editemployee').transition('fade');
+    $('.viewemployee').transition('fade');
   },
 
 

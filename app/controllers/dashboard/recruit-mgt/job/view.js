@@ -12,8 +12,8 @@ export default Ember.Controller.extend({
   actions:{
 
     flipview: function() {
-      Ember.$('.editjob').transition('fade');
-      Ember.$('.viewjob').transition('fade');
+      $('.editjob').transition('fade');
+      $('.viewjob').transition('fade');
     },
 
     saveJob:function(){

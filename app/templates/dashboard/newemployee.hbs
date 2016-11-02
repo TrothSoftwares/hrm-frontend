@@ -15,32 +15,32 @@
         <div class="two fields">
           <div class="field">
             <label>Name</label>
-            {{input type="text" placeholder="First Name" value=firstname}}
+            {{input type="text" placeholder="First Name" value=firstname class="firstname"}}
           </div>
           <div class="field">
             <label>Middle Name</label>
-            {{input type="text" placeholder="Middle Name" value=middlename}}
+            {{input type="text" placeholder="Middle Name" value=middlename class="middlename"}}
           </div>
           <div class="field">
             <label>Last Name</label>
-            {{input type="text" placeholder="Last Name" value=lastname}}
+            {{input type="text" placeholder="Last Name" value=lastname class="lastname"}}
           </div>
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>Email</label>
-          {{input type="email" placeholder="email" value=email}}
+          {{input type="email" placeholder="email" value=email class="email"}}
         </div>
         <div class="field">
           <label>Contact</label>
-          {{input type="text" placeholder="Contact" value=contact}}
+          {{input type="text" placeholder="Contact" value=contact class="contact"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>Designation</label>
-          <select onchange={{action "selectDesignation" value="target.value"}} class="form-control">
+          <select onchange={{action "selectDesignation" value="target.value"}} class="form-control selectdesignation">
                 {{#each designations as |designationChoice|}}
                 <option value={{designationChoice}}>{{designationChoice}}</option>
                 {{/each}}
@@ -54,7 +54,7 @@
       <div class="two fields">
         <div class="field">
           <label>Department</label>
-          <select onchange={{action "selectDepartment" value="target.value"}} class="form-control">
+          <select onchange={{action "selectDepartment" value="target.value"}} class="form-control selectdepartment">
                 {{#each departments as |departmentChoice|}}
                 <option value={{departmentChoice}} >{{departmentChoice}}</option>
                 {{/each}}
@@ -62,13 +62,13 @@
         </div>
         <div class="field">
           <label>Location</label>
-          {{input type="text" placeholder="Location" value=location}}
+          {{input type="text" placeholder="Location" value=location class="location"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>Gender</label>
-          <select onchange={{action "selectGender" value="target.value"}} class="form-control">
+          <select onchange={{action "selectGender" value="target.value"}} class="form-control gender">
                 {{#each genders as |genderChoice|}}
                 <option value={{genderChoice}} >{{genderChoice}}</option>
                 {{/each}}
@@ -76,7 +76,7 @@
         </div>
         <div class="field">
           <label>Maritial Status</label>
-          <select onchange={{action "selectMatitial" value="target.value"}} class="form-control">
+          <select onchange={{action "selectMaritial" value="target.value"}} class="form-control selectmaritial">
                 {{#each maritials as |maritialChoice|}}
                 <option value={{maritialChoice}}>{{maritialChoice}}</option>
                 {{/each}}
@@ -84,7 +84,7 @@
         </div>
         <div class="field">
           <label>Date of Birth</label>
-          {{pikaday-input  placeholder="D.O.B" value=dob}}
+          {{pikaday-input  placeholder="D.O.B" value=dob class="dob"}}
         </div>
       </div>
 
@@ -94,19 +94,51 @@
         <div class="fields">
           <div class="twelve wide field">
             <label>Temporary Address</label>
-            {{textarea value=temporaryaddress cols="80" rows="6"}}
+            {{textarea value=temporaryaddress cols="80" rows="6" class="tempaddress"}}
           </div>
           <div class="four wide field">
             <label>Permanent Address</label>
-            {{textarea value=permenantaddress cols="80" rows="6"}}
+            {{textarea value=permenantaddress cols="80" rows="6" class="permaddress"}}
           </div>
         </div>
       </div>
 
-  
+
+
+
+      <div class="two fields">
+        <div class="field">
+          <label>End of QID</label>
+          {{pikaday-input type="text" placeholder="End of QID" value=endqid}}
+        </div>
+
+        <div class="field">
+          <label>End of Contract</label>
+          {{pikaday-input type="text" placeholder="End of Contract" value=endcontract}}
+        </div>
+      </div>
+
+
+      <div class="two fields">
+        <div class="field">
+          <label>Passport No.</label>
+          {{input type="text" placeholder="Passport No." value=passportno}}
+
+        </div>
+
+        <div class="field">
+          <label>Password</label>
+          {{input type="text" placeholder="Password" value=pass}}
+        </div>
+
+      </div>
+
+
+
+
 
 <div class="ui divider"></div>
-      <div class="ui blue basic small oxy button {{isSaveDisabled}}" tabindex="0" {{action "createEmployee"}}>Save</div>
+      <div class="ui blue basic small oxy button  createEmployeeButton {{isSaveDisabled}}"   tabindex="0" {{action "createEmployee"}}>Save</div>
     </form>
   </div>
 

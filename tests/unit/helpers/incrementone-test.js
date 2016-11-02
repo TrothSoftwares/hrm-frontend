@@ -1,4 +1,4 @@
-import { incrementone } from 'hrm-frontend/helpers/incrementone';
+import { incrementone } from 'trothhr-front/helpers/incrementone';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | incrementone');

@@ -70,27 +70,31 @@ export default Ember.Controller.extend({
   @param {String} firstname
   */
 
-  isSaveDisabled: Ember.computed('firstname'  , 'lastname' , 'email', 'dob',  'pass', 'designation' ,'department', 'gender', 'maritialstatus' ,  function() {
+
+    isSaveDisabled: Ember.computed('firstname'  , 'lastname' , 'email', 'dob',  'pass', 'designation' ,'department', 'gender', 'maritialstatus' , 'passportno', 'endqid', 'endcontract' ,  function() {
 
 
 
-    if( Ember.isEmpty(this.get('firstname')) ||
-    Ember.isEmpty(this.get('lastname')) ||
-    Ember.isEmpty(this.get('email')) ||
-    Ember.isEmpty(this.get('dob')) ||
-    Ember.isEmpty(this.get('designation')) || Ember.isEqual(this.get('designation') , 'Select Designation')||
-    Ember.isEmpty(this.get('department')) || Ember.isEqual(this.get('department') , 'Select Department')||
-    Ember.isEmpty(this.get('gender')) || Ember.isEqual(this.get('gender') , 'Select Gender') ||
-    Ember.isEmpty(this.get('maritialstatus')) || Ember.isEqual(this.get('maritialstatus') , 'Select Select Maritial Status')
+      if( Ember.isEmpty(this.get('firstname')) ||
+      Ember.isEmpty(this.get('lastname')) ||
+      Ember.isEmpty(this.get('email')) ||
+      Ember.isEmpty(this.get('dob')) ||
+      Ember.isEmpty(this.get('designation')) || Ember.isEqual(this.get('designation') , 'Select Designation')||
+       Ember.isEmpty(this.get('department')) || Ember.isEqual(this.get('department') , 'Select Department')||
+       Ember.isEmpty(this.get('gender')) || Ember.isEqual(this.get('gender') , 'Select Gender') ||
+      Ember.isEmpty(this.get('maritialstatus')) || Ember.isEqual(this.get('maritialstatus') , 'Select Select Maritial Status') ||
+      Ember.isEmpty(this.get('pass'))||
+      Ember.isEmpty(this.get('passportno'))||
+      Ember.isEmpty(this.get('endqid'))||
+      Ember.isEmpty(this.get('endcontract'))
 
 
-    // Ember.isEmpty(this.get('role')) ||
-    // this.get('showpassworddiv') === true
+      // Ember.isEmpty(this.get('role')) ||
+      // this.get('showpassworddiv') === true
 
-  ){return 'disabled';}
-  else{return '';}
-}),
-
+    ){return 'disabled';}
+    else{return '';}
+  }),
 
 
 
@@ -124,12 +128,20 @@ actions:{
     this.set('gender',gender);
   },
 
+
+
+
+
+
+
+
+
   /**
   * Set the maritialstatus property via dropdown
-  @method selectMatitial
+  @method selectMaritial
   @param {Object} maritialstatus
   */
-  selectMatitial:function(maritialstatus){
+  selectMaritial:function(maritialstatus){
     this.set('maritialstatus',maritialstatus);
   },
 
@@ -163,14 +175,18 @@ actions:{
       location :this.get('location'),
       gender :this.get('gender'),
       maritialstatus :this.get('maritialstatus'),
+      passportno :this.get('passportno'),
+      endqid :this.get('endqid'),
+      endcontract :this.get('endcontract'),
+
 
 
 
       dob :this.get('dob'),
       temporaryaddress :this.get('temporaryaddress'),
       permenantaddress :this.get('permenantaddress'),
-      password:'hremployee',
-      // role:this.get('role'),
+      password:this.get('pass'),
+      pass:this.get('pass'),
       role:'Employee',
 
       basic:0,
@@ -207,6 +223,11 @@ actions:{
       controller.set('temporaryaddress','');
       controller.set('permenantaddress','');
       controller.set('role','');
+      controller.set('pass','');
+      controller.set('passportno','');
+      controller.set('endqid','');
+      controller.set('endcontract','');
+
 
 
 

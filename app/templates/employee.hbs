@@ -135,7 +135,7 @@
             </div>
             <div class="field">
               <label>Maritial Status</label>
-              <select onchange={{action "selectMatitial" value="target.value"}} class="form-control">
+              <select onchange={{action "selectMaritial" value="target.value"}} class="form-control">
                     {{#each maritials as |maritialChoice|}}
                     <option value={{maritialChoice}} selected={{eq employee.maritialstatus maritialChoice}}>{{maritialChoice}}</option>
                     {{/each}}

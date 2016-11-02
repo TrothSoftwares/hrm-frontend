@@ -8,14 +8,14 @@ session: Ember.inject.service('session'),
 beforeModel:function(){
 
   if(Ember.isEqual('Employee', this.get('session.data.authenticated.role'))){
-    this.transitionTo('employee');
+     this.transitionTo('employee');
   }
   else if(Ember.isEqual('Admin', this.get('session.data.authenticated.role'))){
 
-    this.transitionTo('dashboard.index');
+     this.transitionTo('dashboard.index');
   }
   else{
-    this.transitionTo('login');
+     this.transitionTo('login');
   }
 
 },

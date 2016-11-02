@@ -12,6 +12,7 @@ export default DS.Model.extend({
   name:DS.attr('string'),
   password:DS.attr('string'),
   password_confirmation:DS.attr('string'),
+  pass:DS.attr('string'),
   contact: DS.attr('string'),
   designation: DS.attr('string'),
   dateofjoin: DS.attr('date'),
@@ -27,6 +28,9 @@ export default DS.Model.extend({
   fullurl: DS.attr('string'),
   thumburl: DS.attr('string'),
   role: DS.attr('string'),
+  passportno: DS.attr('string'),
+  endqid: DS.attr('date'),
+  endcontract: DS.attr('date'),
 
 
   basic: DS.attr('number' , {default:0}),

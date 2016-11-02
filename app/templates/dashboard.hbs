@@ -1,4 +1,4 @@
-<div class="ui visible vertical  bgw sidebar  labeled icon  menu oxy sidebar-or">
+<div class="ui visible vertical  bgw sidebar  labeled icon  menu oxy sidebar-or clicktestdiv">
 
   {{#link-to 'dashboard.index'  }}
   <div class=" item br0" style="    box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);">
@@ -6,12 +6,12 @@
   </div>
   {{/link-to}}
 
-  {{#link-to 'dashboard.employees.index'  class="item mtop-sm"}}
+  {{#link-to 'dashboard.employees.index'  class="item mtop-sm employeeindexlink"}}
       <i class="users icon" ></i>
       Employee
   {{/link-to}}
 
-  {{#link-to 'dashboard.adminleave'  class="item"}}
+  {{#link-to 'dashboard.adminleave'  class="item adminleavelink"}}
    <i class="plane icon" ></i>
    Leave
   {{/link-to}}
@@ -23,22 +23,22 @@
   {{/link-to}}
   {{/if}} -->
 
-    {{#link-to 'dashboard.attendance'  class="item"}}
+    {{#link-to 'dashboard.attendance'  class="item attendancelink"}}
      <i class="calendar icon" ></i>
      Attendance
     {{/link-to}}
 
 
-    {{#link-to 'dashboard.salary-mgt'  class="item"}}
+    {{#link-to 'dashboard.salary-mgt'  class="item salary-mgt-link"}}
     <i class="ticket icon" ></i>
     Salary
     {{/link-to}}
-    {{#link-to 'dashboard.recruit-mgt'  class="item"}}
+    {{#link-to 'dashboard.recruit-mgt'  class="item recruit-mgt-link"}}
      <i class="add user icon" ></i>
      Recruit
     {{/link-to}}
 
-    {{#link-to 'dashboard.analytics'  class="item"}}
+    {{#link-to 'dashboard.analytics'  class="item analytics-link"}}
     <i class="line chart icon" ></i>
     Analytics
     {{/link-to}}

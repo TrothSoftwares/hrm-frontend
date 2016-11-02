@@ -1,129 +1,166 @@
 
 <div class=" pusher-in ui segment bgw ">
-<div class="editemployee segment" style="display:none">
-  <div class="ht-sm">
-    <h4 class="ui left floated oxy header">Edit Employee</h4>
+  <div class="editemployee segment" style="display:none">
+    <div class="ht-sm">
+      <h4 class="ui left floated oxy header">Edit Employee</h4>
 
-    <div class="ui mini right floated  green button oxy {{isSaveDisabled}}" tabindex="0" {{action "saveEmployee"}}>Save</div>
-    <button class="ui mini right floated green button oxy" {{action "flipview"}}>Cancel</button>
-    <button class="ui mini right floated blue button oxy" {{action "deleteEmployee" employee}}>Delete</button>
-  </div>
+      <div class="ui mini right floated  green button oxy {{isSaveDisabled}}" tabindex="0" {{action "saveEmployee"}}>Save</div>
+      <button class="ui mini right floated green button oxy" {{action "flipview"}}>Cancel</button>
+      <button class="ui mini right floated blue button oxy" {{action "deleteEmployee" employee}}>Delete</button>
+    </div>
 
-  <div class="ui grid">
-  <div class="twelve wide  column">
+    <div class="ui grid">
+      <div class="twelve wide  column">
 
-    <form class="ui tiny form">
-      <h4 class="ui  header oxy">Personal Information</h4>
-      <div class="field">
+        <form class="ui tiny form">
+          <h4 class="ui  header oxy">Personal Information</h4>
+          <div class="field">
+            <div class="two fields">
+              <div class="field">
+                <label>First Name</label>
+                {{input type="text" placeholder="First Name" value=employee.firstname}}
+              </div>
+              <!-- <div class="field">
+              <label>Middle Name</label>
+              {{input type="text" placeholder="Middle Name" value=employee.middlename}}
+            </div> -->
+            <div class="field">
+              <label>Last Name</label>
+              {{input type="text" placeholder="Last Name" value=employee.lastname}}
+            </div>
+          </div>
+        </div>
         <div class="two fields">
           <div class="field">
-            <label>First Name</label>
-            {{input type="text" placeholder="First Name" value=employee.firstname}}
+            <label>Gender</label>
+            <select onchange={{action "selectGender" value="target.value"}} class="form-control">
+              {{#each genders as |genderChoice|}}
+              <option value={{genderChoice}} selected={{eq employee.gender genderChoice}}>{{genderChoice}}</option>
+              {{/each}}
+            </select>
           </div>
-          <!-- <div class="field">
-            <label>Middle Name</label>
-            {{input type="text" placeholder="Middle Name" value=employee.middlename}}
-          </div> -->
           <div class="field">
-            <label>Last Name</label>
+            <label>Maritial Status</label>
+            <select onchange={{action "selectMaritial" value="target.value"}} class="form-control">
+              {{#each maritials as |maritialChoice|}}
+              <option value={{maritialChoice}} selected={{eq employee.maritialstatus maritialChoice}}>{{maritialChoice}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="field">
+            <label>Date of Birth</label>
+            {{pikaday-input  placeholder="D.O.B" value=employee.dob}}
+          </div>
+        </div>
+        <div class="field">
+          <div class="fields">
+            <div class="eight wide field">
+              <label>Temporary Address</label>
+              {{textarea value=employee.temporaryaddress cols="80" rows="6"}}
+            </div>
+            <div class="eight wide field">
+              <label>Permanent Address</label>
+              {{textarea value=employee.permenantaddress cols="80" rows="6"}}
+            </div>
+          </div>
+        </div>
+
+
+        <div class="two fields">
+          <div class="field">
+            <label>Email</label>
+            {{input type="email" placeholder="email" value=employee.email}}
+          </div>
+          <div class="field">
+            <label>Contact</label>
+            {{input type="text" placeholder="Contact" value=employee.contact}}
+          </div>
+        </div>
+        <h4 class="ui dividing header oxy">Company Profile</h4>
+
+        <div class="two fields">
+          <div class="field">
+            <label>Designation</label>
+            <select onchange={{action "selectDesignation" value="target.value"}} class="form-control">
+              {{#each designations as |designationChoice|}}
+              <option value={{designationChoice}} selected={{eq employee.designation designationChoice}}>{{designationChoice}}</option>
+              {{/each}}
+            </select>
+
+          </div>
+          <div class="field">
+            <label>Date of Joining</label>
+            {{pikaday-input  placeholder="Date of join" value=employee.dateofjoin}}
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Department</label>
+            <select onchange={{action "selectDepartment" value="target.value"}} class="form-control">
+              {{#each departments as |departmentChoice|}}
+              <option value={{departmentChoice}} selected={{eq employee.department departmentChoice}}>{{departmentChoice}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="field">
+            <label>Location</label>
             {{input type="text" placeholder="Last Name" value=employee.lastname}}
           </div>
         </div>
-      </div>
-      <div class="two fields">
-        <div class="field">
-          <label>Gender</label>
-          <select onchange={{action "selectGender" value="target.value"}} class="form-control">
-                {{#each genders as |genderChoice|}}
-                <option value={{genderChoice}} selected={{eq employee.gender genderChoice}}>{{genderChoice}}</option>
-                {{/each}}
-              </select>
-        </div>
-        <div class="field">
-          <label>Maritial Status</label>
-          <select onchange={{action "selectMatitial" value="target.value"}} class="form-control">
-                {{#each maritials as |maritialChoice|}}
-                <option value={{maritialChoice}} selected={{eq employee.maritialstatus maritialChoice}}>{{maritialChoice}}</option>
-                {{/each}}
-              </select>
-        </div>
-        <div class="field">
-          <label>Date of Birth</label>
-          {{pikaday-input  placeholder="D.O.B" value=employee.dob}}
-        </div>
-      </div>
-      <div class="field">
-        <div class="fields">
-          <div class="eight wide field">
-            <label>Temporary Address</label>
-            {{textarea value=employee.temporaryaddress cols="80" rows="6"}}
+
+
+
+        <div class="two fields">
+          <div class="field">
+            <label>End of QID</label>
+            {{pikaday-input type="text" placeholder="End of QID" value=employee.endqid}}
           </div>
-          <div class="eight wide field">
-            <label>Permanent Address</label>
-            {{textarea value=employee.permenantaddress cols="80" rows="6"}}
+
+          <div class="field">
+            <label>End of Contract</label>
+            {{pikaday-input type="text" placeholder="End of Contract" value=employee.endcontract}}
           </div>
         </div>
-      </div>
 
 
-      <div class="two fields">
-        <div class="field">
-          <label>Email</label>
-          {{input type="email" placeholder="email" value=employee.email}}
-        </div>
-        <div class="field">
-          <label>Contact</label>
-          {{input type="text" placeholder="Contact" value=employee.contact}}
-        </div>
-      </div>
-      <h4 class="ui dividing header oxy">Company Profile</h4>
+        <div class="two fields">
+          <div class="field">
+            <label>Passport No.</label>
+            {{input type="text" placeholder="Passport No." value=employee.passportno}}
 
-      <div class="two fields">
-        <div class="field">
-          <label>Designation</label>
-              <select onchange={{action "selectDesignation" value="target.value"}} class="form-control">
-                {{#each designations as |designationChoice|}}
-                <option value={{designationChoice}} selected={{eq employee.designation designationChoice}}>{{designationChoice}}</option>
-                {{/each}}
-              </select>
+          </div>
+
 
         </div>
-        <div class="field">
-          <label>Date of Joining</label>
-          {{pikaday-input  placeholder="Date of join" value=employee.dateofjoin}}
-        </div>
-      </div>
-      <div class="two fields">
-        <div class="field">
-          <label>Department</label>
-          <select onchange={{action "selectDepartment" value="target.value"}} class="form-control">
-                {{#each departments as |departmentChoice|}}
-                <option value={{departmentChoice}} selected={{eq employee.department departmentChoice}}>{{departmentChoice}}</option>
-                {{/each}}
-              </select>
-        </div>
-        <div class="field">
-          <label>Location</label>
-          {{input type="text" placeholder="Last Name" value=employee.lastname}}
-        </div>
-      </div>
-
-
-
-<div class="ui divider"></div>
-
-    </form>
-  </div>
 
 
 
 
-  <div class="four wide column">
-    <div class="ui card br0">
+
+
+
+
+
+
+
+
+
+
+
+        <div class="ui divider"></div>
+
+      </form>
+    </div>
+
+
+
+
+    <div class="four wide column">
+      <div class="ui card br0">
 
 
         {{#if imageUploading }}
-          <img src="/images/load.gif" style="margin-top:10px;padding:15% 35%">
+        <img src="/images/load.gif" style="margin-top:10px;padding:15% 35%">
         <br>
         {{else}}
 
@@ -132,8 +169,8 @@
 
         {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
         <div class="image">
-        <img src="{{employee.thumburl}}" class="pro-pic">
-      </div>
+          <img src="{{employee.thumburl}}" class="pro-pic">
+        </div>
         {{/light-box}}
         {{else}}
         <img src="/images/nil.jpg" style="">
@@ -144,16 +181,16 @@
 
 
 
-      <div class="content" style="overflow:hidden">
+        <div class="content" style="overflow:hidden">
 
           {{file-upload   id="uploadprofile"   employee=employee on-upload=(action "uploadProfilePic")}}
 
           <input type="button" value="Change Profile Picture " class="ui mini green fluid button oxy" onclick="document.getElementById('uploadprofile').click();" />
-              </div>
+        </div>
 
+      </div>
     </div>
   </div>
-</div>
 
 </div>
 
@@ -177,19 +214,19 @@
     <h4 class="ui left floated oxy header">Employee Details</h4>
     <button class="ui mini right floated green button oxy" {{action "flipview"}}>Edit</button>
   </div>
-<div class="ui grid">
-  <div class="twelve wide  column">
+  <div class="ui grid">
+    <div class="twelve wide  column">
 
-    <form class="ui tiny  form blform ">
-      <h4 class="ui  header oxy">Personal Information</h4>
-      <div class="field">
-        <div class="two fields">
-          <div class="field">
-            <label>First Name</label>
-            {{employee.firstname}}
-          </div>
+      <form class="ui tiny  form blform ">
+        <h4 class="ui  header oxy">Personal Information</h4>
+        <div class="field">
+          <div class="two fields">
+            <div class="field">
+              <label>First Name</label>
+              {{employee.firstname}}
+            </div>
 
-          <!-- <div class="field">
+            <!-- <div class="field">
             <label>Middle Name</label>
 
             {{employee.middlename}}
@@ -205,12 +242,12 @@
       <div class="two fields">
         <div class="field">
           <label>Gender</label>
-                        {{employee.gender}}
+          {{employee.gender}}
         </div>
         <div class="field">
           <label>Maritial Status</label>
 
-              {{employee.maritialstatus}}
+          {{employee.maritialstatus}}
         </div>
 
       </div>
@@ -241,7 +278,7 @@
       </div>
       <div class="field">
         <label>Date of Birth</label>
-{{ moment-format employee.dob inputFormat}}<
+        {{ moment-format employee.dob inputFormat}}
 
       </div>
       <h4 class="ui  header oxy">Company Profile</h4>
@@ -270,6 +307,33 @@
       </div>
 
 
+      <div class="two fields">
+        <div class="field">
+          <label>End of QID</label>
+          {{ moment-format employee.endqid inputFormat}}
+
+        </div>
+
+        <div class="field">
+          <label>End of Contract</label>
+          {{ moment-format employee.endcontract inputFormat}}
+          
+        </div>
+      </div>
+
+
+      <div class="two fields">
+        <div class="field">
+          <label>Passport No.</label>
+          {{employee.passportno}}
+        </div>
+
+        <div class="field">
+          <label>Password</label>
+          {{employee.pass}}
+        </div>
+      </div>
+
 
 
 
@@ -284,8 +348,8 @@
       {{#if employee.fullurl}}
       {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
       <div class="image">
-      <img src="{{employee.thumburl}}" class="pro-pic">
-    </div>
+        <img src="{{employee.thumburl}}" class="pro-pic">
+      </div>
       {{/light-box}}
       {{else}}
       <img src="/images/nil.jpg" style="">

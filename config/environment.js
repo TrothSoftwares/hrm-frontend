@@ -61,8 +61,12 @@ module.exports = function(environment) {
   if (environment === 'test') {
     // Testem prefers this...
     ENV.APP.host =  'http://localhost:3000';
-    ENV.baseURL = '/';
-    ENV.locationType = 'none';
+    ENV['simple-auth'] = {
+    store: 'simple-auth-session-store:ephemeral'
+  };
+
+    // ENV.baseURL = '/';
+    // ENV.locationType = 'none';
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;

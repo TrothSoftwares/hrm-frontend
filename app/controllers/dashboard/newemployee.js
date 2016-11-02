@@ -87,6 +87,7 @@ export default Ember.Controller.extend({
       Ember.isEmpty(this.get('passportno'))||
       Ember.isEmpty(this.get('endqid'))||
       Ember.isEmpty(this.get('endcontract'))
+      
 
 
       // Ember.isEmpty(this.get('role')) ||

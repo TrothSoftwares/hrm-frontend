@@ -12,7 +12,7 @@ beforeModel:function(){
   }
   else if(Ember.isEqual('Admin', this.get('session.data.authenticated.role'))){
 
-     this.transitionTo('dashboard.index');
+     this.transitionTo('dashboard.employees');
   }
   else{
      this.transitionTo('login');

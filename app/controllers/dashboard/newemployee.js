@@ -93,7 +93,6 @@ export default Ember.Controller.extend({
 
 
 
-
       // Ember.isEmpty(this.get('role')) ||
       // this.get('showpassworddiv') === true
 

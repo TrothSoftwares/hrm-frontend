@@ -14,7 +14,8 @@
   },
   "repository": "",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 0.12.7",
+    "npm": "2.14.3"
   },
   "author": "",
   "license": "MIT",
@@ -23,7 +24,7 @@
     "chart.js": "2.2.1",
     "ember-ajax": "2.4.1",
     "ember-browserify": "1.1.13",
-    "ember-cli": "2.6.2",
+    "ember-cli": "2.9.1",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-babel": "^5.1.6",
     "ember-cli-calendario": "0.2.4",

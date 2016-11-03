@@ -78,13 +78,13 @@ setupController: function(controller,model) {
 
 beforeModel: function() {
 
-  if(Ember.isEqual('Admin', this.get('session.data.authenticated.role'))){
-    this.transitionTo('login');
-  }
-  else{
-    this.transitionTo('employee');
-
-  }
+  // if(Ember.isEqual('Admin', this.get('session.data.authenticated.role'))){
+  //   this.transitionTo('login');
+  // }
+  // else{
+  //   this.transitionTo('employee');
+  //
+  // }
 },
 
 

@@ -1,4 +1,4 @@
-
+{{#if isAdmin}}
 
 <div class="ui basic segment">
   <div class="ui huge  header oxy center aligned">
@@ -82,3 +82,594 @@ Job Applications {{bids.length}}
 
 
 </div>
+{{/if}}
+
+
+{{#if isEmployee}}
+
+
+
+
+
+<div class="ui top attached menu br0 mt0">
+  <div class="item" style="height:50px;width:250px;">
+    <img src="/images/logo.png" style="width:3em">
+    <h4 class="oxy" style="margin-top: 3px;letter-spacing: 2px;">Troth Softwares</h4>
+  </div>
+  <h5 class="ui left floated header oxy" style="padding: 19px 0px 0px 14px;font-weight: lighter;">
+    Welcome, {{employee.firstname}} {{employee.lastname}}
+  </h5>
+  <div class="right item form">
+    <button class="ui right floated blue mini button oxy" {{action "logout"}}>Log Out</button>
+  </div>
+</div>
+
+<div class="ui bottom attached  segment mb0" style="border:none">
+<div class="ui grid">
+<div class="three wide column">
+
+
+
+
+
+
+
+<div class="ui visible wide sidebar vertical  tabular menu  oxy" style="margin-top:52px!important; width:250px;">
+  <div class="ui card br0 w100 mb0" >
+    {{#light-box href=employee.fullurl data-lightbox="cats-group" inlineImage=false}}
+    <div class="image">
+    <img src="{{employee.thumburl}}" class="pro-pic">
+  </div>
+    {{/light-box}}
+    <div class="content">
+      <a class="header oxy">{{employee.firstname}} {{employee.lastname}}</a>
+      <div class="description">
+        Designer
+      </div>
+      <div class="description">
+        ID4144
+      </div>
+
+    </div>
+
+  </div>
+
+  <a class="item active" data-tab="first">Basic Info</a>
+  <a class="item" data-tab="second">Attendance</a>
+  <a class="item" data-tab="third">Salary</a>
+  <a class="item" data-tab="fourth">Leave</a>
+  <a class="item" data-tab="fifth">Jobs</a>
+
+</div>
+</div>
+<div class="twelve wide column">
+  <div class="ui active tab  segment " data-tab="first">
+
+    <div class=" pusher-in">
+    <div class="editemployee" style="display:none">
+      <div class="ht-sm">
+        <h4 class="ui left floated  header">Edit Employee</h4>
+        <div class="ui mini right floated primary button br0 {{isSaveDisabled}}" tabindex="0" {{action "saveEmployee"}}>Save</div>
+        <button class="ui mini right floated button br0" {{action "flipview"}}>Cancel</button>
+      </div>
+
+      <div class="ui grid">
+      <div class="twelve wide  column">
+
+        <form class="ui small form">
+          <h4 class="ui dividing header">Personal Information</h4>
+          <div class="field">
+            <label>Name</label>
+            <div class="two fields">
+              <div class="field">
+                <label>First Name</label>
+                {{input type="text" placeholder="First Name" value=employee.firstname}}
+              </div>
+              <div class="field">
+                <label>Middle Name</label>
+                {{input type="text" placeholder="Middle Name" value=employee.middlename}}
+              </div>
+              <div class="field">
+                <label>Last Name</label>
+                {{input type="text" placeholder="Last Name" value=employee.lastname}}
+              </div>
+            </div>
+          </div>
+          <div class="two fields">
+            <div class="field">
+              <label>Email</label>
+              {{input type="email" placeholder="email" value=employee.email}}
+            </div>
+            <div class="field">
+              <label>Contact</label>
+              {{input type="text" placeholder="Contact" value=employee.contact}}
+            </div>
+          </div>
+          <div class="two fields">
+            <!-- <div class="field">
+              <label>Designation</label>
+              <select onchange={{action "selectDesignation" value="target.value"}} class="form-control">
+                    {{#each designations as |designationChoice|}}
+                    <option value={{designationChoice}} selected={{eq employee.designation designationChoice}}>{{designationChoice}}</option>
+                    {{/each}}
+                  </select>
+
+            </div> -->
+            <div class="field">
+              <label>Date of Joining</label>
+              {{pikaday-input  placeholder="Date of join" value=employee.dateofjoin}}
+            </div>
+          </div>
+          <div class="two fields">
+            <!-- <div class="field">
+              <label>Department</label>
+              <select onchange={{action "selectDepartment" value="target.value"}} class="form-control">
+                    {{#each departments as |departmentChoice|}}
+                    <option value={{departmentChoice}} selected={{eq employee.department departmentChoice}}>{{departmentChoice}}</option>
+                    {{/each}}
+                  </select>
+            </div> -->
+            <div class="field">
+              <label>Location</label>
+              {{input type="text" placeholder="Last Name" value=employee.lastname}}
+            </div>
+          </div>
+          <div class="two fields">
+            <!-- <div class="field">
+              <label>Gender</label>
+              <select onchange={{action "selectGender" value="target.value"}} class="form-control">
+                    {{#each genders as |genderChoice|}}
+                    <option value={{genderChoice}} selected={{eq employee.gender genderChoice}}>{{genderChoice}}</option>
+                    {{/each}}
+                  </select>
+            </div>
+            <div class="field">
+              <label>Maritial Status</label>
+              <select onchange={{action "selectMaritial" value="target.value"}} class="form-control">
+                    {{#each maritials as |maritialChoice|}}
+                    <option value={{maritialChoice}} selected={{eq employee.maritialstatus maritialChoice}}>{{maritialChoice}}</option>
+                    {{/each}}
+                  </select>
+            </div> -->
+            <div class="field">
+              <label>Date of Birth</label>
+              {{pikaday-input  placeholder="D.O.B" value=employee.dob}}
+            </div>
+
+
+          </div>
+
+
+          <h4 class="ui dividing header">Address</h4>
+          <div class="field">
+            <div class="fields">
+              <div class="twelve wide field">
+                <label>Temporary Address</label>
+                {{textarea value=employee.temporaryaddress cols="80" rows="6"}}
+              </div>
+              <div class="four wide field">
+                <label>Permanent Address</label>
+                {{textarea value=employee.permenantaddress cols="80" rows="6"}}
+              </div>
+            </div>
+          </div>
+
+    <div class="ui divider"></div>
+
+        </form>
+      </div>
+
+
+
+
+      <div class="four wide column">
+        <div class="ui card br0">
+
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="viewemployee" >
+      <h1 class="ui dividing header oxy">Basic Information</h1>
+
+      <form class="ui tiny  form blform ">
+        <h4 class="ui  header oxy">Personal Information</h4>
+        <div class="field">
+          <div class="two fields">
+            <div class="field">
+              <label>First Name</label>
+              {{employee.firstname}}
+            </div>
+
+            <!-- <div class="field">
+              <label>Middle Name</label>
+
+              {{employee.middlename}}
+
+            </div>-->
+            <div class="field">
+              <label>Last Name</label>
+
+              {{employee.lastname}}
+            </div>
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Gender</label>
+                          {{employee.gender}}
+          </div>
+          <div class="field">
+            <label>Maritial Status</label>
+
+                {{employee.maritialstatus}}
+          </div>
+
+        </div>
+        <div class="field">
+          <div class="fields">
+            <div class="eight wide field">
+              <label>Temporary Address</label>
+              {{employee.temporaryaddress}}
+            </div>
+            <div class="eight wide field">
+              <label>Permanent Address</label>
+
+              {{employee.permenantaddress}}
+            </div>
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Email</label>
+
+            {{employee.email}}
+          </div>
+          <div class="field">
+            <label>Contact</label>
+
+            {{employee.contact}}
+          </div>
+        </div>
+        <div class="field">
+          <label>Date of Birth</label>
+  {{ moment-format employee.dob inputFormat}}<
+
+        </div>
+        <h4 class="ui  header oxy">Company Profile</h4>
+
+        <div class="two fields">
+          <div class="field">
+            <label>Designation</label>
+            {{employee.designation}}
+
+          </div>
+          <div class="field">
+            <label>Date of Joining</label>
+            {{ moment-format employee.dateofjoin inputFormat}}<
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Department</label>
+            {{employee.department}}
+          </div>
+          <div class="field">
+            <label>Location</label>
+
+            {{employee.location}}
+          </div>
+        </div>
+
+
+
+
+
+
+
+      </form>
+    </div>
+    </div>
+  </div>
+  <div class="ui tab  segment " data-tab="second">
+    <h1 class="ui dividing header oxy">Attendance</h1>
+        <table class="ui  structured  table">
+          <thead>
+            <tr>
+            <th>ID</th>
+            <th>Employee Name</th>
+            <th>Total</th>
+            <th>Leave</th>
+            <th>Present</th>
+            <th>Month</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each employee.attendances as |attendance index|}}
+            <tr>
+        <td>{{incrementone index}}</td>
+        <td>{{employee.firstname}} {{employee.lastname}}</td>
+        <td>{{attendance.totaldays}}</td>
+        <td>{{attendance.leavedays}}</td>
+        <td>{{attendance.presentdays}}</td>
+        <td>{{moment-format attendance.updatedat outputMonthFormat}}</td>
+      </tr>
+      {{/each}}
+
+
+
+      </tbody>
+      </table>
+
+
+
+
+
+  </div>
+
+  <div class="ui tab  segment " data-tab="third">
+
+
+          <h1 class="ui dividing header oxy">Salary Detail</h1>
+
+          <div class=" ui grid form">
+
+            <div class="eight wide right aligned column">
+              <div class="inline field">
+                <label class="l1">Basic</label>:
+
+                <div class="ui transparent  input">
+                  {{input type="text" readonly="true"  value=employee.basic}}
+                </div>
+              </div>
+              <div class="inline field">
+                <label class="l1">House Rent Allowance</label>:
+                <div class="ui transparent input">
+
+                  {{input type="text" readonly="true"  value=employee.houserentallowance}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Adhoc Allowance</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.adhoc}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Transport Allowance</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.transport}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Miscellaneous Allowance</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.misc}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Stat Bonus</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.statbonus}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Other Earnings NT</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.otherearningsnt}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">On Call Shift Allowance</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.oncallshiftallowance}}
+                </div>
+              </div>
+
+
+            </div>
+            <div class="eight wide right aligned column">
+              <div class="inline field">
+                <label class="l1">Provident Fund</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.provfund}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Professional Tax</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.proftax}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Income Tax</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.incometax}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">ESSP</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.essp}}
+                </div>
+              </div>
+
+              <div class="inline field">
+                <label class="l1">Gross Salary</label>:
+                <div class="ui transparent input">
+                  {{input type="text" readonly="true"  value=employee.gross}}
+                </div>
+              </div>
+            </div>
+    </div>
+
+  </div>
+
+  <div class="ui tab  segment " data-tab="fourth">
+
+    <h1 class="ui dividing header oxy">Leave</h1>
+
+    <div class="ui top attached tabular menu oxy">
+      <!-- <a class="active item" data-tab="fifth">Pending Leaves</a>
+      <a class="item" data-tab="sixth">Approved Leaves</a> -->
+      <a class="item active " data-tab="seventh">Leaves</a>
+      <a class="item" data-tab="eight">Apply Leave</a>
+
+    </div>
+    <!-- <div class="ui bottom attached active tab segment" data-tab="fifth">
+
+
+      <table class="ui celled table">
+      <thead>
+        <tr><th>ID</th>
+        <th>From date</th>
+        <th>To Date</th>
+        <th>Status</th>
+      </tr></thead>
+      <tbody>
+
+        {{#each pendingleaves as |pendingleave index|}}
+        <tr>
+          <td>{{pendingleave.id}}</td>
+          <td>{{ moment-format   pendingleave.fromdate inputFormat}}</td>
+          <td>{{moment-format   pendingleave.todate inputFormat}}</td>
+          <td style="text-transform:capitalize">{{pendingleave.status}}</td>
+        </tr>
+        {{/each }}
+
+      </tbody>
+
+    </table>
+
+
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="sixth">
+
+      <table class="ui celled table">
+      <thead>
+        <tr><th>ID</th>
+        <th>From date</th>
+        <th>To Date</th>
+        <th>Status</th>
+      </tr>
+     </thead>
+      <tbody>
+
+        {{#each approvedleaves as |approvedleave index|}}
+        <tr>
+          <td>{{approvedleave.id}}</td>
+          <td>{{ moment-format approvedleave.fromdate inputFormat}}</td>
+          <td>{{ moment-format approvedleave.todate inputFormat}}</td>
+          <td style="text-transform:capitalize" >{{approvedleave.status}}</td>
+        </tr>
+        {{/each }}
+
+      </tbody>
+
+    </table>
+    </div> -->
+
+
+
+
+    <div class="ui bottom attached active  tab segment" data-tab="seventh">
+      <table class="ui very basic table">
+      <thead>
+        <tr><th>ID</th>
+        <th>From date</th>
+        <th>To Date</th>
+        <th>Status</th>
+      </tr></thead>
+      <tbody>
+
+        {{#each leaves as |leave index|}}
+        <tr>
+          <td>{{leave.id}}</td>
+          <td>{{ moment-format leave.fromdate inputFormat}}</td>
+          <td>{{ moment-format leave.todate inputFormat}}</td>
+          <td style="text-transform:capitalize" >{{leave.status}}</td>
+        </tr>
+        {{/each }}
+
+      </tbody>
+
+    </table>
+    </div>
+
+    <div class="ui bottom attached tab segment" data-tab="eight">
+
+      <form class="ui form">
+        <div class="field">
+          <label>From date</label>
+          {{pikaday-input  placeholder="From" value=fromdate}}
+        </div>
+        <div class="field">
+          <label>To date</label>
+          {{pikaday-input  placeholder="To" value=todate}}
+        </div>
+        <div class="field">
+          <label>Comments</label>
+          {{input type="text" value=comments}}
+        </div>
+        <button class="ui green tiny button oxy" type="button" {{action "createLeaveRoll"}}>Apply</button>
+      </form>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="ui tab  segment " data-tab="fifth">
+    <h1 class="ui dividing header oxy">Jobs </h1>
+    <div class="ui cards">
+      {{#each jobs as |job|}}
+    <div class="card">
+      <div class="hblue content">
+        <div class=" header oxy">{{job.header}}</div>
+      </div>
+      <div class="content">
+        <div class="meta">Salary : {{job.salary}}</div>
+        <div class="meta">Vacancies : {{job.nofvaccancy}}</div>
+        <div class="meta">Location : {{job.location}}</div>
+
+        <div class="description">
+          {{job.desc}}
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="ui basic green button {{job.isApplicable}}" {{action "applyJob" job}}>{{job.isApplicableText}}</div>
+      </div>
+    </div>
+    {{/each}}
+
+  </div>
+
+  </div>
+
+</div>
+</div>
+</div>
+
+{{initialize-semanticuitabs}}
+{{outlet}}
+
+
+
+{{/if}}

@@ -1,3 +1,6 @@
+
+
+{{#if isAdmin}}
 <div class="ui visible vertical  bgw sidebar  labeled icon  menu oxy sidebar-or clicktestdiv">
 
   {{#link-to 'dashboard.index'  }}
@@ -56,3 +59,11 @@
   {{outlet}}
 
 </div>
+
+{{/if}}
+
+{{#if isEmployee}}
+
+{{outlet}}
+
+{{/if}}

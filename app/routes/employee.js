@@ -7,6 +7,11 @@ session: Ember.inject.service('session'),
 
 model: function() {
 
+
+
+
+
+
   var route = this;
 
   return Ember.RSVP.hash({
@@ -67,9 +72,6 @@ setupController: function(controller,model) {
     }));
 
 
-  // controller.set('pendingleaves',model.leaverolls.filterBy('status','pending'));
-  // controller.set('approvedleaves',model.leaverolls.filterBy('status','approved'));
-  // controller.set('rejectedLeaves',model.leaverolls.filterBy('status','rejected'));
 },
 
 
@@ -88,8 +90,9 @@ beforeModel: function() {
 
   actions: {
     logout() {
-      this.get('session').invalidate();
-      this.transitionTo('login');
+      var route =this;
+      route.get('session').invalidate();
+      route.transitionTo('login');
     },
 
     reloadModel: function() {

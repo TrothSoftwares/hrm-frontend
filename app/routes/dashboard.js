@@ -5,48 +5,63 @@ export default Ember.Route.extend(AuthenticatedRouteMixin,{
 
 session: Ember.inject.service('session'),
 
-beforeModel:function(){
+beforeModel:function(transition){
 
-  if(Ember.isEqual('Employee', this.get('session.data.authenticated.role'))){
-     this.transitionTo('employee');
-  }
-  else if(Ember.isEqual('Admin', this.get('session.data.authenticated.role'))){
+  // if(Ember.isEqual('Employee', this.get('session.data.authenticated.role'))){
+  //    this.transitionTo('employee');
+  // }
+  // else if(Ember.isEqual('Admin', this.get('session.data.authenticated.role'))){
+  //
+  //    this.transitionTo('dashboard.employees');
+  // }
+  // else{
+  //    this.transitionTo('login');
+  // }
 
-     this.transitionTo('dashboard.employees');
-  }
-  else{
-     this.transitionTo('login');
-  }
+
+
+///////////////////////////////    IF EMPLOYEE ////////////////////////
+  // if(Ember.isEqual('Admin', this.get('session.data.authenticated.role'))){
+  //   this.transitionTo('login');
+  // }
+  // else{
+  //   this.transitionTo('employee');
+  //
+  // }
+
+  ///////////////////////////////   END OF IF EMPLOYEE ////////////////////////
+
+
+},
+
+
+model:function(){
+
+
+
 
 },
 
 
 
-// beforeModel: function(transition) {
-//         // if (this.get('access').contains(this.get('currentUser.role'))) {
-//         //     return true;
-//         // }
-//         // manage the unauthorized attempt
-//           if(Ember.isEqual('Employee', this.get('session.data.authenticated.role'))){
-//             this.get('session').invalidate();
-//             console.log("session invalidated");
-//             this.transitionTo('login'); // or whatever
-//           }
-//         // this.transitionTo('login'); // or whatever
-//     },
+
+
+setupController: function(controller,model) {
 
 
 
 
-setupController: function(controller) {
 
 
-    if(Ember.isEqual('Admin', this.get('session.data.authenticated.role'))){
-      controller.set('isAdmin',true );
-    }
-    if(Ember.isEqual('Employee', this.get('session.data.authenticated.role'))){
-      controller.set('isEmployee',true );
-    }
+  if(Ember.isEqual('Admin', this.get('session.data.authenticated.role'))){
+    controller.set('isAdmin',true );
+  }
+  if(Ember.isEqual('Employee', this.get('session.data.authenticated.role'))){
+    controller.set('isEmployee',true );
+  }
+
+
+
 
   },
 
@@ -56,11 +71,18 @@ setupController: function(controller) {
   actions: {
     logout() {
 
-      this.get('session').invalidate();
+      var route =this;
 
-      this.transitionTo('login');
+      route.get('session').invalidate();
+      route.transitionTo('login');
+    },
+
+
+    reloadModel: function() {
+      this.refresh();
     }
   }
+
 
 
 
